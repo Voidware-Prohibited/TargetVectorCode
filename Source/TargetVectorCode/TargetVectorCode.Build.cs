@@ -25,7 +25,7 @@ public class TargetVectorCode : ModuleRules
 		PublicDependencyModuleNames.AddRange(
 			new string[]
 			{
-				"Core",
+				"Core", "GameplayTags", "UMG", "AudioMixer", "CommonUI", "ALS", "ALSXT", "TargetVectorEOS", "TargetVectorCommonUI"
 				// ... add other public dependencies that you statically link with here ...
 			}
 			);

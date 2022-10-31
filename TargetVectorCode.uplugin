@@ -20,5 +20,31 @@
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		}
+	],
+	"Plugins": [
+		{
+			"Name": "GameplayTagsEditor",
+			"Enabled": true
+		},
+		{
+			"Name": "CommonUI",
+			"Enabled": true
+		},
+		{
+			"Name": "ALS",
+			"Enabled": true
+		},
+		{
+			"Name": "ALSXT",
+			"Enabled": true
+		},
+		{
+			"Name": "TargetVectorEOS",
+			"Enabled": true
+		},
+		{
+			"Name": "TargetVectorCommonUI",
+			"Enabled": true
+		}
 	]
 }
