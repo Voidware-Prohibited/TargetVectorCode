@@ -66,30 +66,48 @@ namespace SpectatorViewModeTags
 	UE_DEFINE_GAMEPLAY_TAG(NearbyAI, TEXT("Game.Spectator View Mode.Nearby AI"))
 }
 
-namespace PlayerActionTags
+namespace ActionTypeTags
 {
-	UE_DEFINE_GAMEPLAY_TAG(Connected, TEXT("Game.Player Action.Connected"))
-	UE_DEFINE_GAMEPLAY_TAG(Disconnected, TEXT("Game.Player Action.Disconnected"))
-	UE_DEFINE_GAMEPLAY_TAG(Kicked, TEXT("Game.Player Action.Kicked"))
-	UE_DEFINE_GAMEPLAY_TAG(Banned, TEXT("Game.Player Action.Banned"))
-	UE_DEFINE_GAMEPLAY_TAG(Died, TEXT("Game.Player Action.Died"))
-	UE_DEFINE_GAMEPLAY_TAG(Killed, TEXT("Game.Player Action.Killed"))
-	UE_DEFINE_GAMEPLAY_TAG(KillAssist, TEXT("Game.Player Action.Kill Assist"))
-	UE_DEFINE_GAMEPLAY_TAG(DisabledVehicle, TEXT("Game.Player Action.Disabled Vehicle"))
-	UE_DEFINE_GAMEPLAY_TAG(DisabledVehicleAssist, TEXT("Game.Player Action.Disabled Vehicle Assist"))
-	UE_DEFINE_GAMEPLAY_TAG(DefendedZone, TEXT("Game.Player Action.Defended Zone"))
-	UE_DEFINE_GAMEPLAY_TAG(OccupiedZone, TEXT("Game.Player Action.Occupied Zone"))
-	UE_DEFINE_GAMEPLAY_TAG(ControlledZone, TEXT("Game.Player Action.Controlled Zone"))
-	UE_DEFINE_GAMEPLAY_TAG(Supressed, TEXT("Game.Player Action.Supressed"))
-	UE_DEFINE_GAMEPLAY_TAG(GaveCommand, TEXT("Game.Player Action.Gave Command"))
-	UE_DEFINE_GAMEPLAY_TAG(CompletedObjective, TEXT("Game.Player Action.Completed Objective"))
-	UE_DEFINE_GAMEPLAY_TAG(CompletedSideMission, TEXT("Game.Player Action.Completed Side Mission"))
-	UE_DEFINE_GAMEPLAY_TAG(FoundSpecialItem, TEXT("Game.Player Action.Found Special Item"))
-	UE_DEFINE_GAMEPLAY_TAG(MadeSpecialNPCContact, TEXT("Game.Player Action.Made Special NPC Contact"))
-	UE_DEFINE_GAMEPLAY_TAG(MadeSpecialNPCAchievement, TEXT("Game.Player Action.Made Special NPC Achievement"))
-	UE_DEFINE_GAMEPLAY_TAG(Incapacitated, TEXT("Game.Player Action.Incapacitated"))
-	UE_DEFINE_GAMEPLAY_TAG(WipedFireteam, TEXT("Game.Player Action.Wiped Fireteam"))
-	UE_DEFINE_GAMEPLAY_TAG(WipedSection, TEXT("Game.Player Action.Wiped Section"))
-	UE_DEFINE_GAMEPLAY_TAG(CompletedMission, TEXT("Game.Player Action.Completed Mission"))
-	UE_DEFINE_GAMEPLAY_TAG(Pet, TEXT("Game.Player Action.Pet"))
+	UE_DEFINE_GAMEPLAY_TAG(Connected, TEXT("Game.Action Type.Connected"))
+	UE_DEFINE_GAMEPLAY_TAG(Disconnected, TEXT("Game.Action Type.Disconnected"))
+	UE_DEFINE_GAMEPLAY_TAG(Kicked, TEXT("Game.Action Type.Kicked"))
+	UE_DEFINE_GAMEPLAY_TAG(Banned, TEXT("Game.Action Type.Banned"))
+	UE_DEFINE_GAMEPLAY_TAG(Died, TEXT("Game.Action Type.Died"))
+	UE_DEFINE_GAMEPLAY_TAG(Killed, TEXT("Game.Action Type.Killed"))
+	UE_DEFINE_GAMEPLAY_TAG(KillAssist, TEXT("Game.Action Type.Kill Assist"))
+	UE_DEFINE_GAMEPLAY_TAG(DisabledVehicle, TEXT("Game.Action Type.Disabled Vehicle"))
+	UE_DEFINE_GAMEPLAY_TAG(DisabledVehicleAssist, TEXT("Game.Action Type.Disabled Vehicle Assist"))
+	UE_DEFINE_GAMEPLAY_TAG(DefendedZone, TEXT("Game.Action Type.Defended Zone"))
+	UE_DEFINE_GAMEPLAY_TAG(OccupiedZone, TEXT("Game.Action Type.Occupied Zone"))
+	UE_DEFINE_GAMEPLAY_TAG(ControlledZone, TEXT("Game.Action Type.Controlled Zone"))
+	UE_DEFINE_GAMEPLAY_TAG(Supressed, TEXT("Game.Action Type.Supressed"))
+	UE_DEFINE_GAMEPLAY_TAG(GaveCommand, TEXT("Game.Action Type.Gave Command"))
+	UE_DEFINE_GAMEPLAY_TAG(CompletedObjective, TEXT("Game.Action Type.Completed Objective"))
+	UE_DEFINE_GAMEPLAY_TAG(CompletedSideMission, TEXT("Game.Action Type.Completed Side Mission"))
+	UE_DEFINE_GAMEPLAY_TAG(FoundSpecialItem, TEXT("Game.Action Type.Found Special Item"))
+	UE_DEFINE_GAMEPLAY_TAG(MadeSpecialNPCContact, TEXT("Game.Action Type.Made Special NPC Contact"))
+	UE_DEFINE_GAMEPLAY_TAG(MadeSpecialNPCAchievement, TEXT("Game.Action Type.Made Special NPC Achievement"))
+	UE_DEFINE_GAMEPLAY_TAG(Incapacitated, TEXT("Game.Action Type.Incapacitated"))
+	UE_DEFINE_GAMEPLAY_TAG(WipedFireteam, TEXT("Game.Action Type.Wiped Fireteam"))
+	UE_DEFINE_GAMEPLAY_TAG(WipedSection, TEXT("Game.Action Type.Wiped Section"))
+	UE_DEFINE_GAMEPLAY_TAG(CompletedMission, TEXT("Game.Action Type.Completed Mission"))
+	UE_DEFINE_GAMEPLAY_TAG(Pet, TEXT("Game.Action Type.Pet"))
+}
+
+namespace RewardCriteriaTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(Immeadiate, TEXT("Game.Reward Criteria.Immeadiate"))
+	UE_DEFINE_GAMEPLAY_TAG(OnAction, TEXT("Game.Reward Criteria.On Action"))
+	UE_DEFINE_GAMEPLAY_TAG(AfterLeavingZone, TEXT("Game.Reward Criteria.After Leaving Zone"))
+	UE_DEFINE_GAMEPLAY_TAG(AfterObjectiveCompletion, TEXT("Game.Reward Criteria.After Objective Completion"))
+	UE_DEFINE_GAMEPLAY_TAG(AfterMissionCompletion, TEXT("Game.Reward Criteria.After Mission Completion"))
+	UE_DEFINE_GAMEPLAY_TAG(EndOfGame, TEXT("Game.Reward Criteria.End Of Game"))
+	UE_DEFINE_GAMEPLAY_TAG(EndOfGameIfSameLife, TEXT("Game.Reward Criteria.End Of Game If Same Life"))
+}
+
+namespace BonusTypeTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(Flat, TEXT("Game.Bonus Type.Flat"))
+	UE_DEFINE_GAMEPLAY_TAG(Multiply, TEXT("Game.Bonus Type.Multiply"))
+	UE_DEFINE_GAMEPLAY_TAG(MultiplyTotal, TEXT("Game.Bonus Type.Multiply Total"))
 }
