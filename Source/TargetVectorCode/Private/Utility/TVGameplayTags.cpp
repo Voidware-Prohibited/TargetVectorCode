@@ -111,3 +111,9 @@ namespace BonusTypeTags
 	UE_DEFINE_GAMEPLAY_TAG(Multiply, TEXT("Game.Bonus Type.Multiply"))
 	UE_DEFINE_GAMEPLAY_TAG(MultiplyTotal, TEXT("Game.Bonus Type.Multiply Total"))
 }
+
+namespace ProjectileSonicsTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(Subsonic, TEXT("Game.Projectile Sonics.Subsonic"))
+	UE_DEFINE_GAMEPLAY_TAG(Supersonic, TEXT("Game.Projectile Sonics.Supersonic"))
+}
