@@ -117,3 +117,10 @@ namespace ProjectileSonicsTags
 	UE_DEFINE_GAMEPLAY_TAG(Subsonic, TEXT("Game.Projectile Sonics.Subsonic"))
 	UE_DEFINE_GAMEPLAY_TAG(Supersonic, TEXT("Game.Projectile Sonics.Supersonic"))
 }
+
+namespace GameStartModeTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(Headquarters, TEXT("Game.Game Start Mode.Headquarters"))
+	UE_DEFINE_GAMEPLAY_TAG(Airdrop, TEXT("Game.Game Start Mode.Airdrop"))
+	UE_DEFINE_GAMEPLAY_TAG(Random, TEXT("Game.Game Start Mode.Random"))
+}
