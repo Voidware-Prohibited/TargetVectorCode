@@ -31,6 +31,10 @@
 			"Enabled": true
 		},
 		{
+			"Name": "Synthesis",
+			"Enabled": true
+		},
+		{
 			"Name": "ALS",
 			"Enabled": true
 		},

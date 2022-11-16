@@ -124,3 +124,14 @@ namespace GameStartModeTags
 	UE_DEFINE_GAMEPLAY_TAG(Airdrop, TEXT("Game.Game Start Mode.Airdrop"))
 	UE_DEFINE_GAMEPLAY_TAG(Random, TEXT("Game.Game Start Mode.Random"))
 }
+
+namespace DamageTypeTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(Impact, TEXT("Game.Damge Type.Impact"))
+	UE_DEFINE_GAMEPLAY_TAG(Edge, TEXT("Game.Damge Type.Edge"))
+	UE_DEFINE_GAMEPLAY_TAG(Burn, TEXT("Game.Damge Type.Burn"))
+	UE_DEFINE_GAMEPLAY_TAG(Explosion, TEXT("Game.Damge Type.Explosion"))
+	UE_DEFINE_GAMEPLAY_TAG(Gas, TEXT("Game.Damge Type.Gas"))
+	UE_DEFINE_GAMEPLAY_TAG(Poison, TEXT("Game.Damge Type.Poison"))
+	UE_DEFINE_GAMEPLAY_TAG(Illness, TEXT("Game.Damge Type.Illness"))
+}
