@@ -1,8 +1,7 @@
 #pragma once
 
 #include "NativeGameplayTags.h"
-#include "AudioMixerBlueprintLibrary.h"
-#include "Sound/QuartzQuantizationUtilities.h"
+#include "Settings/SessionSettings.h"
 #include "GameInstanceInterface.generated.h"
 
 UINTERFACE(Blueprintable)
@@ -16,17 +15,23 @@ class TARGETVECTORCODE_API IGameInstanceInterface {
 public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
-	void GetInstanceState(FGameplayTag& InstanceState);
+	void GetInstanceState(EInstanceState& InstanceState);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
-	void SetInstanceState(FGameplayTag InstanceState);
+	void SetInstanceState(EInstanceState InstanceState);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
 	void GetDebugMode(bool& DebugMode);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
-	void SetIsNewInstance(bool& IsNewInstance);
+	void SetIsNewInstance(bool IsNewInstance);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
 	void GetIsNewInstance(bool& IsNewInstance);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
+	void GetSessionType(ESessionType& SessionType);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
+	void SetSessionType(ESessionType SessionType);
 };
