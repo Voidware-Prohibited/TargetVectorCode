@@ -7,6 +7,18 @@ namespace ActorTypeTags
 	UE_DEFINE_GAMEPLAY_TAG(LevelActor, TEXT("Game.Actor Type.Level Actor"))
 }
 
+namespace PlayerUnitTypeTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(Fireteam, TEXT("Game.Group Type.Fireteam"))
+	UE_DEFINE_GAMEPLAY_TAG(AllFireteams, TEXT("Game.Group Type.All Fireteams"))
+	UE_DEFINE_GAMEPLAY_TAG(Section, TEXT("Game.Group Type.Section"))
+	UE_DEFINE_GAMEPLAY_TAG(AllSections, TEXT("Game.Group Type.All Sections"))
+	UE_DEFINE_GAMEPLAY_TAG(Player, TEXT("Game.Group Type.Player"))
+	UE_DEFINE_GAMEPLAY_TAG(AllPlayers, TEXT("Game.Group Type.All Players"))
+	UE_DEFINE_GAMEPLAY_TAG(SoloPlayers, TEXT("Game.Group Type.Solo Players"))
+	UE_DEFINE_GAMEPLAY_TAG(Security, TEXT("Game.Group Type.Security"))
+}
+
 namespace PlayerFilterTags
 {
 	UE_DEFINE_GAMEPLAY_TAG(Fireteam, TEXT("Game.Player Filter.Fireteam"))
@@ -118,11 +130,28 @@ namespace ProjectileSonicsTags
 	UE_DEFINE_GAMEPLAY_TAG(Supersonic, TEXT("Game.Projectile Sonics.Supersonic"))
 }
 
+namespace LobbyLevelModeTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(GameAllPlayers, TEXT("Game.Lobby Level Mode.Game All Players"))
+	UE_DEFINE_GAMEPLAY_TAG(GameOrganization, TEXT("Game.Lobby Level Mode.Game Organization"))
+	UE_DEFINE_GAMEPLAY_TAG(UI, TEXT("Game.Lobby Mode.UI"))
+}
+
+namespace RespawnContestTypeTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(DeathMatch, TEXT("Game.Respawn Contest Type.Death Match"))
+	UE_DEFINE_GAMEPLAY_TAG(Arcade, TEXT("Game.Respawn Contest Type.Arcade"))
+}
+
 namespace GameStartModeTags
 {
-	UE_DEFINE_GAMEPLAY_TAG(Headquarters, TEXT("Game.Game Start Mode.Headquarters"))
-	UE_DEFINE_GAMEPLAY_TAG(Airdrop, TEXT("Game.Game Start Mode.Airdrop"))
-	UE_DEFINE_GAMEPLAY_TAG(Random, TEXT("Game.Game Start Mode.Random"))
+	UE_DEFINE_GAMEPLAY_TAG(Headquarters, TEXT("Game.Game Start Mode.Organization Headquarters"))
+	UE_DEFINE_GAMEPLAY_TAG(AirdropOrganization, TEXT("Game.Game Start Mode.Airdrop Grouped by Organization"))
+	UE_DEFINE_GAMEPLAY_TAG(AirdropFireteam, TEXT("Game.Game Start Mode.Airdrop Grouped by Fireteam"))
+	UE_DEFINE_GAMEPLAY_TAG(AirdropRandom, TEXT("Game.Game Start Mode.Airdrop Random"))
+	UE_DEFINE_GAMEPLAY_TAG(GroundOrganization, TEXT("Game.Game Start Mode.Ground Grouped by Organization"))
+	UE_DEFINE_GAMEPLAY_TAG(GroundFireteam, TEXT("Game.Game Start Mode.Ground Grouped by Fireteam"))
+	UE_DEFINE_GAMEPLAY_TAG(GroundRandom, TEXT("Game.Game Start Mode.Ground Random Location"))
 }
 
 namespace DamageTypeTags
@@ -134,4 +163,11 @@ namespace DamageTypeTags
 	UE_DEFINE_GAMEPLAY_TAG(Gas, TEXT("Game.Damge Type.Gas"))
 	UE_DEFINE_GAMEPLAY_TAG(Poison, TEXT("Game.Damge Type.Poison"))
 	UE_DEFINE_GAMEPLAY_TAG(Illness, TEXT("Game.Damge Type.Illness"))
+}
+
+namespace DamageTypeTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(SinglePlayer, TEXT("Game.Goal Session Type.Single Player"))
+	UE_DEFINE_GAMEPLAY_TAG(CoOP, TEXT("Game.Goal Session Type.Co-Op"))
+	UE_DEFINE_GAMEPLAY_TAG(Multiplayer, TEXT("Game.Goal Session Type.Multiplayer"))
 }

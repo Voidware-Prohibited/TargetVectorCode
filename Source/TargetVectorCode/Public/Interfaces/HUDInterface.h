@@ -89,22 +89,28 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|In Game Game Master Menu")
 	void RemoveInGameGameMasterMenu();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
 	void GetGameLayerStack(UCommonActivatableWidgetStack*& Stack);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
 	void GetGameMenuStack(UCommonActivatableWidgetStack*& Stack);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
 	void GetMenuStack(UCommonActivatableWidgetStack*& Stack);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	void GetOverlayStack(UCommonActivatableWidgetStack*& Stack);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	void GetSubtitleStack(UCommonActivatableWidgetStack*& Stack);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
 	void GetModalQueue(UCommonActivatableWidgetQueue*& Queue);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
 	void DisplayGameLayer();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
 	void RemoveGameLayer();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD")

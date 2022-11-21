@@ -1,6 +1,8 @@
 #pragma once
 
+#include "NativeGameplayTags.h"
 #include "Settings/Settings.h"
+#include "Utility/TVStructs.h"
 #include "GameStateInterface.generated.h"
 
 UINTERFACE(Blueprintable)
@@ -17,13 +19,37 @@ public:
 	void GetAllPlayerStates(TArray<APlayerState*>& PlayerStates);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
-	void GetPreGameSettings(bool& EnableLobby, bool& EnableLobbyCountdown, float& LobbyCountdownLength, bool& EnablePreGameCountdown, float& PreGameCountdownInitialDelayLength, float& PreGameCoundownLength, bool& HostMustStartGame, bool& PlayerReadyRequired, int& MinPlayers, int& MaxPlayers);
+	void GetPreGameSettings(bool& EnableLobby, FGameplayTag& LobbyMode, bool& EnableLobbyCountdown, float& LobbyCountdownPreDelay, float& LobbyCountdownLength, float& LobbyCountdownPostDelay, FGameplayTag& PreGameMode, bool& EnablePreGameCountdown, float& PreGameCountdownPreDelay, float& PreGameCoundownLength, float& PreGameCountdownPostDelay, bool& HostMustStartGame, bool& PlayerReadyRequired, int& MinPlayers, int& MaxPlayers);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
-	void GetPreGameCameraSettings(bool& SpectatePlayers, bool& SpectateAI, float& LobbyCountdownLength);
+	void GetPreGameCameraSettings(bool& SpectatePlayers, bool& SpectateAI, bool& AutoRotateCameras, float& AutoRotateCameraDelay);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
-	void GetSpectatingSettings(bool& EnableSpectating, FName& SpectatingTag, bool& EnableKillCamTransition, bool& SpectatePlayers, bool& SpectateAI, TArray<ESpectatorViewMode>& AllowedViewModes);
+	void GetDeathSettings(bool& EnableIncapacitation, bool& EnableUnconciousness, bool& EnableRevive, float& ReviveCountdownLength, bool& EnableRespawn, float& RespawnPointCost, float& RespawnCashCost, float& RespawnXPCost, bool& EnableRespawnContest, bool& EnableTickets, int& RespawnTicketCost);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
+	void GetSpectatingSettings(bool& EnableSpectating, float& SpectatingDelay, FName& SpectatingTag, bool& EnableKillCamTransition, bool& SpectatePlayers, bool& SpectateAI, TArray<FGameplayTag>& AllowedViewModes);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Tickets")
+	void GetTicketSettings(bool& EnableTicketsForSecurity, int& StartingTicketAmount, int& RespawnTicketCost, bool& UseCustomTicketDistribution, TArray<FTicketDistributionEntry>& CustomTicketDistribution);
+	
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Tickets")
+	void SetTicketSettings(bool EnableTicketsForSecurity, int StartingTicketAmount, int RespawnTicketCost, bool UseCustomTicketDistribution, const TArray<FTicketDistributionEntry>& CustomTicketDistribution);
+	
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Tickets")
+	void SetTicketDistributionForUnit(const FString& ID, const FGameplayTag& PlayerUnitType, FTicketDistributionEntry TicketDistribution);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Tickets")
+	void GetTickets(TArray<FTicketsEntry>& Tickets);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Tickets")
+	void GetTicketsForUnit(FString& ID, FGameplayTag& PlayerUnitType, int& Tickets);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Tickets")
+	void SetTicketsForUnit(const FString& ID, const FGameplayTag& PlayerUnitType, int Tickets);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
+	void GetRespawnContestSettings(int& Tickets, TArray<FContestRound>& ContestRounds, bool& Random, float& RespawnContestDelay, float& PreRoundDelay, float& PreRoundCountdownLength, float& RespawnDelay, float& RespawnCountdownLength);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
 	void OnAllPlayersLoadedInLobby();
@@ -47,22 +73,19 @@ public:
 	void IsPlayerReady(APlayerState* PlayerState, bool& Ready);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Readiness")
-	void IsPlayerUneadyAllowed(bool& Allowed);
+	void IsPlayerUnreadyAllowed(bool& Allowed);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Readiness")
 	void ResetReadyPlayers();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
-	void CanGameStart(bool& CanGameStart);
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
-	void StartGame();
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
-	void OnStartGame();
+	void OnStartLobbyCountdown();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Travel")
 	void CanTravelToGameLevel(bool& CanTravel);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
+	void OnBeforeTravelToGameLevel();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Travel")
 	void TravelFromLobbyToGameLevel();
@@ -74,15 +97,35 @@ public:
 	void GetLevelNames(FString& Entry, FString& Lobby, FString& GameLevel);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
+	void OnStartPreCountdown();
+	
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
 	void StartCountdown();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
 	void OnStartCountdown();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Readiness")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
 	void GetCountdown(float& Countdown);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Readiness")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
 	void IsCountingDown(bool& IsCountingDown);
 
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
+	void OnEndCountdown();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
+	void OnStartPostCountdown();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
+	void CanGameStart(bool& CanGameStart);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
+	void StartGame();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
+	void OnBeforeStartGame();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
+	void OnStartGame();
 };
