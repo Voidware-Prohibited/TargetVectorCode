@@ -13,39 +13,66 @@ class TARGETVECTORCODE_API IPlayerControllerInterface {
 public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Lobby")
-	void OnAllPlayersLoadedInLobby();
+	void OnAllPlayersLoadedInLobbyLevel();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Lobby")
 	void GetTogglePlayerReadyTimeElapsed(float& TimeElaped);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Pre-Game")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Game Start")
 	void OnBeforeTravelToGameLevel();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Pre-Game")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Game Start")
 	void OnAllPlayersLoadedInGameLevel();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Pre-Game")
-	void OnPreGameCountdownInitialDelayStart();
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Pre-Game")
-	void OnPreGameCountdownStart();
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Pre-Game")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Camera")
 	void CameraComponentEnableCountdownRotation();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Pre-Game")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Camera")
 	void CameraComponentStopRotation();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Pre-Game")
-	void OnPreGameCountdownComplete();
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Debug")
+	void DisplayDebugUI(bool& Display);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Game Start")
+	void OnLobbyPreCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Game Start")
+	void OnBeforeLobbyCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Game Start")
+	void OnLobbyCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Game Start")
+	void OnBeforeLobbyPostCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Game Start")
+	void OnLobbyPostCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Game Start")
+	void OnLobbyCountdownComplete();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Game Start")
+	void OnGamePreCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Game Start")
+	void OnBeforeGameCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Game Start")
+	void OnGameCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Game Start")
+	void OnBeforeGamePostCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Game Start")
+	void OnGamePostCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Game Start")
+	void OnGameCountdownComplete();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Game Start")
 	void OnBeforeGameStart();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Game Start")
 	void OnGameStart();
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Debug")
-	void DisplayDebugUI(bool& Display);
 
 };

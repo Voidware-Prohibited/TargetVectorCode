@@ -15,10 +15,13 @@ class TARGETVECTORCODE_API IPlayerStateInterface {
 public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
-	void StartPreGameCountdown();
+	void StartGame();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
-	void StartGame();
+	void OnBeforeGameStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void OnGameStart();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
 	void OnUpdateReadyPlayers();
@@ -39,21 +42,54 @@ public:
 	void GetVitals(float& Health, float& Stamina, float& Armor, float& Thirst, float& Hunger);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
-	void OnPreGameCountdownInitialDelayStart();
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
-	void OnPreGameCountdownStart();
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
-	void OnPreGameCountdownComplete();
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
 	void AddReadyPlayer();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
 	void RemoveReadyPlayer();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void OnAllPlayersLoadedInLobbyLevel();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void OnAllPlayersLoadedInGameLevel();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
 	void OnBeforeTravelToGameLevel();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void OnLobbyPreCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void OnBeforeLobbyCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void OnLobbyCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void OnBeforeLobbyPostCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void OnLobbyPostCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void OnLobbyCountdownComplete();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void OnGamePreCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void OnBeforeGameCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void OnGameCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void OnBeforeGamePostCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void OnGamePostCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void OnGameCountdownComplete();
 
 };

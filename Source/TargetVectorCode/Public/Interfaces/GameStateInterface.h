@@ -52,7 +52,7 @@ public:
 	void GetRespawnContestSettings(int& Tickets, TArray<FContestRound>& ContestRounds, bool& Random, float& RespawnContestDelay, float& PreRoundDelay, float& PreRoundCountdownLength, float& RespawnDelay, float& RespawnCountdownLength);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
-	void OnAllPlayersLoadedInLobby();
+	void OnAllPlayersLoadedInLobbyLevel();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Readiness")
 	void IsPlayerReadyAllowed(bool& Allowed);
@@ -67,6 +67,9 @@ public:
 	void RemoveReadyPlayer(APlayerState* PlayerState);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Readiness")
+	void OnUpdateReadyPlayers();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Readiness")
 	void AreAllPlayersReady(bool& Ready);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Readiness")
@@ -78,8 +81,41 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Readiness")
 	void ResetReadyPlayers();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
-	void OnStartLobbyCountdown();
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State")
+	void OnLobbyPreCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State")
+	void OnBeforeLobbyCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State")
+	void OnLobbyCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State")
+	void OnBeforeLobbyPostCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State")
+	void OnLobbyPostCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State")
+	void OnLobbyCountdownComplete();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State")
+	void OnGamePreCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State")
+	void OnBeforeGameCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State")
+	void OnGameCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State")
+	void OnBeforeGamePostCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State")
+	void OnGamePostCountdownStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State")
+	void OnGameCountdownComplete();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Travel")
 	void CanTravelToGameLevel(bool& CanTravel);
@@ -103,9 +139,6 @@ public:
 	void StartCountdown();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
-	void OnStartCountdown();
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
 	void GetCountdown(float& Countdown);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
@@ -115,17 +148,14 @@ public:
 	void OnEndCountdown();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
-	void OnStartPostCountdown();
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
 	void CanGameStart(bool& CanGameStart);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
 	void StartGame();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
-	void OnBeforeStartGame();
+	void OnBeforeGameStart();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
-	void OnStartGame();
+	void OnGameStart();
 };

@@ -108,10 +108,19 @@ public:
 	void GetModalQueue(UCommonActivatableWidgetQueue*& Queue);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	void InitializePrimaryLayout();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
 	void DisplayGameLayer();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
 	void RemoveGameLayer();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	void DisplayGameMenuLayer();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	void RemoveGameMenuLayer();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD")
 	void GetServerTabStack(UCommonActivatableWidgetStack*& Stack);
