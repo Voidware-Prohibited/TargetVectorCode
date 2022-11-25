@@ -22,6 +22,9 @@ public:
 	void TravelFromLobbyLevelToGameLevel();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Mode")
+	void TravelFromGameLevelToLobbyLevel();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Mode")
 	void OnLobbyPreCountdownStart();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Mode")
@@ -63,4 +66,12 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Mode")
 	void OnGameStart();
 
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Mode")
+	void OnBeforeGameEnd();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Mode")
+	void OnGameEnd();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Mode")
+	void OnSessionEnd();
 };

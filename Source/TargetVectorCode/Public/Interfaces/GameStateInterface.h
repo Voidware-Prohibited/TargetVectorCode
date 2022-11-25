@@ -70,6 +70,15 @@ public:
 	void OnUpdateReadyPlayers();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Readiness")
+	void OnAllPlayersReady();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Readiness")
+	void SetLockLobby(bool Lock);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Readiness")
+	void IsLobbyLocked(bool& Locked);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Readiness")
 	void AreAllPlayersReady(bool& Ready);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Readiness")
@@ -123,8 +132,14 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
 	void OnBeforeTravelToGameLevel();
 
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
+	void OnBeforeTravelToLobbyLevel();
+
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Travel")
 	void TravelFromLobbyToGameLevel();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Travel")
+	void TravelFromGameLevelToLobbyLevel();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Travel")
 	void OnAllPlayersLoadedInGameLevel();
@@ -158,4 +173,10 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
 	void OnGameStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
+	void EndGame();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
+	void EndSession();
 };

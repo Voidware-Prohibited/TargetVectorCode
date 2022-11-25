@@ -12,14 +12,44 @@ class TARGETVECTORCODE_API IPlayerControllerInterface {
 
 public:
 
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller")
+	void OnLoadedInLobbyLevel();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller")
+	void OnLoadedInGameLevel();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller")
+	void OnDisconnected();
+	
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Lobby")
 	void OnAllPlayersLoadedInLobbyLevel();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Lobby")
+	void OnUpdateReadyPlayers();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Lobby")
+	void OnAllPlayersReady();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Lobby")
+	void OnLobbyLocked();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Lobby")
+	void OnLobbyUnlocked();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Lobby")
 	void GetTogglePlayerReadyTimeElapsed(float& TimeElaped);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Game Start")
+	void TravelFromLobbyToGameLevel();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Game Start")
+	void TravelFromGameLevelToLobbyLevel();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Game Start")
 	void OnBeforeTravelToGameLevel();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Game Start")
+	void OnBeforeTravelToLobbyLevel();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Game Start")
 	void OnAllPlayersLoadedInGameLevel();
@@ -74,5 +104,20 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Game Start")
 	void OnGameStart();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Start Game")
+	void EndGame();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Start Game")
+	void EndSession();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Game Start")
+	void OnBeforeGameEnd();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Game Start")
+	void OnGameEnd();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Game Start")
+	void OnSessionEnd();
 
 };

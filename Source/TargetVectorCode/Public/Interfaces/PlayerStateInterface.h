@@ -15,7 +15,31 @@ class TARGETVECTORCODE_API IPlayerStateInterface {
 public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void OnLoadedInLobbyLevel();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void OnLoadedInGameLevel();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void OnDisconnected();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
 	void StartGame();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void EndGame();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void EndSession();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void OnBeforeGameEnd();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void OnGameEnd();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void OnSessionEnd();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
 	void OnBeforeGameStart();
@@ -25,6 +49,15 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
 	void OnUpdateReadyPlayers();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void OnAllPlayersReady();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void OnLobbyLocked();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void OnLobbyUnlocked();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
 	void SetPlayerServerState(FGameplayTag NewPlayerServerState);
@@ -55,6 +88,9 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
 	void OnBeforeTravelToGameLevel();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void OnBeforeTravelToLobbyLevel();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
 	void OnLobbyPreCountdownStart();
