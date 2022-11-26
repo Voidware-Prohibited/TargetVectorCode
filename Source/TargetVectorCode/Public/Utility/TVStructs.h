@@ -30,7 +30,7 @@ struct TARGETVECTORCODE_API FPlayerAction
 	FString AwardedPlayer;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	AActor* AwardedActor;
+	TSoftObjectPtr<AActor> AwardedActor;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FText AwardedPlayerDisplayName;
@@ -57,7 +57,7 @@ struct TARGETVECTORCODE_API FPlayerAction
 	float Damage;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	UDamageType* DamageType;
+	TSoftObjectPtr<UDamageType> DamageType;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	float Points;
@@ -75,7 +75,7 @@ struct TARGETVECTORCODE_API FPlayerAction
 	TArray<FBonus> AwardedPlayerBonuses;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	AActor* SubjectActor;
+	TSoftObjectPtr<AActor> SubjectActor;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	TArray<FBonus> SubjectPlayerBonuses;
@@ -99,7 +99,7 @@ struct TARGETVECTORCODE_API FFireteamAction
 	FString AwardedPlayer;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	AActor* AwardedActor;
+	TSoftObjectPtr<AActor> AwardedActor;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FText AwardedPlayerDisplayName;
@@ -126,7 +126,7 @@ struct TARGETVECTORCODE_API FFireteamAction
 	float Damage;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	UDamageType* DamageType;
+	TSoftObjectPtr<UDamageType> DamageType;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	float Points;
@@ -144,7 +144,7 @@ struct TARGETVECTORCODE_API FFireteamAction
 	TArray<FBonus> AwardedPlayerBonuses;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	AActor* SubjectActor;
+	TSoftObjectPtr<AActor> SubjectActor;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	TArray<FBonus> SubjectPlayerBonuses;
@@ -168,7 +168,7 @@ struct TARGETVECTORCODE_API FSectionAction
 	FString AwardedPlayer;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	AActor* AwardedActor;
+	TSoftObjectPtr<AActor> AwardedActor;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FText AwardedPlayerDisplayName;
@@ -195,7 +195,7 @@ struct TARGETVECTORCODE_API FSectionAction
 	float Damage;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	UDamageType* DamageType;
+	TSoftObjectPtr<UDamageType> DamageType;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	float Points;
@@ -213,7 +213,7 @@ struct TARGETVECTORCODE_API FSectionAction
 	TArray<FBonus> AwardedPlayerBonuses;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	AActor* SubjectActor;
+	TSoftObjectPtr<AActor> SubjectActor;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	TArray<FBonus> SubjectPlayerBonuses;
@@ -237,7 +237,7 @@ struct TARGETVECTORCODE_API FOrganizationAction
 	FString AwardedPlayer;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	AActor* AwardedActor;
+	TSoftObjectPtr<AActor> AwardedActor;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FText AwardedPlayerDisplayName;
@@ -264,7 +264,7 @@ struct TARGETVECTORCODE_API FOrganizationAction
 	float Damage;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	UDamageType* DamageType;
+	TSoftObjectPtr<UDamageType> DamageType;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	float Points;
@@ -282,7 +282,7 @@ struct TARGETVECTORCODE_API FOrganizationAction
 	TArray<FBonus> AwardedPlayerBonuses;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	AActor* SubjectActor;
+	TSoftObjectPtr<AActor> SubjectActor;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	TArray<FBonus> SubjectPlayerBonuses;
@@ -306,7 +306,7 @@ struct TARGETVECTORCODE_API FPlayerActionLedger
 	FString AwardedPlayer;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	AActor* AwardedActor;
+	TSoftObjectPtr<AActor> AwardedActor;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FText AwardedActorDisplayName;
@@ -345,7 +345,7 @@ struct TARGETVECTORCODE_API FFireteamActionLedger
 	FString AwardedPlayer;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	AActor* AwardedActor;
+	TSoftObjectPtr<AActor> AwardedActor;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FText AwardedFireteamDisplayName;
@@ -384,7 +384,7 @@ struct TARGETVECTORCODE_API FSectionActionLedger
 	FString AwardedPlayer;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	AActor* AwardedActor;
+	TSoftObjectPtr<AActor> AwardedActor;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FText AwardedActorDisplayName;
@@ -423,7 +423,7 @@ struct TARGETVECTORCODE_API FOrganizationActionLedger
 	FString AwardedPlayer;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	AActor* AwardedActor;
+	TSoftObjectPtr<AActor> AwardedActor;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FText AwardedActorDisplayName;
@@ -477,13 +477,13 @@ struct TARGETVECTORCODE_API FServerLogEntry
 	FString SubjectActor;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	AActor* Causer;
+	TSoftObjectPtr<AActor> Causer;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	float Damage;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	UDamageType* DamageType;
+	TSoftObjectPtr<UDamageType> DamageType;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	float Distance;
@@ -531,7 +531,7 @@ struct TARGETVECTORCODE_API FDoubleHitResult
 	float Damage;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	UDamageType* DamageType;
+	TSoftObjectPtr<UDamageType> DamageType;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FVector Impulse;
