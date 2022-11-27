@@ -18,7 +18,7 @@ struct TARGETVECTORCODE_API FBonus
 	FText DisplayName;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float Amount;
+	float Amount {0.0f};
 };
 
 USTRUCT(BlueprintType)
@@ -534,7 +534,7 @@ struct TARGETVECTORCODE_API FDoubleHitResult
 	TSoftObjectPtr<UDamageType> DamageType;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	FVector Impulse;
+	FVector Impulse {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FString InstigatorSection;
