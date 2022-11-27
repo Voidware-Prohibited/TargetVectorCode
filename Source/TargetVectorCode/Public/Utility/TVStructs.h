@@ -54,19 +54,19 @@ struct TARGETVECTORCODE_API FPlayerAction
 	FDateTime DateTimeInGame;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float Damage;
+	float Damage {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	TSoftObjectPtr<UDamageType> DamageType;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float Points;
+	float Points {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float XP;
+	float XP {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float Cash;
+	float Cash {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FHitResult HitResult;
@@ -123,19 +123,19 @@ struct TARGETVECTORCODE_API FFireteamAction
 	FDateTime DateTimeInGame;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float Damage;
+	float Damage {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	TSoftObjectPtr<UDamageType> DamageType;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float Points;
+	float Points {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float XP;
+	float XP {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float Cash;
+	float Cash {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FHitResult HitResult;
@@ -192,19 +192,19 @@ struct TARGETVECTORCODE_API FSectionAction
 	FDateTime DateTimeInGame;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float Damage;
+	float Damage {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	TSoftObjectPtr<UDamageType> DamageType;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float Points;
+	float Points {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float XP;
+	float XP {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float Cash;
+	float Cash {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FHitResult HitResult;
@@ -261,19 +261,19 @@ struct TARGETVECTORCODE_API FOrganizationAction
 	FDateTime DateTimeInGame;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float Damage;
+	float Damage {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	TSoftObjectPtr<UDamageType> DamageType;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float Points;
+	float Points {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float XP;
+	float XP {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float Cash;
+	float Cash {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FHitResult HitResult;
@@ -312,16 +312,16 @@ struct TARGETVECTORCODE_API FPlayerActionLedger
 	FText AwardedActorDisplayName;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float TotalDamage;
+	float TotalDamage {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float TotalPoints;
+	float TotalPoints {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float TotalXP;
+	float TotalXP {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float TotalCash;
+	float TotalCash {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	TArray<FPlayerAction> Score;
@@ -351,16 +351,16 @@ struct TARGETVECTORCODE_API FFireteamActionLedger
 	FText AwardedFireteamDisplayName;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float TotalDamage;
+	float TotalDamage {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float TotalPoints;
+	float TotalPoints {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float TotalXP;
+	float TotalXP {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float TotalCash;
+	float TotalCash {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	TArray<FFireteamAction> Score;
@@ -390,16 +390,16 @@ struct TARGETVECTORCODE_API FSectionActionLedger
 	FText AwardedActorDisplayName;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float TotalDamage;
+	float TotalDamage {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float TotalPoints;
+	float TotalPoints {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float TotalXP;
+	float TotalXP {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float TotalCash;
+	float TotalCash {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	TArray<FSectionAction> Score;
@@ -429,16 +429,16 @@ struct TARGETVECTORCODE_API FOrganizationActionLedger
 	FText AwardedActorDisplayName;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float TotalDamage;
+	float TotalDamage {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float TotalPoints;
+	float TotalPoints {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float TotalXP;
+	float TotalXP {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float TotalCash;
+	float TotalCash {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	TArray<FOrganizationAction> Score;
@@ -480,13 +480,13 @@ struct TARGETVECTORCODE_API FServerLogEntry
 	TSoftObjectPtr<AActor> Causer;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float Damage;
+	float Damage {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	TSoftObjectPtr<UDamageType> DamageType;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float Distance;
+	float Distance {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FPlayerAction Score;
@@ -528,7 +528,7 @@ struct TARGETVECTORCODE_API FDoubleHitResult
 	GENERATED_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float Damage;
+	float Damage {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	TSoftObjectPtr<UDamageType> DamageType;
@@ -555,16 +555,16 @@ struct TARGETVECTORCODE_API FContestRound
 	FGameplayTag ContestType;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int AdditionalTickets;
+	int AdditionalTickets {0};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float AdditionalPoints;
+	float AdditionalPoints {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float AdditionalCash;
+	float AdditionalCash {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float AdditionalXP;
+	float AdditionalXP {0.0f};
 };
 
 USTRUCT(BlueprintType)
@@ -579,7 +579,7 @@ struct TARGETVECTORCODE_API FTicketsEntry
 	FGameplayTag PlayerUnitType;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int Tickets;
+	int Tickets {0};
 };
 
 USTRUCT(BlueprintType)
@@ -594,17 +594,17 @@ struct TARGETVECTORCODE_API FTicketDistributionEntry
 	FGameplayTag PlayerUnitType;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int StartingTickets;
+	int StartingTickets {0};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int RespawnTicketCost;
+	int RespawnTicketCost {0};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float RespawnPointCost;
+	float RespawnPointCost {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float RespawnCashCost;
+	float RespawnCashCost {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float RespawnXPCost;
+	float RespawnXPCost {0.0f};
 };
