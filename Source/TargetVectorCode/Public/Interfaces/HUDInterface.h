@@ -149,4 +149,69 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD")
 	void RemoveServerTab();
 
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD")
+	void GetFocusedWidget(UUserWidget*& FocusedWidget);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MyCategory")
+	void SetFocusedWidget(const UUserWidget* FocusedWidget);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	void SetMainMenuProfile(const UCommonActivatableWidget* Widget);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	void GetMainMenuProfile(UCommonActivatableWidget*& Widget);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	void SetMainMenuSettings(const UCommonActivatableWidget* Widget);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	void GetMainMenuSettings(UCommonActivatableWidget*& Widget);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	void SetMainMenuSettingsGameplay(const UCommonActivatableWidget* Widget);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	void GetMainMenuSettingsGameplay(UCommonActivatableWidget*& Widget);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	void SetMainMenuSettingsVideo(const UCommonActivatableWidget* Widget);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	void GetMainMenuSettingsVideo(UCommonActivatableWidget*& Widget);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	void SelectMainMenuDefaultTab();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	void SelectMainMenuPreviousTab();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	void SelectMainMenuNextTab();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Profile")
+	void SelectProfileDefaultTab();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Profile")
+	void SelectProfilePreviousTab();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Profile")
+	void SelectProfileNextTab();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Settings")
+	void SelectSettingsDefaultTab();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Settings")
+	void SelectSettingsPreviousTab();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Settings")
+	void SelectSettingsNextTab();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts")
+	void GoToDashboard();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts")
+	void GoToMessages();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts")
+	void GoToNotifications();
 };
