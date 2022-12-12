@@ -155,6 +155,9 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MyCategory")
 	void SetFocusedWidget(const UUserWidget* FocusedWidget);
 
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
+	void SetStartingLocation(const TArray<TSubclassOf<class UCommonActivatableWidget>>& WidgetClass);
+
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
 	void SetMainMenuProfile(const UCommonActivatableWidget* Widget);
 
