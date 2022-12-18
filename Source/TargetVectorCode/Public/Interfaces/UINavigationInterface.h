@@ -45,10 +45,10 @@ public:
 	void GetSelectedButton(UCommonButtonBase*& Button, int& Index);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
-	void SetStartingWidget(TSubclassOf<class UCommonActivatableWidget> WidgetClass);
+	void SetStartingLocation(const TArray<TSubclassOf<class UCommonActivatableWidget>>& WidgetClass, bool Select);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
-	void SetStartingLocation(const TArray<TSubclassOf<class UCommonActivatableWidget>>& WidgetClass, bool Select);
+	void GetStartingLocation(TArray<TSubclassOf<class UCommonActivatableWidget>>& WidgetClass);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
 	void SelectStartingLocation();

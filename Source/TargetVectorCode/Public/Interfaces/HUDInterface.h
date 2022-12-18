@@ -36,6 +36,9 @@ public:
 	void ConfirmAbandonChangesPrompt();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Main Menu")
+	void IsInMainMenuLevel(bool& IsInMainMenuLevel);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Main Menu")
 	void DisplayMainMenu();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Main Menu")
@@ -43,15 +46,6 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Main Menu")
 	void IsMainMenuActive(bool& IsActive);
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Main Menu")
-	void DisplayInGameMainMenu();
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Main Menu")
-	void RemoveInGameMainMenu();
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Main Menu")
-	void IsInGameMainMenuActive(bool& IsActive);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Debug")
 	void GetOverlayMenu(UOverlayModeMenu*& OverlayMenu);
@@ -130,6 +124,12 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD")
 	void RemoveReadiness();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	void SetCurrentMenuStack(const UCommonActivatableWidgetStack* Stack);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	void GetCurrentMenuStack(UCommonActivatableWidgetStack*& Stack);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD")
 	void DisplayServerTabLobby();
