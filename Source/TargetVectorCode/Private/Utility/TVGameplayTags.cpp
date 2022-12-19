@@ -165,9 +165,20 @@ namespace DamageTypeTags
 	UE_DEFINE_GAMEPLAY_TAG(Illness, TEXT("Game.Damge Type.Illness"))
 }
 
-namespace DamageTypeTags
+namespace GoalTypeTags
 {
 	UE_DEFINE_GAMEPLAY_TAG(SinglePlayer, TEXT("Game.Goal Session Type.Single Player"))
 	UE_DEFINE_GAMEPLAY_TAG(CoOP, TEXT("Game.Goal Session Type.Co-Op"))
 	UE_DEFINE_GAMEPLAY_TAG(Multiplayer, TEXT("Game.Goal Session Type.Multiplayer"))
+}
+
+namespace NotificationTypeTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(General, TEXT("Game.Notification Type.General"))
+	UE_DEFINE_GAMEPLAY_TAG(Leaderboard, TEXT("Game.Notification Type.Leaderboard"))
+	UE_DEFINE_GAMEPLAY_TAG(Achievement, TEXT("Game.Notification Type.Achievement"))
+	UE_DEFINE_GAMEPLAY_TAG(Progress, TEXT("Game.Notification Type.Progress"))
+	UE_DEFINE_GAMEPLAY_TAG(Item, TEXT("Game.Notification Type.Item"))
+	UE_DEFINE_GAMEPLAY_TAG(Perk, TEXT("Game.Notification Type.Perk"))
+	UE_DEFINE_GAMEPLAY_TAG(ItemSkin, TEXT("Game.Notification Type.Item Skin"))
 }
