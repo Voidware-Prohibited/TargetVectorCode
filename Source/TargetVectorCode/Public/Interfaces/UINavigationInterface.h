@@ -59,12 +59,24 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
 	void SetChildStartingLocation(bool& HasChildren, TArray<TSubclassOf<class UCommonActivatableWidget>>& StartingLocation);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
 	void DisplayMask();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
 	void RemoveMask();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
 	void RotateMask(float Rotation);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
+	void SetBackgroundImage(const UTexture* Image);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
+	void RemoveBackgroundImage();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
+	void SetForegroundImage(const UTexture* Image);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
+	void RemoveForegroundImage();
 };

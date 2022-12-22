@@ -16,5 +16,4 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
 	void GetNavigationInfo(UCommonActivatableWidgetStack*& Stack, TSubclassOf<class UCommonActivatableWidget>& WidgetClass);
-
 };

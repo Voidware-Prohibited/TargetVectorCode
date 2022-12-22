@@ -2,6 +2,8 @@
 
 #include "Internationalization/Text.h"
 #include "Widgets/CommonActivatableWidgetContainer.h"
+#include "CommonAnimatedSwitcher.h"
+#include "GameFramework/Actor.h"
 #include "HUDInterface.generated.h"
 
 UINTERFACE(Blueprintable)
@@ -13,6 +15,18 @@ class TARGETVECTORCODE_API IHUDInterface {
 	GENERATED_BODY()
 
 public:
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	void IsInMainMenuLevel(bool& IsInMainMenuLevel);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	void IsMainMenuActive(bool& IsActive);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	void DisplayMainMenu();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	void RemoveMainMenu();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu|Quit Game")
 	void DisplayQuitGamePrompt();
@@ -36,15 +50,6 @@ public:
 	void ConfirmAbandonChangesPrompt();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
-	void IsInMainMenuLevel(bool& IsInMainMenuLevel);
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
-	void DisplayMainMenu();
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
-	void RemoveMainMenu();
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
 	void DisplayMainMenuMask();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
@@ -54,7 +59,16 @@ public:
 	void RotateMainMenuMask(float Rotation);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
-	void IsMainMenuActive(bool& IsActive);
+	void SetBackgroundImage(const UTexture* Image);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	void RemoveBackgroundImage();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	void SetForegroundImage(const UTexture* Image);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	void RemoveForegroundImage();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Debug")
 	void GetOverlayMenu(UOverlayModeMenu*& OverlayMenu);
@@ -134,10 +148,10 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Readiness")
 	void RemoveReadiness();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
 	void SetCurrentMenuStack(const UCommonActivatableWidgetStack* Stack);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
 	void GetCurrentMenuStack(UCommonActivatableWidgetStack*& Stack);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
@@ -295,4 +309,10 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
 	void GoToMap();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Render Target")
+	void SetInteractiveRenderTarget(const AActor* Actor);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Render Target")
+	void GetInteractiveRenderTarget(AActor*& Actor);
 };

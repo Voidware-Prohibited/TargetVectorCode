@@ -5,6 +5,7 @@
 #include "Misc/DateTime.h"
 #include "GameFramework/DamageType.h"
 #include "Engine/Texture2D.h"
+#include "Engine/Texture.h"
 #include "Misc/DateTime.h"
 #include "TVStructs.generated.h"
 
@@ -626,16 +627,19 @@ struct TARGETVECTORCODE_API FNotification
 	FGameplayTag NotificationType;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool Unread;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FText Title;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FText Description;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	TSoftObjectPtr<UTexture2D> Icon;
+	TSoftObjectPtr<UTexture> Icon;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	TSoftObjectPtr<UTexture2D> Image;
+	TSoftObjectPtr<UTexture> Image;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FGameplayTag Rarity;
@@ -659,16 +663,19 @@ struct TARGETVECTORCODE_API FMessage
 	FString Sender;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	FString Receipient;
+	FString Recipient;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString ReplyToID;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FDateTime DateTime;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	FText FullText;
+	FText Text;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	TSoftObjectPtr<UTexture2D> Attachment;
+	TSoftObjectPtr<UTexture> Attachment;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	bool Unread;
