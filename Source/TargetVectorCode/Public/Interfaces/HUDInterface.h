@@ -295,6 +295,10 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu|Settings")
 	void SelectSettingsNextTab();
 
+	// SHORTCUTS
+
+	// Profile
+
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
 	void GoToDashboard();
 
@@ -302,13 +306,57 @@ public:
 	void GoToMessages();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
+	void GoToRequests();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
 	void GoToNotifications();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcut|Main Menus")
-	void GoToScore();
+	void GoToProfile();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcut|Main Menus")
+	void GoToCharacter();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcut|Main Menus")
+	void GoToCharacterCustomization();
+
+	// Server
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcut|Main Menus")
+	void GoToScoreboard();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcut|Main Menus")
+	void GoToRoster();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcut|Main Menus")
+	void GoToOperations();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
 	void GoToMap();
+
+	// Shop
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
+	void GoToShop();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
+	void GoToShopClothing();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
+	void GoToShopWeapons();
+
+	// Locker
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
+	void GoToLocker();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
+	void GoToLockerClothing();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
+	void GoToLockerWeapons();
+
+	// Render Target
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Render Target")
 	void SetInteractiveRenderTarget(const AActor* Actor);

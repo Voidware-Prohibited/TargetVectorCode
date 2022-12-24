@@ -13,7 +13,10 @@ class TARGETVECTORCODE_API IPlayerControllerMainMenuInterface {
 
 public:
 
-  UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MyCategory")
-  void SetView(AActor* Actor, float BlendTime, bool EnableAutoCameraRotation);
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Main Menu")
+	void SetView(AActor* Actor, float BlendTime, bool EnableAutoCameraRotation);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Main Menu")
+	void IsViewingSlides(bool& IsViewingSlides);
 
 };

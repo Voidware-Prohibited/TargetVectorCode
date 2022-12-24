@@ -1,5 +1,8 @@
 #pragma once
 
+#include "Sound/SoundBase.h"
+#include "AudioMixerBlueprintLibrary.h"
+#include "Sound/QuartzQuantizationUtilities.h"
 #include "NativeGameplayTags.h"
 #include "TVGameplayTags.h"
 #include "Misc/DateTime.h"
@@ -8,6 +11,30 @@
 #include "Engine/Texture.h"
 #include "Misc/DateTime.h"
 #include "TVStructs.generated.h"
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FMusicInfo
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FName Name;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	USoundBase* Sound;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FQuartzTimeSignature TimeSignature;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	float BPM{ 120.0f };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	EMusicalNoteName Key;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int Transposition {0};
+};
 
 USTRUCT(BlueprintType)
 struct TARGETVECTORCODE_API FBonus

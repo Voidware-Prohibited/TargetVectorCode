@@ -34,4 +34,19 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
 	void SetSessionType(ESessionType SessionType);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
+	void GetNumberOfUnreadMessages(int& NumberOfUnreadMessages);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
+	void GetNumberOfUnreadRequests(int& NumberOfUnreadRequests);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
+	void GetNumberOfUnreadNotifications(int& NumberOfUnreadNotifications);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
+	void GetPlayerLevel(int& PlayerLevel);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
+	void GetPlayerRank(int& PlayerRank);
 };

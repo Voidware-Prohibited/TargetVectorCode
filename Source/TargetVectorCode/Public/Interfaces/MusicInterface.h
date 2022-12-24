@@ -5,6 +5,7 @@
 #include "Sound/SoundSubmix.h"
 #include "Quartz/AudioMixerClockHandle.h" 
 #include "Sound/QuartzQuantizationUtilities.h"
+#include "Utility/TVStructs.h"
 #include "MusicInterface.generated.h"
 
 UINTERFACE(Blueprintable)
@@ -36,10 +37,10 @@ public:
 	void GetBPM(float& BPM);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music|Settings")
-	void SetKey(EMusicalNoteName BPM);
+	void SetKey(EMusicalNoteName Key);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music|Settings")
-	void GetKey(EMusicalNoteName& BPM);
+	void GetKey(EMusicalNoteName& Key);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music|Settings")
 	void SetTransposition(int Transposition);
@@ -52,6 +53,24 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music|Settings")
 	void GetTimeSignature(FQuartzTimeSignature& TimeSignature);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music|Settings")
+	void SetCurrentMusic(FMusicInfo CurrentMusic);
+	
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music|Settings")
+	void GetCurrentMusic(FMusicInfo& CurrentMusic);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music|Settings")
+	void SetPrevioustMusic(FMusicInfo PreviousMusic);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music|Settings")
+	void GetPreviousMusic(FMusicInfo& PreviousMusic);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music|Settings")
+	void SetNextMusic(FMusicInfo NextMusic);
+	
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music|Settings")
+	void GetNextMusic(FMusicInfo& NextMusic);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music|Playback")
 	void PlayImmediately(USoundBase* Sound, bool Loop);
