@@ -182,3 +182,9 @@ namespace NotificationTypeTags
 	UE_DEFINE_GAMEPLAY_TAG(Perk, TEXT("Game.Notification Type.Perk"))
 	UE_DEFINE_GAMEPLAY_TAG(ItemSkin, TEXT("Game.Notification Type.Item Skin"))
 }
+
+namespace ContextualInputActionTypeTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(Primary, TEXT("Game.Contextual Input Action Type.Primary"))
+	UE_DEFINE_GAMEPLAY_TAG(Secondary, TEXT("Game.Contextual Input Action Type.Secondary"))
+}

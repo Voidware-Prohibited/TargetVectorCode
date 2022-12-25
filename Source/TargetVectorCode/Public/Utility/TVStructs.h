@@ -37,6 +37,33 @@ struct TARGETVECTORCODE_API FMusicInfo
 };
 
 USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FContextualInputAction
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FText DisplayText;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FDataTableRowHandle InputAction;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FGameplayTag ContextualInputActionType {FGameplayTag::EmptyTag};
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FSlateColor TextColor;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FSlateColor InputIconTint;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool Blinking;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	float FadeOutAfter;
+};
+
+USTRUCT(BlueprintType)
 struct TARGETVECTORCODE_API FBonus
 {
 	GENERATED_BODY()

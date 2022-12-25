@@ -15,6 +15,9 @@ class TARGETVECTORCODE_API IGameInstanceInterface {
 public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
+	void GetIsLoggedIn(bool& IsLoggedIn);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
 	void GetInstanceState(EInstanceState& InstanceState);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
