@@ -404,4 +404,12 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Render Target")
 	void GetInteractiveRenderTarget(AActor*& Actor);
+
+	// Debriefing
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
+	void DisplayDebriefingMenu();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
+	void RemoveDebriefingMenu();
 };

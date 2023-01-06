@@ -134,7 +134,7 @@ namespace LobbyLevelModeTags
 {
 	UE_DEFINE_GAMEPLAY_TAG(GameAllPlayers, TEXT("Game.Lobby Level Mode.Game All Players"))
 	UE_DEFINE_GAMEPLAY_TAG(GameOrganization, TEXT("Game.Lobby Level Mode.Game Organization"))
-	UE_DEFINE_GAMEPLAY_TAG(UI, TEXT("Game.Lobby Mode.UI"))
+	UE_DEFINE_GAMEPLAY_TAG(UI, TEXT("Game.Lobby Level Mode.UI"))
 }
 
 namespace RespawnContestTypeTags
@@ -170,6 +170,40 @@ namespace GoalTypeTags
 	UE_DEFINE_GAMEPLAY_TAG(SinglePlayer, TEXT("Game.Goal Session Type.Single Player"))
 	UE_DEFINE_GAMEPLAY_TAG(CoOP, TEXT("Game.Goal Session Type.Co-Op"))
 	UE_DEFINE_GAMEPLAY_TAG(Multiplayer, TEXT("Game.Goal Session Type.Multiplayer"))
+}
+
+namespace MissionSuccessCriteriaTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(MostObjectives, TEXT("Game.Mission Success Criteria.Most Objectives"))
+	UE_DEFINE_GAMEPLAY_TAG(AllObjectives, TEXT("Game.Mission Success Criteria.All Objectives"))
+	UE_DEFINE_GAMEPLAY_TAG(NoFatalities, TEXT("Game.Mission Success Criteria.No Fatalities"))
+	UE_DEFINE_GAMEPLAY_TAG(NoSecurityResponse, TEXT("Game.Mission Success Criteria.No Security Response"))
+	UE_DEFINE_GAMEPLAY_TAG(NoDetection, TEXT("Game.Mission Success Criteria.No Detection"))
+	UE_DEFINE_GAMEPLAY_TAG(NoAssetDamage, TEXT("Game.Mission Success Criteria.No Asset Damage"))
+}
+
+namespace MissionStatusTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(Pending, TEXT("Game.Mission Status.Pending"))
+	UE_DEFINE_GAMEPLAY_TAG(Active, TEXT("Game.Mission Status.Active"))
+	UE_DEFINE_GAMEPLAY_TAG(PartialSuccess, TEXT("Game.Mission Status.Partial Success"))
+	UE_DEFINE_GAMEPLAY_TAG(Success, TEXT("Game.Mission Status.Success"))
+	UE_DEFINE_GAMEPLAY_TAG(Fail, TEXT("Game.Mission Status.Fail"))
+}
+
+namespace ObjectiveSuccessCriteriaTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(NoFatalities, TEXT("Game.Objective Success Criteria.No Fatalities"))
+	UE_DEFINE_GAMEPLAY_TAG(NoSecurityResponse, TEXT("Game.Objective Success Criteria.No Security Response"))
+	UE_DEFINE_GAMEPLAY_TAG(NoDetection, TEXT("Game.Objective Success Criteria.No Detection"))
+	UE_DEFINE_GAMEPLAY_TAG(NoAssetDamage, TEXT("Game.Objective Success Criteria.No Asset Damage"))
+}
+
+namespace ObjectiveStatusTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(NotCompleted, TEXT("Game.Objective Status.Not Completed"))
+	UE_DEFINE_GAMEPLAY_TAG(Completed, TEXT("Game.Objective Status.Completed"))
+	UE_DEFINE_GAMEPLAY_TAG(Fail, TEXT("Game.Objective Status.Fail"))
 }
 
 namespace NotificationTypeTags
