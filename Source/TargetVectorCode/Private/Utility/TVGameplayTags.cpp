@@ -172,14 +172,29 @@ namespace GoalTypeTags
 	UE_DEFINE_GAMEPLAY_TAG(Multiplayer, TEXT("Game.Goal Session Type.Multiplayer"))
 }
 
-namespace MissionSuccessCriteriaTags
+namespace MissionTypeTags
 {
-	UE_DEFINE_GAMEPLAY_TAG(MostObjectives, TEXT("Game.Mission Success Criteria.Most Objectives"))
-	UE_DEFINE_GAMEPLAY_TAG(AllObjectives, TEXT("Game.Mission Success Criteria.All Objectives"))
-	UE_DEFINE_GAMEPLAY_TAG(NoFatalities, TEXT("Game.Mission Success Criteria.No Fatalities"))
-	UE_DEFINE_GAMEPLAY_TAG(NoSecurityResponse, TEXT("Game.Mission Success Criteria.No Security Response"))
-	UE_DEFINE_GAMEPLAY_TAG(NoDetection, TEXT("Game.Mission Success Criteria.No Detection"))
-	UE_DEFINE_GAMEPLAY_TAG(NoAssetDamage, TEXT("Game.Mission Success Criteria.No Asset Damage"))
+	UE_DEFINE_GAMEPLAY_TAG(Elimination, TEXT("Game.Mission Type.Elimination"))
+	UE_DEFINE_GAMEPLAY_TAG(Exfiltration, TEXT("Game.Mission Type.Exfiltration"))
+}
+
+namespace MissionUnitTypeTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(Any, TEXT("Game.Mission Unit Type.Any"))
+	UE_DEFINE_GAMEPLAY_TAG(Unaffiliated, TEXT("Game.Mission Unit Type.Unaffiliated"))
+	UE_DEFINE_GAMEPLAY_TAG(Fireteam, TEXT("Game.Mission Unit Type.Fireteam"))
+	UE_DEFINE_GAMEPLAY_TAG(Section, TEXT("Game.Mission Unit Type.Section"))
+	UE_DEFINE_GAMEPLAY_TAG(Organization, TEXT("Game.Mission Unit Type.Organization"))
+}
+
+namespace MissionCriteriaTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(MostObjectives, TEXT("Game.Mission Criteria.Most Objectives"))
+	UE_DEFINE_GAMEPLAY_TAG(AllObjectives, TEXT("Game.Mission Criteria.All Objectives"))
+	UE_DEFINE_GAMEPLAY_TAG(NoFatalities, TEXT("Game.Mission Criteria.No Fatalities"))
+	UE_DEFINE_GAMEPLAY_TAG(NoSecurityResponse, TEXT("Game.Mission Criteria.No Security Response"))
+	UE_DEFINE_GAMEPLAY_TAG(NoDetection, TEXT("Game.Mission Criteria.No Detection"))
+	UE_DEFINE_GAMEPLAY_TAG(NoAssetDamage, TEXT("Game.Mission Criteria.No Asset Damage"))
 }
 
 namespace MissionStatusTags
@@ -189,6 +204,13 @@ namespace MissionStatusTags
 	UE_DEFINE_GAMEPLAY_TAG(PartialSuccess, TEXT("Game.Mission Status.Partial Success"))
 	UE_DEFINE_GAMEPLAY_TAG(Success, TEXT("Game.Mission Status.Success"))
 	UE_DEFINE_GAMEPLAY_TAG(Fail, TEXT("Game.Mission Status.Fail"))
+}
+
+namespace ObjectiveTypeTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(MeetContact, TEXT("Game.Objective Type.Meet Contact"))
+	UE_DEFINE_GAMEPLAY_TAG(Location, TEXT("Game.Objective Type.Arrive at Location"))
+	UE_DEFINE_GAMEPLAY_TAG(Zone, TEXT("Game.Objective Type.Enter Zone"))
 }
 
 namespace ObjectiveSuccessCriteriaTags
