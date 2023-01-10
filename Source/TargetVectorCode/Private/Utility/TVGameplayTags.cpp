@@ -22,6 +22,7 @@ namespace PlayerUnitTypeTags
 namespace PlayerFilterTags
 {
 	UE_DEFINE_GAMEPLAY_TAG(Fireteam, TEXT("Game.Player Filter.Fireteam"))
+	UE_DEFINE_GAMEPLAY_TAG(Command, TEXT("Game.Player Filter.Command"))
 	UE_DEFINE_GAMEPLAY_TAG(Section, TEXT("Game.Player Filter.Section"))
 	UE_DEFINE_GAMEPLAY_TAG(Organization, TEXT("Game.Player Filter.Organization"))
 	UE_DEFINE_GAMEPLAY_TAG(All, TEXT("Game.Player Filter.All"))
@@ -243,4 +244,22 @@ namespace ContextualInputActionTypeTags
 {
 	UE_DEFINE_GAMEPLAY_TAG(Primary, TEXT("Game.Contextual Input Action Type.Primary"))
 	UE_DEFINE_GAMEPLAY_TAG(Secondary, TEXT("Game.Contextual Input Action Type.Secondary"))
+}
+
+namespace IntelSourceTypeTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(Surveillance, TEXT("Game.Intel Source Type.Surveillance"))
+	UE_DEFINE_GAMEPLAY_TAG(FirstHand, TEXT("Game.Intel Source Type.First Hand"))
+	UE_DEFINE_GAMEPLAY_TAG(InternalReport, TEXT("Game.Intel Source Type.Internal Report"))
+	UE_DEFINE_GAMEPLAY_TAG(Informant, TEXT("Game.Intel Source Type.Informant"))
+	UE_DEFINE_GAMEPLAY_TAG(ExternalReport, TEXT("Game.Intel Source Type.External Report"))
+	UE_DEFINE_GAMEPLAY_TAG(Chatter, TEXT("Game.Intel Source Type.Chatter"))
+	UE_DEFINE_GAMEPLAY_TAG(Rumor, TEXT("Game.Intel Source Type.Rumor"))
+}
+
+namespace IntelValidationTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(Undetermined, TEXT("Game.Intel Validation.Undetermined"))
+	UE_DEFINE_GAMEPLAY_TAG(Valid, TEXT("Game.Intel Validation.Valid"))
+	UE_DEFINE_GAMEPLAY_TAG(Invalid, TEXT("Game.Intel Validation.Invalid"))
 }

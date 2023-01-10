@@ -68,7 +68,19 @@ public:
 	void ConfirmAbandonChangesPrompt();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
-	void DisplayMainMenuMask();
+	void DisplayMainMenuScanlines();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	void RemoveMainMenuScanlines();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	void DisplayMainMenuBlur(float Strength);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	void RemoveMainMenuBlur();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	void DisplayMainMenuMask(bool Solid);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
 	void RemoveMainMenuMask();
@@ -77,16 +89,19 @@ public:
 	void RotateMainMenuMask(float Rotation);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
-	void SetBackgroundImage(const UTexture* Image);
+	void SetMainMenuBackgroundImage(const UTexture* Image);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
-	void RemoveBackgroundImage();
+	void RemoveMainMenuBackgroundImage();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
-	void SetForegroundImage(const UTexture* Image);
+	void SetMainMenuBackgroundForegroundImage(const UTexture* Image);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
-	void RemoveForegroundImage();
+	void RemoveMainMenuBackgroundForegroundImage();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	void RemoveAllMainMenuBackgroundLayers();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Debug")
 	void GetOverlayMenu(UOverlayModeMenu*& OverlayMenu);

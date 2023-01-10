@@ -60,7 +60,7 @@ public:
 	void SetChildStartingLocation(bool& HasChildren, TArray<TSubclassOf<class UCommonActivatableWidget>>& StartingLocation);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
-	void DisplayMask();
+	void DisplayMask(bool Solid);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
 	void RemoveMask();
