@@ -31,6 +31,9 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
 	void DoButtonsHaveFocus(bool& ButtonsHaveFocus);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
+	void GetDefaultButton(UCommonButtonBase*& Button);
 	
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
 	void SelectDefaultButton();
