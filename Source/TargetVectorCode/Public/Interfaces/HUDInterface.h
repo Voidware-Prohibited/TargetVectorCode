@@ -32,6 +32,15 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
 	void GetBreadcrumb(TArray<FBreadcrumbEntry>& Breadcrumb);
 
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Appearance")
+	void SetupAppearance();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
+	void InitializeButtons();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
+	void SetupNavigation();
+
 	// MAIN MENU
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")

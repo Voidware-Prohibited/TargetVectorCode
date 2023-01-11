@@ -16,9 +16,15 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
 	void OnActivatedNavigation();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Appearance")
+	void SetupAppearance();
 	
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
 	void InitializeButtons();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
+	void SetupNavigation();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
 	void FindButtonFromWidgetClass(TSubclassOf<class UCommonActivatableWidget> WidgetClass, bool& Found, UCommonButtonBase*& Button);
