@@ -28,6 +28,15 @@ namespace PlayerFilterTags
 	UE_DEFINE_GAMEPLAY_TAG(All, TEXT("Game.Player Filter.All"))
 }
 
+namespace AwardedTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(All, TEXT("Game.Awardred.Player"))
+	UE_DEFINE_GAMEPLAY_TAG(Fireteam, TEXT("Game.Awardred.Fireteam"))
+	UE_DEFINE_GAMEPLAY_TAG(Command, TEXT("Game.Awardred.Command"))
+	UE_DEFINE_GAMEPLAY_TAG(Section, TEXT("Game.Awardred.Section"))
+	UE_DEFINE_GAMEPLAY_TAG(Organization, TEXT("Game.Awardred.Organization"))
+}
+
 namespace IDTypeTags
 {
 	UE_DEFINE_GAMEPLAY_TAG(Player, TEXT("Game.ID Type.Player"))
@@ -262,4 +271,30 @@ namespace IntelValidationTags
 	UE_DEFINE_GAMEPLAY_TAG(Undetermined, TEXT("Game.Intel Validation.Undetermined"))
 	UE_DEFINE_GAMEPLAY_TAG(Valid, TEXT("Game.Intel Validation.Valid"))
 	UE_DEFINE_GAMEPLAY_TAG(Invalid, TEXT("Game.Intel Validation.Invalid"))
+}
+
+namespace AppTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(Ninepage, TEXT("UI.App.9page"))
+	UE_DEFINE_GAMEPLAY_TAG(Aegis, TEXT("UI.App.Aegis Solutions"))
+	UE_DEFINE_GAMEPLAY_TAG(Altiplano, TEXT("UI.App.Altiplano"))
+	UE_DEFINE_GAMEPLAY_TAG(AltiplanoFashion, TEXT("UI.App.Altiplano Fashion"))
+	UE_DEFINE_GAMEPLAY_TAG(Aris, TEXT("UI.App.Aris"))
+	UE_DEFINE_GAMEPLAY_TAG(Astra, TEXT("UI.App.Astra"))
+	UE_DEFINE_GAMEPLAY_TAG(Broadway, TEXT("UI.App.Broadway Taxi Co"))
+	UE_DEFINE_GAMEPLAY_TAG(Cyberian, TEXT("UI.App.Cyberian"))
+	UE_DEFINE_GAMEPLAY_TAG(Dap, TEXT("UI.App.Dap"))
+	UE_DEFINE_GAMEPLAY_TAG(EMR, TEXT("UI.App.EMR"))
+	UE_DEFINE_GAMEPLAY_TAG(Gladius, TEXT("UI.App.Gladius"))
+	UE_DEFINE_GAMEPLAY_TAG(Gregslist, TEXT("UI.App.Gregslist"))
+	UE_DEFINE_GAMEPLAY_TAG(Hype, TEXT("UI.App.HYPE"))
+	UE_DEFINE_GAMEPLAY_TAG(Mikes, TEXT("UI.App.Mohawk Mikes"))
+	UE_DEFINE_GAMEPLAY_TAG(Munch, TEXT("UI.App.Munch"))
+	UE_DEFINE_GAMEPLAY_TAG(Sentry, TEXT("UI.App.Sentry Security"))
+	UE_DEFINE_GAMEPLAY_TAG(Sprout, TEXT("UI.App.Sprout"))
+	UE_DEFINE_GAMEPLAY_TAG(Sudo, TEXT("UI.App.sudo"))
+	UE_DEFINE_GAMEPLAY_TAG(Unicert, TEXT("UI.App.Unicert"))
+	UE_DEFINE_GAMEPLAY_TAG(Victoria, TEXT("UI.App.Victoria"))
+	UE_DEFINE_GAMEPLAY_TAG(WDBeckett, TEXT("UI.App.WD Beckett & Associates"))
+	UE_DEFINE_GAMEPLAY_TAG(Zoot, TEXT("UI.App.zoot"))
 }

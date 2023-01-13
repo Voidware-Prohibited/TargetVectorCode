@@ -2,6 +2,8 @@
 
 #include "Blueprint/UserWidget.h"
 #include "Widgets/CommonActivatableWidgetContainer.h"
+#include "CommonActivatableWidget.h"
+#include "CommonButtonBase.h"
 #include "UINavigationTabInterface.generated.h"
 
 UINTERFACE(Blueprintable)
@@ -15,8 +17,20 @@ class TARGETVECTORCODE_API IUINavigationTabInterface {
 public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
-	void GetNavigationInfo(UCommonActivatableWidgetStack*& Stack, TSubclassOf<class UCommonActivatableWidget>& WidgetClass);
+	void SetStack(UCommonActivatableWidgetStack* Stack);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
+	void SetOtherButtons(const TArray<UCommonButtonBase*>& OtherButtons);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
 	void SetWidget(TSubclassOf<class UCommonActivatableWidget> WidgetClass);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
+	void GetNavigationInfo(UCommonActivatableWidgetStack*& Stack, TSubclassOf<class UCommonActivatableWidget>& WidgetClass);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
+	void OnSelected();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
+	void UnselectOtherButtons();
 };

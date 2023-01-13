@@ -51,7 +51,7 @@ public:
 	void SetCachedUIColorSettings();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
-	void GetCachedUIColorSettings(EColorBlindFilter& ColorBlindFilter, float& FilterStrength, FSlateColor& PrimaryColor, FSlateColor& ConfirmColor, FSlateColor& BackColor, FSlateColor& ModifyColor, FSlateColor& DeleteColor, FSlateColor& ConfirmAltColor, FSlateColor& EnemyColor, FSlateColor& NeutralColor, FSlateColor& SelfColor, FSlateColor& FireteamColor, FSlateColor& SectionColor, FSlateColor& OrganizationColor);
+	void GetCachedUIColorSettings(EColorBlindFilter& ColorBlindFilter, float& FilterStrength, FSlateColor& PrimaryColor, FSlateColor& BackgroundColor, FSlateColor& ConfirmColor, FSlateColor& BackColor, FSlateColor& ModifyColor, FSlateColor& DeleteColor, FSlateColor& ConfirmAltColor, FSlateColor& EnemyColor, FSlateColor& NeutralColor, FSlateColor& SelfColor, FSlateColor& FireteamColor, FSlateColor& CommandColor, FSlateColor& SectionColor, FSlateColor& OrganizationColor);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
 	void GetSessionType(ESessionType& SessionType);
@@ -112,4 +112,25 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
 	void GetColors(TArray<FSlateColor>& Colors);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
+	void GetBrands(TArray<FUIBrand>& Brands);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
+	void GetApps(TArray<FUIAppInfo>& Apps);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
+	void SetAppStyleOverride(FGameplayTag AppStyleOverride);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
+	void GetAppStyleOverride(FUIAppStyle& AppStyleOverride);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
+	void GetShopCart(TArray<FUIAppCartItem>& ShopCart);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
+	void GetAppCart(TArray<FUIAppCartItem>& AppCart);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
+	void GetAppDropQueue(TArray<FUIAppDropQueueItem>& AppDropQueue);
 };
