@@ -6,6 +6,8 @@
 #include "Widgets/CommonActivatableWidgetContainer.h"
 #include "CommonAnimatedSwitcher.h"
 #include "GameFramework/Actor.h"
+#include "Utility/TVStructs.h"
+#include "NativeGameplayTags.h"
 #include "HUDInterface.generated.h"
 
 UINTERFACE(Blueprintable)
@@ -62,10 +64,16 @@ public:
 	void DisableMainMenuNavigation();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	void IsMainMenuNavigationEnabled(bool& IsEnabled);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
 	void DisplayMainMenuNavigation();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
 	void HideMainMenuNavigation();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	void IsMainMenuNavigationVisible(bool& IsEnabled);
 
 	// PROMPTS
 
@@ -143,6 +151,16 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Black Screen")
 	void RemoveBlackScreen(float InitialDelay, float FadeLength);
 
+	// OPENING CREDITS 
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Opening Credits")
+	void DisplayOpeningCredit(float DisplayLength, const FText& Title, const FText& Name);
+
+	// DATE TIME LOCATION 
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Time Date Location Title")
+	void DisplayTimeDateLocationTitle(float DisplayLength);
+
 	// COUNTDOWN
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Countdown")
@@ -156,13 +174,13 @@ public:
 
 	// CONTEXTUAL INPUT PROMPT
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Countdown")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Contextual Input Prompt")
 	void AddContextualInputPrompts(const TArray<FContextualInputAction>& ContextualInputPrompts);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Countdown")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Contextual Input Prompt")
 	void RemoveContextualInputPrompts(const TArray<FContextualInputAction>& ContextualInputPrompts);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Countdown")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Contextual Input Prompt")
 	void RemoveAllContextualInputPrompts();
 
 	// REVIEW FOR REMOVAL
@@ -224,6 +242,18 @@ public:
 	void GetSubtitleStack(UCommonActivatableWidgetStack*& Stack);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	void GetOpeningCreditsStack(UCommonActivatableWidgetStack*& Stack);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	void GetEndCreditsStack(UCommonActivatableWidgetStack*& Stack);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	void GetNowPlayingStack(UCommonActivatableWidgetStack*& Stack);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	void GetCutsceneNowPlayingStack(UCommonActivatableWidgetStack*& Stack);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
 	void GetModalQueue(UCommonActivatableWidgetQueue*& Queue);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
@@ -249,32 +279,54 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Readiness")
 	void RemoveReadiness();
 
+	// MUSIC
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Now Playing")
+	void DisplayNowPlaying(FMusicInfo MusicInfo, float DisplayLength);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Now Playing")
+	void RemoveNowPlaying();
+	
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Now Playing")
+	void DisplayCutsceneNowPlaying(FMusicInfo MusicInfo, float DisplayLength);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Now Playing")
+	void RemoveCutsceneNowPlaying();
+
+	// APP INTRO ANIMATIONS
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Apps")
+	void AddPlayedAppIntroAnimation(FGameplayTag App);
+	
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Apps")
+	void ResetAppIntroAnimations();
+
 	// SPECTATING
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Spectating")
 	void StartDeathSequence();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Spectating")
 	void DisplayKillCamMenu();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Spectating")
 	void RemoveKillCamMenu();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Spectating")
 	void DisplaySpectatorMenu();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Spectating")
 	void RemoveSpectatorMenu();
 
 	// DEBRIEFING
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Debriefing")
 	void StartDebriefingSequence();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Debriefing")
 	void DisplayDebriefingMenu();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Debriefing")
 	void RemoveDebriefingMenu();
 
 	// NAVIGATION

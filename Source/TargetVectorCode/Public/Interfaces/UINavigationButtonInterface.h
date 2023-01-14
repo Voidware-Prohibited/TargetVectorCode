@@ -20,7 +20,7 @@ public:
 	void SetStack(UCommonActivatableWidgetStack* Stack);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation Button")
-	void SetOtherButtons(const TArray<UCommonButtonBase*>& OtherButtons);
+	void SetButtonsArray(const TArray<UCommonButtonBase*>& OtherButtons);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation Button")
 	void SetWidget(TSubclassOf<class UCommonActivatableWidget> WidgetClass);

@@ -2,6 +2,8 @@
 
 #include "Blueprint/UserWidget.h"
 #include "Widgets/CommonActivatableWidgetContainer.h"
+#include "InputCoreTypes.h"
+#include "Input/Events.h"
 #include "UINavigationInterface.generated.h"
 
 UINTERFACE(Blueprintable)
@@ -28,6 +30,9 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Appearance")
 	void SetupAppearance();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
+	void OnNavigationInputDown(const FKeyEvent& KeyEvent);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
 	void FindButtonFromWidgetClass(TSubclassOf<class UCommonActivatableWidget> WidgetClass, bool& Found, UCommonButtonBase*& Button);

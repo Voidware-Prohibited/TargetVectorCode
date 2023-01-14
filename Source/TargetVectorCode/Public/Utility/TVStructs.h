@@ -12,12 +12,26 @@
 #include "Materials/MaterialInterface.h"
 #include "GameFramework/DamageType.h"
 #include "Engine/Texture2D.h"
-#include "Math/Vector2D.h"
+#include "Math/UnrealMathUtility.h"
+#include "Math/TransformNonVectorized.h"
 #include "Engine/Texture.h"
 #include "Misc/DateTime.h"
 #include "Engine/StaticMesh.h"
 #include "Style/StyleSettings.h"
 #include "TVStructs.generated.h"
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FBreadcrumbEntry
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	UCommonActivatableWidgetStack* Stack{ nullptr };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	TSubclassOf<class UCommonActivatableWidget> WidgetClass;
+
+};
 
 USTRUCT(BlueprintType)
 struct TARGETVECTORCODE_API FMusicInfo
@@ -37,6 +51,12 @@ struct TARGETVECTORCODE_API FMusicInfo
 	FText Album;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool StreamerModeFriendly{ true };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool Explicit{ false };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	UTexture2D* Artwork{ nullptr };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
@@ -53,19 +73,6 @@ struct TARGETVECTORCODE_API FMusicInfo
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	int Transposition {0};
-};
-
-USTRUCT(BlueprintType)
-struct TARGETVECTORCODE_API FBreadcrumbEntry
-{
-	GENERATED_BODY()
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	UCommonActivatableWidgetStack* Stack{ nullptr };
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	TSubclassOf<class UCommonActivatableWidget> WidgetClass;
-
 };
 
 USTRUCT(BlueprintType)
@@ -1224,7 +1231,25 @@ struct TARGETVECTORCODE_API FLocation
 	TArray<TSoftObjectPtr<UTexture2D>> Images;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	TSoftObjectPtr<UStaticMesh> LocationMesh;
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FZone
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FText Name;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FTransform CenterTransform;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	TSoftObjectPtr<UStaticMesh> ZoneMesh;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool FullHeight;
 };
 
 USTRUCT(BlueprintType)
@@ -1510,4 +1535,155 @@ struct TARGETVECTORCODE_API FUIAppDropQueueItem
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	float ETA{ -1.0f };
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FRadioTrack
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FDateTime PlayBlockStart;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FDateTime PlayBlockEnd;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo Sound;
+
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FRadioStation
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	float Frequency{ 0.0f };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FText Identifier;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FGameplayTag Brand {FGameplayTag::EmptyTag};
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FGameplayTag Genre{ FGameplayTag::EmptyTag };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool IsLive{ false };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool IncludeInRadioList{ true };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString StreamAddress;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int TracksToPlayMin {3};
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int TracksToPlayMax {3};
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int AdsToPlayMin {2};
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int AdsToPlayMax {2};
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	float DJProbability{ 1.0f };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	TArray< FRadioTrack > Music;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	TArray< FRadioTrack > DJ;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	TArray< FRadioTrack > Ads;
+	
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FTelevisionClip
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FDateTime PlayBlockStart;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FDateTime PlayBlockEnd;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo Clip;
+
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FTelevisionStation
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int Channel{ 0 };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FText Identifier;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FGameplayTag Brand {FGameplayTag::EmptyTag};
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FGameplayTag Genre{ FGameplayTag::EmptyTag };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool IsLive{ false };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool IncludeInChannelList{ true };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString StreamAddress;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int SegmentsToPlayMin {1};
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int SegmentsToPlayMax {1};
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int AdsToPlayMin {2};
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int AdsToPlayMax {4};
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	float InterstitialProbability{ 1.0f };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	TArray< FTelevisionClip > Segments;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	TArray< FTelevisionClip > Interstitial;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	TArray< FTelevisionClip > Ads;
+	
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FCommsFrequency
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	float Frequency{ 0.0f };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString EncryptionKey;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FGameplayTag EncryptionType {FGameplayTag::EmptyTag};
 };
