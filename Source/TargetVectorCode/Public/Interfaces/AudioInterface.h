@@ -5,6 +5,9 @@
 #include "SubmixEffects/AudioMixerSubmixEffectEQ.h"
 #include "SubmixEffects/SubmixEffectMultiBandCompressor.h"
 #include "SubmixEffects/SubmixEffectFilter.h"
+#include "Components/SceneComponent.h"
+#include "Components/AudioComponent.h"
+#include "Utility/TVStructs.h"
 #include "AudioInterface.generated.h"
 
 UINTERFACE(Blueprintable)
@@ -241,5 +244,14 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Audio|Submix")
 	void GetVOIPSubmix(USoundSubmix*& GetVOIPSubmix);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music|Playback")
+	void PlaySound2D(FSound Music, bool Loop, UAudioComponent*& AudioComponent);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music|Playback")
+	void PlaySoundAtLocation(FSound Music, FVector Location, FRotator Rotation, UAudioComponent*& AudioComponent);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music|Playback")
+	void PlaySoundAttached(FSound Music, USceneComponent* AttachToComponent, FName AttachPointName, FVector Location, FRotator Rotation, UAudioComponent*& AudioComponent);
 
 };

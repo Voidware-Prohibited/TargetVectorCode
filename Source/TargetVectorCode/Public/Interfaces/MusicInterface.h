@@ -5,6 +5,8 @@
 #include "Sound/SoundSubmix.h"
 #include "Quartz/AudioMixerClockHandle.h" 
 #include "Sound/QuartzQuantizationUtilities.h"
+#include "Components/SceneComponent.h"
+#include "Components/AudioComponent.h"
 #include "Utility/TVStructs.h"
 #include "MusicInterface.generated.h"
 
@@ -71,6 +73,15 @@ public:
 	
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music|Settings")
 	void GetNextMusic(FMusicInfo& NextMusic);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music|Playback")
+	void PlayMusic2D(FMusicInfo Music, bool Loop, FQuartzQuantizationBoundary Quantization, UAudioComponent*& AudioComponent);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music|Playback")
+	void PlayMusicAtLocation(FMusicInfo Music, bool Loop, FQuartzQuantizationBoundary Quantization, FVector Location, FRotator Rotation, UAudioComponent*& AudioComponent);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music|Playback")
+	void PlayMusicAttached(FMusicInfo Music, bool Loop, FQuartzQuantizationBoundary Quantization, USceneComponent* AttachToComponent, FName AttachPointName, FVector Location, FRotator Rotation, UAudioComponent*& AudioComponent);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music|Playback")
 	void PlayImmediately(USoundBase* Sound, bool Loop);
