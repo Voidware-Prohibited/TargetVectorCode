@@ -175,11 +175,19 @@ namespace DamageTypeTags
 	UE_DEFINE_GAMEPLAY_TAG(Illness, TEXT("Game.Damge Type.Illness"))
 }
 
-namespace GoalTypeTags
+namespace GoalSessionTypeTags
 {
 	UE_DEFINE_GAMEPLAY_TAG(SinglePlayer, TEXT("Game.Goal Session Type.Single Player"))
-	UE_DEFINE_GAMEPLAY_TAG(CoOP, TEXT("Game.Goal Session Type.Co-Op"))
+	UE_DEFINE_GAMEPLAY_TAG(CoOp, TEXT("Game.Goal Session Type.Co-Op"))
 	UE_DEFINE_GAMEPLAY_TAG(Multiplayer, TEXT("Game.Goal Session Type.Multiplayer"))
+}
+
+namespace DynamicControlTypeTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(FirstToFinish, TEXT("Game.Dynamic Control Type.First To Finish"))
+	UE_DEFINE_GAMEPLAY_TAG(HoldUntilTime, TEXT("Game.Dynamic Control Type.Hold Until Time"))
+	UE_DEFINE_GAMEPLAY_TAG(HoldUntilEvent, TEXT("Game.Dynamic Control Type.Hold Until Event"))
+	UE_DEFINE_GAMEPLAY_TAG(Continuous, TEXT("Game.Dynamic Control Type.Continuous"))
 }
 
 namespace MissionTypeTags
@@ -297,4 +305,38 @@ namespace AppTags
 	UE_DEFINE_GAMEPLAY_TAG(Victoria, TEXT("UI.App.Victoria"))
 	UE_DEFINE_GAMEPLAY_TAG(WDBeckett, TEXT("UI.App.WD Beckett & Associates"))
 	UE_DEFINE_GAMEPLAY_TAG(Zoot, TEXT("UI.App.zoot"))
+}
+
+namespace LocationIconTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(NeutralPin, TEXT("Game.Location Icon.Neutral.Pin"))
+	UE_DEFINE_GAMEPLAY_TAG(NeutralInfantry, TEXT("Game.Location Icon.Neutral.Infantry"))
+	UE_DEFINE_GAMEPLAY_TAG(NeutralVehicle, TEXT("Game.Location Icon.Neutral.Vehicle"))
+	UE_DEFINE_GAMEPLAY_TAG(NeutralArmor, TEXT("Game.Location Icon.Neutral.Armor"))
+	UE_DEFINE_GAMEPLAY_TAG(NeutralAviation, TEXT("Game.Location Icon.Neutral.Aviation"))
+	UE_DEFINE_GAMEPLAY_TAG(NeutralNaval, TEXT("Game.Location Icon.Neutral.Naval"))
+	UE_DEFINE_GAMEPLAY_TAG(NeutralHQ, TEXT("Game.Location Icon.Neutral.HQ"))
+	UE_DEFINE_GAMEPLAY_TAG(NeutralDrop, TEXT("Game.Location Icon.Neutral.Drop"))
+	UE_DEFINE_GAMEPLAY_TAG(NeutralLift, TEXT("Game.Location Icon.Neutral.Lift"))
+	UE_DEFINE_GAMEPLAY_TAG(NeutralBullseye, TEXT("Game.Location Icon.Neutral.Bullseye"))
+	UE_DEFINE_GAMEPLAY_TAG(FriendlyPin, TEXT("Game.Location Icon.Friendly.Pin"))
+	UE_DEFINE_GAMEPLAY_TAG(FriendlyInfantry, TEXT("Game.Location Icon.Friendly.Infantry"))
+	UE_DEFINE_GAMEPLAY_TAG(FriendlyVehicle, TEXT("Game.Location Icon.Friendly.Vehicle"))
+	UE_DEFINE_GAMEPLAY_TAG(FriendlyArmor, TEXT("Game.Location Icon.Friendly.Armor"))
+	UE_DEFINE_GAMEPLAY_TAG(FriendlyAviation, TEXT("Game.Location Icon.Friendly.Aviation"))
+	UE_DEFINE_GAMEPLAY_TAG(FriendlyNaval, TEXT("Game.Location Icon.Friendly.Naval"))
+	UE_DEFINE_GAMEPLAY_TAG(FriendlyHQ, TEXT("Game.Location Icon.Friendly.HQ"))
+	UE_DEFINE_GAMEPLAY_TAG(FriendlyDrop, TEXT("Game.Location Icon.Friendly.Drop"))
+	UE_DEFINE_GAMEPLAY_TAG(FriendlyLift, TEXT("Game.Location Icon.Friendly.Lift"))
+	UE_DEFINE_GAMEPLAY_TAG(FriendlyBullseye, TEXT("Game.Location Icon.Friendly.Bullseye"))
+	UE_DEFINE_GAMEPLAY_TAG(EnemyPin, TEXT("Game.Location Icon.Enemy.Pin"))
+	UE_DEFINE_GAMEPLAY_TAG(EnemyInfantry, TEXT("Game.Location Icon.Enemy.Infantry"))
+	UE_DEFINE_GAMEPLAY_TAG(EnemyVehicle, TEXT("Game.Location Icon.Enemy.Vehicle"))
+	UE_DEFINE_GAMEPLAY_TAG(EnemyArmor, TEXT("Game.Location Icon.Enemy.Armor"))
+	UE_DEFINE_GAMEPLAY_TAG(EnemyAviation, TEXT("Game.Location Icon.Enemy.Aviation"))
+	UE_DEFINE_GAMEPLAY_TAG(EnemyNaval, TEXT("Game.Location Icon.Enemy.Naval"))
+	UE_DEFINE_GAMEPLAY_TAG(EnemyHQ, TEXT("Game.Location Icon.Enemy.HQ"))
+	UE_DEFINE_GAMEPLAY_TAG(EnemyDrop, TEXT("Game.Location Icon.Enemy.Drop"))
+	UE_DEFINE_GAMEPLAY_TAG(EnemyLift, TEXT("Game.Location Icon.Enemy.Lift"))
+	UE_DEFINE_GAMEPLAY_TAG(EnemyBullseye, TEXT("Game.Location Icon.Enemy.Bullseye"))
 }
