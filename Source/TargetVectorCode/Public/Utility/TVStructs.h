@@ -17,6 +17,7 @@
 #include "Engine/Texture.h"
 #include "Misc/DateTime.h"
 #include "Engine/StaticMesh.h"
+#include "Math/Color.h"
 #include "Style/StyleSettings.h"
 #include "TVStructs.generated.h"
 
@@ -30,6 +31,72 @@ struct TARGETVECTORCODE_API FBreadcrumbEntry
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	TSubclassOf<class UCommonActivatableWidget> WidgetClass;
+
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FSubtitleEntry
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString SpeakerCharacter;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FText Text;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	float Time{ 0.0f };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	float MinimumDisplayDuration{ 0.0f };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool ForceDisplayAtTop{ false };
+
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FSubtitles
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool Mature{ false };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool ManualWordWrap{ false };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool SingleLine{ false };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString SpokenText;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	float SubtitlePriority{ 0.0f };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	TArray<FSubtitleEntry> Subtitles;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString Comment;
+
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FSound
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	USoundBase* Sound{ nullptr };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool Mature{ false };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FSubtitles Subtitles;
 
 };
 
@@ -54,13 +121,10 @@ struct TARGETVECTORCODE_API FMusicInfo
 	bool StreamerModeFriendly{ true };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	bool Explicit{ false };
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	UTexture2D* Artwork{ nullptr };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	USoundBase* Sound{ nullptr };
+	FSound Sound;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FQuartzTimeSignature TimeSignature;
@@ -1211,6 +1275,27 @@ struct TARGETVECTORCODE_API FLocationDynamicControlLedger
 };
 
 USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FLocationIcon
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FGameplayTag Icon;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FText Name;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	TArray<FGameplayTag> ActorTypes;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	UTexture2D* Image{ nullptr };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FLinearColor DefaultColor{ 1.0, 1.0, 1.0, 1.0 };
+};
+
+USTRUCT(BlueprintType)
 struct TARGETVECTORCODE_API FLocation
 {
 	GENERATED_BODY()
@@ -1226,6 +1311,9 @@ struct TARGETVECTORCODE_API FLocation
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FVector Location;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FLocationIcon Icon;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	TArray<TSoftObjectPtr<UTexture2D>> Images;
@@ -1686,4 +1774,39 @@ struct TARGETVECTORCODE_API FCommsFrequency
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FGameplayTag EncryptionType {FGameplayTag::EmptyTag};
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FAffinity
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString UnitID;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FGameplayTag UnitType{ FGameplayTag::EmptyTag };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	float Affinity{ 0.0f };
+
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FNonPlayerCharacter
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString ID;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FText Name;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FLinearColor SpeakerColor{ 1.0, 1.0, 1.0, 1.0 };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	TArray< FAffinity > Affiliation;
+
 };

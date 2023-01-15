@@ -60,6 +60,9 @@ public:
 	void SetSessionType(ESessionType SessionType);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
+	void GetLocationIcons(TArray<FLocationIcon>& LocationIcons);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
 	void GetNumberOfUnreadMessages(int& NumberOfUnreadMessages);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
@@ -114,10 +117,16 @@ public:
 	void GetColors(TArray<FSlateColor>& Colors);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
+	void GetNonPlayerCharacters(TArray<FNonPlayerCharacter>& NonPlayerCharacters);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
 	void GetBrands(TArray<FUIBrand>& Brands);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
 	void GetApps(TArray<FUIAppInfo>& Apps);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
+	void IsAppOpen(FGameplayTag App, bool& IsOpen);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|State")
 	void SetAppStyleOverride(FGameplayTag AppStyleOverride);
