@@ -417,6 +417,14 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Readiness")
 	void RemoveReadiness();
 
+	// QUICK SLOTS
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Readiness")
+	void DisplayQuickSlots(bool Persistent, bool DisplayAllSlots);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Readiness")
+	void RemoveQuickSlots();
+
 	// MUSIC
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Now Playing")
