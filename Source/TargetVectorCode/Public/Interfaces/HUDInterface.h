@@ -602,7 +602,7 @@ public:
 	void GoToRoster();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Game Menu")
-	void GoToMissons();
+	void GoToMissions();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Game Menu")
 	void GoToIntel();
