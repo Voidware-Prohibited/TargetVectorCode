@@ -179,6 +179,35 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Debug")
 	void GetOverlayMenu(UOverlayModeMenu*& OverlayMenu);
 
+	// GAME MENU
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Game Menu")
+	void IsGameMenuActive(bool& IsActive);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Game Menu")
+	void DisplayGameMenu();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Game Menu")
+	void RemoveGameMenu();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Game Menu")
+	void EnableGameMenuNavigation();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Game Menu")
+	void DisableGameMenuNavigation();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Game Menu")
+	void IsGameMenuNavigationEnabled(bool& IsEnabled);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Game Menu")
+	void DisplayGameMenuNavigation();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Game Menu")
+	void HideGameMenuNavigation();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Game Menu")
+	void IsGameMenuNavigationVisible(bool& IsEnabled);
+
 	// NAVIGATION
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
@@ -190,11 +219,13 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
 	void GetFocusedWidget(UUserWidget*& FocusedWidget);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
 	void SetFocusedWidget(const UUserWidget* FocusedWidget);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
 	void SetStartingLocation(const TArray<TSubclassOf<class UCommonActivatableWidget>>& WidgetClass);
+
+	// SPECIFIC NAVIGTION
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
 	void SetMainMenuProfile(const UCommonActivatableWidget* Widget);
@@ -238,10 +269,10 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
 	void SelectPlayNextTab();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Game Menu")
 	void SelectOperationsDefaultTab();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Game Menu")
 	void SelectOperationsPreviousTab();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
@@ -441,51 +472,73 @@ public:
 
 	// SHORTCUTS
 
+	// MAIN MENU SHORTCUTS
+
 	// Profile
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
-	void GoToDashboard();
+	void GoToProfile();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
+	void GoToProfileDashboard();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
 	void GoToMessages();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
-	void GoToRequests();
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Game Menu")
 	void GoToNotifications();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcut|Main Menus")
-	void GoToProfile();
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
+	void GoToLoadouts();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcut|Main Menus")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
 	void GoToCharacter();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcut|Main Menus")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
 	void GoToCharacterCustomization();
 
-	// Server
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
+	void GoToProfileStats();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcut|Main Menus")
-	void GoToScoreboard();
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcut|Main Menus")
-	void GoToRoster();
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcut|Main Menus")
-	void GoToOperations();
+	// Server - Status and Moderation
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
-	void GoToMap();
+	void GoToServer();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
-	void GoToMissons();
+	void GoToServerInformation();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
-	void GoToIntel();
+	void GoToServerStats();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
-	void GoToServices();
+	void GoToServerModeration();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
+	void GoToServerOverwatch();
+
+	// Game Master
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
+	void GoToGameMaster();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
+	void GoToGameMasterDashboard();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
+	void GoToGameMasterWorld();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
+	void GoToGameMasterResources();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
+	void GoToGameMasterMisssions();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
+	void GoToGameMasterIntel();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
+	void GoToGameMasterIntervention();
 
 	// Shop
 
@@ -515,7 +568,67 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Main Menu")
 	void GoToLockerEquipment();
 
-	// Render Target
+	// GAME MENU SHORTCUTS
+
+	// Player
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Game Menu")
+	void GoToPlayer();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Game Menu")
+	void GoToPlayerDashboard();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Game Menu")
+	void GoToPlayerProgress();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Game Menu")
+	void GoToPlayerLoadout();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Game Menu")
+	void GoToRequests();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Game Menu")
+	void GoToPlayerGameStats();
+
+	// Operations
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcut|Game Menu")
+	void GoToOperations();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Game Menu")
+	void GoToOperationsDashboard();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Game Menu")
+	void GoToRoster();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Game Menu")
+	void GoToMissons();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Game Menu")
+	void GoToIntel();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Game Menu")
+	void GoToScoreboard();
+
+	// Map
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Game Menu")
+	void GoToMap();
+
+	// Inventory
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Game Menu")
+	void GoToInventory();
+
+	// Apps
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Game Menu")
+	void GoToApps();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Game Menu")
+	void GoToApp(FGameplayTag App);
+
+	// RENDER TARGET
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Render Target")
 	void SetInteractiveRenderTarget(const AActor* Actor);
