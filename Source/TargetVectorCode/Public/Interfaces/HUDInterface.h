@@ -110,8 +110,8 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
 	void IsMainMenuActive(bool& IsActive);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
-	void DisplayMainMenu();
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, meta=(AutoCreateRefTerm = "StartingLocation"), Category = "Navigation|Main Menu")
+	void DisplayMainMenu(const TArray<TSubclassOf<class UCommonActivatableWidget>>& StartingLocation);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
 	void RemoveMainMenu();
@@ -184,8 +184,8 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Game Menu")
 	void IsGameMenuActive(bool& IsActive);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Game Menu")
-	void DisplayGameMenu();
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, meta=(AutoCreateRefTerm = "StartingLocation"), Category = "Navigation|Game Menu")
+	void DisplayGameMenu(const TArray<TSubclassOf<class UCommonActivatableWidget>>& StartingLocation);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Game Menu")
 	void RemoveGameMenu();
@@ -406,7 +406,7 @@ public:
 
 	// SUBTITLES
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Readiness")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Subtitles")
 	void AddSubtitle(FSubtitleEntry SubtitleEntry);
 
 	// READINESS
@@ -419,10 +419,16 @@ public:
 
 	// QUICK SLOTS
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Readiness")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Quick Slots")
 	void DisplayQuickSlots(bool Persistent, bool DisplayAllSlots);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Readiness")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	void GetQuickSlots(UCommonActivatableWidget*& QuickSlots);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Quick Slots")
+	void FadeOutQuickSlots(float InitialDelay, float FadeOutDuration);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Quick Slots")
 	void RemoveQuickSlots();
 
 	// MUSIC

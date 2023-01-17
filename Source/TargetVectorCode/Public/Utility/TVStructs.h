@@ -1532,6 +1532,9 @@ struct TARGETVECTORCODE_API FUIAppInfo
 	FGameplayTag Brand {FGameplayTag::EmptyTag};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	TSubclassOf<class UCommonActivatableWidget> IntroWidget;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	TArray<FName> AppCategories;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
