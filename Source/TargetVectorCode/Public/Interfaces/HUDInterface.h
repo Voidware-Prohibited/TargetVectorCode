@@ -8,6 +8,7 @@
 #include "GameFramework/Actor.h"
 #include "Utility/TVStructs.h"
 #include "NativeGameplayTags.h"
+#include "Style/StyleSettings.h"
 #include "HUDInterface.generated.h"
 
 UINTERFACE(Blueprintable)
@@ -20,46 +21,23 @@ class TARGETVECTORCODE_API IHUDInterface {
 
 public:
 
-	// LAYERS
+	// MAIN LAYER STACKS
+	
+	// Player Effects Overlay Layer
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	void GetPlayerEffectsOverlayLayerStack(UCommonActivatableWidgetStack*& Stack);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	void DisplayPlayerEffectsOverlayLayer();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	void RemovePlayerEffectsOverlayLayer();
+
+	// Game Layer
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
 	void GetGameLayerStack(UCommonActivatableWidgetStack*& Stack);
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
-	void GetGameMenuStack(UCommonActivatableWidgetStack*& Stack);
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
-	void GetMenuStack(UCommonActivatableWidgetStack*& Stack);
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
-	void GetOverlayStack(UCommonActivatableWidgetStack*& Stack);
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
-	void GetTitleStack(UCommonActivatableWidgetStack*& Stack);
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
-	void GetSubtitleStack(UCommonActivatableWidgetStack*& Stack);
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
-	void GetTimeDateLocationTitleStack(UCommonActivatableWidgetStack*& Stack);
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
-	void GetOpeningCreditsStack(UCommonActivatableWidgetStack*& Stack);
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
-	void GetEndCreditsStack(UCommonActivatableWidgetStack*& Stack);
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
-	void GetNowPlayingStack(UCommonActivatableWidgetStack*& Stack);
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
-	void GetCutsceneNowPlayingStack(UCommonActivatableWidgetStack*& Stack);
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
-	void GetModalQueue(UCommonActivatableWidgetQueue*& Queue);
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
-	void InitializePrimaryLayout();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
 	void DisplayGameLayer();
@@ -68,10 +46,42 @@ public:
 	void RemoveGameLayer();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	void HideGameLayer();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	void UnhideGameLayer();
+
+	// Game Menu Layer
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	void GetGameMenuLayerStack(UCommonActivatableWidgetStack*& Stack);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
 	void DisplayGameMenuLayer();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
 	void RemoveGameMenuLayer();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	void HideGameMenuLayer();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	void UnhideGameMenuLayer();
+
+	// Menu Layer
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	void GetMenuLayerStack(UCommonActivatableWidgetStack*& Stack);
+
+	// Overlay Layer
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	void GetOverlayLayerStack(UCommonActivatableWidgetStack*& Stack);
+
+	// Title Layer
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	void GetTitleLayerStack(UCommonActivatableWidgetStack*& Stack);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
 	void DisplayTitleLayer();
@@ -79,7 +89,34 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
 	void RemoveTitleLayer();
 
-	// UNIVERSAL
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	void HideTitleLayer();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	void UnhideTitleLayer();
+
+	// Modal Queue Layer
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	void GetModalQueueLayerStack(UCommonActivatableWidgetQueue*& Queue);
+
+	// HUD Effects Overlay Layer
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	void GetHUDEffectsOverlayLayerStack(UCommonActivatableWidgetStack*& Stack);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	void DisplayHUDEffectsOverlayLayer();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	void RemoveHUDEffectsOverlayLayer();
+
+	// PRIMARY LAYOUT
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Layers")
+	void InitializePrimaryLayout();
+
+	// NAVIGATION
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
 	void Back();
@@ -101,6 +138,21 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
 	void SetupNavigation();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
+	void SetCurrentMenuStack(const UCommonActivatableWidgetStack* Stack);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
+	void GetCurrentMenuStack(UCommonActivatableWidgetStack*& Stack);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
+	void GetFocusedWidget(UUserWidget*& FocusedWidget);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
+	void SetFocusedWidget(const UUserWidget* FocusedWidget);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
+	void SetStartingLocation(const TArray<TSubclassOf<class UCommonActivatableWidget>>& WidgetClass);
 
 	// MAIN MENU
 
@@ -133,6 +185,29 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
 	void IsMainMenuNavigationVisible(bool& IsEnabled);
+
+	// PROMPTS
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu|Quit Game")
+	void DisplayQuitGamePrompt();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu|Quit Game")
+	void RemoveQuitGamePrompt();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu|Quit Game")
+	void IsQuitGamePromptActive(bool& IsActive);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu|Quit Game")
+	void DisplayAbandonChangesPrompt();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu|Quit Game")
+	void RemoveAbandonChangesPrompt();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu|Quit Game")
+	void IsAbandonChangesPromptActive(bool& IsActive);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu|Quit Game")
+	void ConfirmAbandonChangesPrompt();
 
 	// SCANLINES LAYER
 
@@ -207,23 +282,6 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Game Menu")
 	void IsGameMenuNavigationVisible(bool& IsEnabled);
-
-	// NAVIGATION
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
-	void SetCurrentMenuStack(const UCommonActivatableWidgetStack* Stack);
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
-	void GetCurrentMenuStack(UCommonActivatableWidgetStack*& Stack);
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
-	void GetFocusedWidget(UUserWidget*& FocusedWidget);
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
-	void SetFocusedWidget(const UUserWidget* FocusedWidget);
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation")
-	void SetStartingLocation(const TArray<TSubclassOf<class UCommonActivatableWidget>>& WidgetClass);
 
 	// SPECIFIC NAVIGTION
 
@@ -341,125 +399,219 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu|Settings")
 	void SelectSettingsNextTab();
 
-	// PROMPTS
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu|Quit Game")
-	void DisplayQuitGamePrompt();
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu|Quit Game")
-	void RemoveQuitGamePrompt();
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu|Quit Game")
-	void IsQuitGamePromptActive(bool& IsActive);
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu|Quit Game")
-	void DisplayAbandonChangesPrompt();
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu|Quit Game")
-	void RemoveAbandonChangesPrompt();
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu|Quit Game")
-	void IsAbandonChangesPromptActive(bool& IsActive);
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu|Quit Game")
-	void ConfirmAbandonChangesPrompt();
-
 	// BLACK SCREEN
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Black Screen")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Overlay Layer|Black Screen")
 	void DisplayBlackScreen(float InitialDelay, float FadeLength);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Black Screen")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Overlay Layer|Black Screen")
 	void RemoveBlackScreen(float InitialDelay, float FadeLength);
 
 	// OPENING CREDITS 
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Opening Credits")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Title Layer|Opening Credits")
+	void GetOpeningCreditsStack(UCommonActivatableWidgetStack*& Stack);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Title Layer|Opening Credits")
 	void DisplayOpeningCredit(float DisplayLength, const FText& Title, const FText& Name);
+
+	// ENDING CREDITS
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Title Layer|Ending Credits")
+	void GetEndCreditsStack(UCommonActivatableWidgetStack*& Stack);
 
 	// DATE TIME LOCATION 
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Time Date Location Title")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Title Layer|Time Date Location Title")
+	void GetTimeDateLocationTitleStack(UCommonActivatableWidgetStack*& Stack);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Title Layer|Time Date Location Title")
 	void DisplayTimeDateLocationTitle(float DisplayLength);
 
 	// COUNTDOWN
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Countdown")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Countdown")
 	void DisplayCountdown(float PreCountDelayLength, float CountdownLength, float PostCountDelayLength, const FText &StandyLabel, const FText &InProgressLabel, const FText &CompletedLabel);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Countdown")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Countdown")
 	void StartCountdown();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Countdown")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Countdown")
 	void RemoveCountdown();
 
 	// CONTEXTUAL INPUT PROMPT
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Contextual Input Prompt")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Contextual Input Prompt")
 	void AddContextualInputPrompts(const TArray<FContextualInputAction>& ContextualInputPrompts);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Contextual Input Prompt")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Contextual Input Prompt")
 	void RemoveContextualInputPrompts(const TArray<FContextualInputAction>& ContextualInputPrompts);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Contextual Input Prompt")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Contextual Input Prompt")
 	void RemoveAllContextualInputPrompts();
 
 	// SUBTITLES
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Subtitles")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Title Layer|Subtitles")
+	void GetSubtitleStack(UCommonActivatableWidgetStack*& Stack);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Title Layer|Subtitles")
 	void AddSubtitle(FSubtitleEntry SubtitleEntry);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Title Layer|Subtitles")
+	void RemoveAllSubtitles();
 
 	// READINESS
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Readiness")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Readiness")
 	void DisplayReadiness();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Readiness")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Readiness")
 	void RemoveReadiness();
+
+	// CROSSHAIR
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Crosshair")
+	void GetCrosshair(UCommonActivatableWidget*& Widget);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Crosshair")
+	void DisplayCrosshair();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Crosshair")
+	void SetCrosshairMode(EWidgetCenter CrosshairMode);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Crosshair")
+	void RemoveCrosshair();
+
+	// CHAT
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Chat")
+	void DisplayChat();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Chat")
+	void FadeOutChat(float InitialDelay, float FadeOutDuration);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Chat")
+	void ClearCurrentChatChannel();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Chat")
+	void ClearAllChatChannels();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Chat")
+	void RemoveChat();
+
+	// COMPASS
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Compass")
+	void DisplayCompass();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Compass")
+	void RemoveCompass();
+
+	// ENVIRONMENT INFO
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Enivornment Info")
+	void DisplayEnivornmentInfo();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Enivornment Info")
+	void RemoveEnivornmentInfo();
+
+	// SERVER LOG
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Server Log")
+	void DisplayServerLog();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Server Log")
+	void FadeOutServerLog(float InitialDelay, float FadeOutDuration);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Server Log")
+	void RemoveServerLog();
+
+	// MINIMAP
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|MiniMap")
+	void DisplayMiniMap();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|MiniMap")
+	void RemoveMiniMap();
+
+	// COMMS
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Comms")
+	void DisplayComms();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Comms")
+	void RemoveComms();
+
+	// VITALS
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Vitals")
+	void DisplayVitals();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Vitals")
+	void RemoveVitals();
 
 	// QUICK SLOTS
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Quick Slots")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Quick Slots")
 	void DisplayQuickSlots(bool Persistent, bool DisplayAllSlots);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Main Menu")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Quick Slots")
 	void GetQuickSlots(UCommonActivatableWidget*& QuickSlots);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Quick Slots")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Quick Slots")
 	void FadeOutQuickSlots(float InitialDelay, float FadeOutDuration);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Quick Slots")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Quick Slots")
 	void RemoveQuickSlots();
+
+	// EQUIPPED ITEM
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Equipped Item")
+	void DisplayEquippedItem();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Equipped Item")
+	void FadeOutEquippedItem(float InitialDelay, float FadeOutDuration);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Equipped Item")
+	void RemoveEquippedItem();
 
 	// MUSIC
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Now Playing")
 	void GetCurrentMusic(FMusicInfo& MusicInfo);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Now Playing")
+	// Now Playing
+	
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Now Playing")
+	void GetNowPlayingStack(UCommonActivatableWidgetStack*& Stack);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Now Playing")
 	void DisplayNowPlaying(FMusicInfo MusicInfo, float DisplayLength);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Now Playing")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Now Playing")
 	void RemoveNowPlaying();
+
+	// Cutscene Now Playing
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Title Layer|Now Playing")
+	void GetCutsceneNowPlayingStack(UCommonActivatableWidgetStack*& Stack);
 	
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Now Playing")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Title Layer|Now Playing")
 	void DisplayCutsceneNowPlaying(FMusicInfo MusicInfo, float DisplayLength);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Now Playing")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Title Layer|Now Playing")
 	void RemoveCutsceneNowPlaying();
 
-	// APP INTRO ANIMATIONS
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Apps")
-	void AddPlayedAppIntroAnimation(FGameplayTag App);
-	
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Apps")
-	void ResetAppIntroAnimations();
-
-	// SPECTATING
+	// PLAYER DEATH
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Spectating")
 	void StartDeathSequence();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Spectating")
+	void DisplayPlayerDeathHUDEffect();
+
+	// SPECTATING
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Spectating")
 	void DisplayKillCamMenu();
@@ -641,6 +793,17 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Navigation|Shortcuts|Game Menu")
 	void GoToApp(FGameplayTag App);
+
+	// App Intro Animations
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Apps")
+	void AddPlayedAppIntroAnimation(FGameplayTag App);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Apps")
+	void ShouldAppIntroAnimationPlay(FGameplayTag App, bool& ShouldPlay);
+	
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Apps")
+	void ResetAppIntroAnimations();
 
 	// RENDER TARGET
 
