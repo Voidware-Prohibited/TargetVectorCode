@@ -18,6 +18,8 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State")
 	void GetAllPlayerStates(TArray<APlayerState*>& PlayerStates);
 
+	// GAME STATE SETTINGS
+
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
 	void GetPreGameSettings(bool& EnableLobby, FGameplayTag& LobbyMode, bool& EnableLobbyCountdown, float& LobbyCountdownPreDelay, float& LobbyCountdownLength, float& LobbyCountdownPostDelay, FGameplayTag& PreGameMode, bool& EnablePreGameCountdown, float& PreGameCountdownPreDelay, float& PreGameCoundownLength, float& PreGameCountdownPostDelay, bool& HostMustStartGame, bool& PlayerReadyRequired, int& MinPlayers, int& MaxPlayers);
 
@@ -29,6 +31,8 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
 	void GetSpectatingSettings(bool& EnableSpectating, float& SpectatingDelay, FName& SpectatingTag, bool& EnableKillCamTransition, bool& SpectatePlayers, bool& SpectateAI, TArray<FGameplayTag>& AllowedViewModes);
+
+	// TICKETS
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Tickets")
 	void GetTicketSettings(bool& EnableTicketsForSecurity, int& StartingTicketAmount, int& RespawnTicketCost, bool& UseCustomTicketDistribution, TArray<FTicketDistributionEntry>& CustomTicketDistribution);
@@ -48,8 +52,12 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Tickets")
 	void SetTicketsForUnit(const FString& ID, const FGameplayTag& PlayerUnitType, int Tickets);
 
+	// RESPAWN CONTEST
+
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
 	void GetRespawnContestSettings(int& Tickets, TArray<FContestRound>& ContestRounds, bool& Random, float& RespawnContestDelay, float& PreRoundDelay, float& PreRoundCountdownLength, float& RespawnDelay, float& RespawnCountdownLength);
+
+	// GAME START
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
 	void OnAllPlayersLoadedInLobbyLevel();
@@ -147,6 +155,8 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Travel")
 	void GetLevelNames(FString& Entry, FString& Lobby, FString& GameLevel);
 
+	// COUNTDOWN
+
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
 	void OnStartPreCountdown();
 	
@@ -179,4 +189,41 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
 	void EndSession();
+
+	// SERVER LOG
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Server Log")
+	void AddServerLogEntry(const FServerLogEntry& ServerLogEntry);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Server Log")
+	void GetServerLog(TArray<FServerLogEntry>& ServerLog);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Server Log")
+	void ClearServerLog();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Server Log")
+	void UpdateClientsServerLog();
+
+	// ACTIONS
+
+	// PLAYER ACTIONS
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Actions|Player")
+	void AddPlayerAction(FPlayerAction PlayerAction);
+
+	// FIRETEAM ACTIONS
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Actions|Fireteam")
+	void AddFireteamAction(FFireteamAction FireteamAction);
+
+	// SECTION ACTIONS
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Actions|Section")
+	void AddSectionAction(FSectionAction SectionAction);
+
+	// ORGANIZATION ACTIONS
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Actions|Organization")
+	void AddOrganizationAction(FOrganizationAction OrganizationAction);
+
 };

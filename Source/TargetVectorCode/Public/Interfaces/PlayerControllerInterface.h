@@ -120,4 +120,30 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Game Start")
 	void OnSessionEnd();
 
+	// SERVER LOG
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Server Log")
+	void UpdateClientsServerLog();
+
+	// ACTIONS
+
+	// PLAYER ACTIONS
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Actions|Player")
+	void AddPlayerActionClient(FPlayerAction PlayerAction);
+
+	// FIRETEAM ACTIONS
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Actions|Fireteam")
+	void AddFireteamActionClient(FFireteamAction FireteamAction);
+
+	// SECTION ACTIONS
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Actions|Section")
+	void AddSectionActionClient(FSectionAction SectionAction);
+
+	// ORGANIZATION ACTIONS
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Actions|Organization")
+	void AddOrganizationActionClient(FOrganizationAction OrganizationAction);
 };

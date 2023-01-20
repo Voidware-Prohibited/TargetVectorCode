@@ -489,6 +489,9 @@ public:
 	void DisplayChat();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Chat")
+	void UpdateClientsChat();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Chat")
 	void FadeOutChat(float InitialDelay, float FadeOutDuration);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Chat")
@@ -520,6 +523,9 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Server Log")
 	void DisplayServerLog();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Server Log")
+	void UpdateClientsServerLog();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Server Log")
 	void FadeOutServerLog(float InitialDelay, float FadeOutDuration);
@@ -575,6 +581,28 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Equipped Item")
 	void RemoveEquippedItem();
+
+	// ACTIONS
+
+	// PLAYER ACTIONS
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Actions|Player")
+	void AddPlayerActionClient(FPlayerAction PlayerAction);
+
+	// FIRETEAM ACTIONS
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Actions|Fireteam")
+	void AddFireteamActionClient(FFireteamAction FireteamAction);
+
+	// SECTION ACTIONS
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Actions|Section")
+	void AddSectionActionClient(FSectionAction SectionAction);
+
+	// ORGANIZATION ACTIONS
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Actions|Organization")
+	void AddOrganizationActionClient(FOrganizationAction OrganizationAction);
 
 	// MUSIC
 
