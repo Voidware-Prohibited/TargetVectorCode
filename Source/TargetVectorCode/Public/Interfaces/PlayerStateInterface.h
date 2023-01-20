@@ -2,6 +2,7 @@
 
 #include "NativeGameplayTags.h"
 #include "Utility/ALSXTGameplayTags.h"
+#include "Utility/TVStructs.h"
 #include "PlayerStateInterface.generated.h"
 
 UINTERFACE(Blueprintable)

@@ -467,7 +467,41 @@ public:
 	void DisplayReadiness();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Readiness")
+	void HideReadiness();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Readiness")
+	void UnhideReadiness();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Readiness")
 	void RemoveReadiness();
+
+	// NEXT MAP
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Next Map")
+	void DisplayNextMap();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Next Map")
+	void HideNextMap();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Next Map")
+	void UnhideNextMap();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Next Map")
+	void RemoveNextMap();
+
+	// BIG ITEM
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Big Item")
+	void DisplayBigItem();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Big Item")
+	void HideBigItem();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Big Item")
+	void UnhideBigItem();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Big Item")
+	void RemoveBigItem();
 
 	// CROSSHAIR
 
@@ -476,6 +510,12 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Crosshair")
 	void DisplayCrosshair();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Crosshair")
+	void HideCrosshair();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Crosshair")
+	void UnhideCrosshair();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Crosshair")
 	void SetCrosshairMode(EWidgetCenter CrosshairMode);
@@ -490,6 +530,12 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Chat")
 	void UpdateClientsChat();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Chat")
+	void HideChat();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Chat")
+	void UnhideChat();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Chat")
 	void FadeOutChat(float InitialDelay, float FadeOutDuration);
@@ -509,6 +555,12 @@ public:
 	void DisplayCompass();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Compass")
+	void HideCompass();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Compass")
+	void UnhideCompass();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Compass")
 	void RemoveCompass();
 
 	// ENVIRONMENT INFO
@@ -517,12 +569,24 @@ public:
 	void DisplayEnivornmentInfo();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Enivornment Info")
+	void HideEnivornmentInfo();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Enivornment Info")
+	void UnhideEnivornmentInfo();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Enivornment Info")
 	void RemoveEnivornmentInfo();
 
 	// SERVER LOG
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Server Log")
 	void DisplayServerLog();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Server Log")
+	void HideServerLog();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Server Log")
+	void UnhideServerLog();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Server Log")
 	void UpdateClientsServerLog();
@@ -539,12 +603,24 @@ public:
 	void DisplayMiniMap();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|MiniMap")
+	void HideMiniMap();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|MiniMap")
+	void UnhideMiniMap();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|MiniMap")
 	void RemoveMiniMap();
 
 	// COMMS
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Comms")
 	void DisplayComms();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Comms")
+	void HideComms();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Comms")
+	void UnhideComms();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Comms")
 	void RemoveComms();
@@ -555,12 +631,24 @@ public:
 	void DisplayVitals();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Vitals")
+	void HideVitals();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Vitals")
+	void UnhideVitals();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Vitals")
 	void RemoveVitals();
 
 	// QUICK SLOTS
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Quick Slots")
 	void DisplayQuickSlots(bool Persistent, bool DisplayAllSlots);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Quick Slots")
+	void HideQuickSlots();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Quick Slots")
+	void UnhideQuickSlots();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Quick Slots")
 	void GetQuickSlots(UCommonActivatableWidget*& QuickSlots);
@@ -576,13 +664,34 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Equipped Item")
 	void DisplayEquippedItem();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Equipped Item")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Equipped Item")
+	void HideEquippedItem();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Equipped Item")
+	void UnhideEquippedItem();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Equipped Item")
 	void FadeOutEquippedItem(float InitialDelay, float FadeOutDuration);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Equipped Item")
 	void RemoveEquippedItem();
 
 	// ACTIONS
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Actions")
+	void DisplayActions();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Actions")
+	void HideActions();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Actions")
+	void UnhideActions();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Actions")
+	void FadeOutActions(float InitialDelay, float FadeOutDuration);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Actions")
+	void RemoveActions();
 
 	// PLAYER ACTIONS
 
@@ -618,6 +727,12 @@ public:
 	void DisplayNowPlaying(FMusicInfo MusicInfo, float DisplayLength);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Now Playing")
+	void HideNowPlaying();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Now Playing")
+	void UnhideNowPlaying();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Now Playing")
 	void RemoveNowPlaying();
 
 	// Cutscene Now Playing
@@ -627,6 +742,12 @@ public:
 	
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Title Layer|Now Playing")
 	void DisplayCutsceneNowPlaying(FMusicInfo MusicInfo, float DisplayLength);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Title Layer|Now Playing")
+	void HideCutsceneNowPlaying();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Title Layer|Now Playing")
+	void UnhideCutsceneNowPlaying();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Title Layer|Now Playing")
 	void RemoveCutsceneNowPlaying();
