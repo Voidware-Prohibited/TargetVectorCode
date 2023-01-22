@@ -1059,6 +1059,18 @@ struct TARGETVECTORCODE_API FTicketDistributionEntry
 };
 
 USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FNotificationInputAction
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FText DisplayText;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FDataTableRowHandle InputAction;
+};
+
+USTRUCT(BlueprintType)
 struct TARGETVECTORCODE_API FNotification
 {
 	GENERATED_BODY()
@@ -1071,6 +1083,9 @@ struct TARGETVECTORCODE_API FNotification
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FGameplayTag NotificationType;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FGameplayTag App;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	bool Unread;
@@ -1086,6 +1101,9 @@ struct TARGETVECTORCODE_API FNotification
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	TSoftObjectPtr<UTexture> Image;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	TArray<FNotificationInputAction> InputActions;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FGameplayTag Rarity;
@@ -1476,6 +1494,37 @@ struct TARGETVECTORCODE_API FIntel
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	float Value;
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FMissionSequenceEntry
+{
+	GENERATED_BODY()
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMission Mission;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMission OnSuccess;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMission OnPartialSuccess;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMission OnFail;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMission OnBonus;
+
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FMissionSequence
+{
+	GENERATED_BODY()
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	TArray<FMission> Missions;
 };
 
 USTRUCT(BlueprintType)
