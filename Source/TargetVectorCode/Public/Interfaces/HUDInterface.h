@@ -414,13 +414,19 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Video Call")
 	void RemoveVideoCall();
 
-	// MISSION ALERT
+	// ALERT
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Mission Update")
-	void DisplayMissionAlert(FMission Mission, FGameplayTag Type);
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Alert")
+	void DisplayAlert(TSubclassOf<class UCommonActivatableWidget> Widget, const FText& Instigator, const FText& Description);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Mission Update")
-	void RemoveMissionAlert();
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Alert")
+	void HideAlert();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Alert")
+	void UnhideAlert();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Alert")
+	void RemoveAlert();
 
 	// NOTIFICATION
 
@@ -428,15 +434,125 @@ public:
 	void DisplayNotification(FNotification Notification);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Notification")
+	void HideNotification();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Notification")
+	void UnhideNotification();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Notification")
 	void RemoveNotification(FNotification Notification);
 
-	// MISSION NOTIFICATION
+	// SERVER EVENT TIMER LIST
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Mission Update")
-	void DisplayMissionNotification(FMission Mission, const TArray<FObjective>& Objectives);
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Server Event|Timer List")
+	void DisplayServerEventTimer(TSubclassOf<class UCommonActivatableWidget> Widget, const FText& Instigator, const FText& Description);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Mission Update")
-	void RemoveMissionNotification();
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Server Event|Timer List")
+	void HideServerEventTimerList();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Server Event|Timer List")
+	void UnhideServerEventTimerList();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Server Event|Timer List")
+	void RemoveServerEventTimerList();
+
+	// SERVER EVENT UPDATE
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Server Event|Update")
+	void DisplayServerEventUpdate(TSubclassOf<class UCommonActivatableWidget> Widget, const FText& TopSubtitle, const FText& MainTitle, const FText& BottomSubtitle);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Server Event|Update")
+	void HideServerEventUpdate();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Server Event|Update")
+	void UnhideServerEventUpdate();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Server Event|Update")
+	void RemoveServerEventUpdate();
+
+	// SERVER EVENT NOTIFICATION
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Server Event|Notification")
+	void DisplayServerEventNotification(FMission Mission, const TArray<FObjective>& Objectives);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Server Event|Notification")
+	void HideServerEventNotification();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Server Event|Notification")
+	void UnhideServerEventNotification();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Server Event|Notification")
+	void RemoveServerEventNotification();
+
+	// HINT
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Hint")
+	void DisplayHint(const FText& Title, const FText& PrefixText, FDataTableRowHandle InputAction, const FText& SuffixSubtitle);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Server Event|Hint")
+	void HideHint();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Server Event|Hint")
+	void UnhideHint();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Server Event|Hint")
+	void RemoveHint();
+
+	// VEHICLE GAUGE CLUSTER
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Vehicle|Gauge Cluster")
+	void DisplayVehicleGaugeCluster(TSubclassOf<class UCommonActivatableWidget> Widget);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Vehicle|Gauge Cluster")
+	void HideVehicleGaugeCluster();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Vehicle|Gauge Cluster")
+	void UnhideVehicleGaugeCluster();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Vehicle|Gauge Cluster")
+	void RemoveVehicleGaugeCluster();
+
+	// VEHICLE CONTEXTUAL
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Vehicle|Contextual")
+	void DisplayVehicleContextual(TSubclassOf<class UCommonActivatableWidget> Widget, const TArray<FContextualInputAction>& ContextualInputPrompts);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Vehicle|Contextual")
+	void HideVehicleContextual();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Vehicle|Contextual")
+	void UnhideVehicleContextual();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Vehicle|Contextual")
+	void RemoveVehicleContextual();
+
+	// GAME MODE 1
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Game Mode")
+	void DisplayGameMode1(TSubclassOf<class UCommonActivatableWidget> Widget);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Game Mode")
+	void HideGameMode1();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Game Mode")
+	void UnhideGameMode1();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Game Mode")
+	void RemoveGameMode1();
+
+	// GAME MODE 2
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Game Mode")
+	void DisplayGameMode2(TSubclassOf<class UCommonActivatableWidget> Widget);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Game Mode")
+	void HideGameMode2();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Game Mode")
+	void UnhideGameMode2();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Game Mode")
+	void RemoveGameMode2();
 
 	// COUNTDOWN
 
@@ -683,6 +799,20 @@ public:
 	void AddOrganizationActionClient(FOrganizationAction OrganizationAction);
 
 	// GAME MENU LAYER
+
+	// TUTORIAL
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Menu Layer|Tutorial")
+	void DisplayTutorial(const FText& Title, const FText& PrefixText, FDataTableRowHandle InputAction, const FText& SuffixSubtitle);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Menu Layer|Tutorial")
+	void HideTutorial();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Menu Layer|Tutorial")
+	void UnhideTutorial();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Menu Layer|Tutorial")
+	void RemoveTutorial();
 
 	// READINESS
 
