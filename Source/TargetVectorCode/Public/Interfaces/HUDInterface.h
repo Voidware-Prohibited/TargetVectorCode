@@ -608,7 +608,21 @@ public:
 	void SetCrosshairMode(EWidgetCenter CrosshairMode);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Crosshair")
+	void SetCrosshairLocation(FVector Location);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Crosshair")
 	void RemoveCrosshair();
+
+	// HIT CONFIRMATION
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Hit Confirmation")
+	void DisplayHitConfirmation(FGameplayTag Type, FGameplayTag Mode, FVector Location);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Hit Confirmation")
+	void HideHitConfirmation();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Hit Confirmation")
+	void UnhideHitConfirmation();
 
 	// COMPASS
 

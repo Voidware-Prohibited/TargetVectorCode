@@ -67,6 +67,13 @@ namespace SimpleCommsChannelTags
 	UE_DEFINE_GAMEPLAY_TAG(Whisper, TEXT("Game.Simple Comms Channel.Whisper"))
 }
 
+namespace HitConfirmationTypeTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(Elimination, TEXT("Game.Hit Confirmation.Hit"))
+	UE_DEFINE_GAMEPLAY_TAG(Incapacitated, TEXT("Game.Hit Confirmation.Incapacitated"))
+	UE_DEFINE_GAMEPLAY_TAG(Unconscious, TEXT("Game.Hit Confirmation.Unconscious"))
+}
+
 namespace MarkerTypeTags
 {
 	UE_DEFINE_GAMEPLAY_TAG(Self, TEXT("Game.Marker Type.Self"))
