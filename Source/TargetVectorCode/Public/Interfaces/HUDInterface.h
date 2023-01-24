@@ -590,6 +590,9 @@ public:
 	// CROSSHAIR
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Crosshair")
+	void SetCrosshair(TSubclassOf<class UCommonActivatableWidget> Widget);
+	
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Crosshair")
 	void GetCrosshair(UCommonActivatableWidget*& Widget);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Crosshair")
