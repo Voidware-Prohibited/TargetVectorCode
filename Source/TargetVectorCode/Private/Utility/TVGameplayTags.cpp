@@ -47,15 +47,6 @@ namespace IDTypeTags
 	UE_DEFINE_GAMEPLAY_TAG(LevelActor, TEXT("Game.ID Type.LevelActor"))
 }
 
-namespace ObjectCollisionTypeTags
-{
-	UE_DEFINE_GAMEPLAY_TAG(None, TEXT("Game.Object Collision Type.None"))
-	UE_DEFINE_GAMEPLAY_TAG(Impact, TEXT("Game.Object Collision Type.Impact"))
-	UE_DEFINE_GAMEPLAY_TAG(Overlap, TEXT("Game.Object Collision Type.Overlap"))
-	UE_DEFINE_GAMEPLAY_TAG(Drag, TEXT("Game.Object Collision Type.Drag"))
-	UE_DEFINE_GAMEPLAY_TAG(Roll, TEXT("Game.Object Collision Type.Roll"))
-}
-
 namespace SimpleCommsChannelTags
 {
 	UE_DEFINE_GAMEPLAY_TAG(Global, TEXT("Game.Simple Comms Channel.Global"))
@@ -169,17 +160,6 @@ namespace GameStartModeTags
 	UE_DEFINE_GAMEPLAY_TAG(GroundOrganization, TEXT("Game.Game Start Mode.Ground Grouped by Organization"))
 	UE_DEFINE_GAMEPLAY_TAG(GroundFireteam, TEXT("Game.Game Start Mode.Ground Grouped by Fireteam"))
 	UE_DEFINE_GAMEPLAY_TAG(GroundRandom, TEXT("Game.Game Start Mode.Ground Random Location"))
-}
-
-namespace DamageTypeTags
-{
-	UE_DEFINE_GAMEPLAY_TAG(Impact, TEXT("Game.Damge Type.Impact"))
-	UE_DEFINE_GAMEPLAY_TAG(Edge, TEXT("Game.Damge Type.Edge"))
-	UE_DEFINE_GAMEPLAY_TAG(Burn, TEXT("Game.Damge Type.Burn"))
-	UE_DEFINE_GAMEPLAY_TAG(Explosion, TEXT("Game.Damge Type.Explosion"))
-	UE_DEFINE_GAMEPLAY_TAG(Gas, TEXT("Game.Damge Type.Gas"))
-	UE_DEFINE_GAMEPLAY_TAG(Poison, TEXT("Game.Damge Type.Poison"))
-	UE_DEFINE_GAMEPLAY_TAG(Illness, TEXT("Game.Damge Type.Illness"))
 }
 
 namespace GoalSessionTypeTags
