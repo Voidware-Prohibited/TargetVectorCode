@@ -972,7 +972,7 @@ struct TARGETVECTORCODE_API FMarker
 };
 
 USTRUCT(BlueprintType)
-struct TARGETVECTORCODE_API FDoubleHitResult
+struct TARGETVECTORCODE_API FPlayerActionHitResult
 {
 	GENERATED_BODY()
 
