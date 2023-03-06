@@ -133,7 +133,7 @@ struct TARGETVECTORCODE_API FMusicInfo
 	float BPM{ 120.0f };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	EMusicalNoteName Key;
+	EMusicalNoteName Key {EMusicalNoteName::C};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	int Transposition {0};
@@ -160,10 +160,10 @@ struct TARGETVECTORCODE_API FContextualInputAction
 	FSlateColor InputIconTint;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	bool Blinking;
+	bool Blinking {false};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float FadeOutAfter;
+	float FadeOutAfter { 0.0f };
 };
 
 USTRUCT(BlueprintType)
@@ -196,7 +196,7 @@ struct TARGETVECTORCODE_API FUnitProfilePictureImageLayer
 	UTexture2D* DynamicImage{ nullptr };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	FVector2D DynamicImageVeloctiy;
+	FVector2D DynamicImageVeloctiy {FVector2D::ZeroVector};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FText DisplayName;
@@ -205,19 +205,19 @@ struct TARGETVECTORCODE_API FUnitProfilePictureImageLayer
 	FSlateColor LayerColor;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	bool AllowCustomRotation;
+	bool AllowCustomRotation {false};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	float Rotation {0.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	bool AllowCustomScale;
+	bool AllowCustomScale { false };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	float Scale {1.0f};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	bool Locked;
+	bool Locked { false };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	TArray<FBonus> UnlockCriteria;
@@ -238,7 +238,7 @@ struct TARGETVECTORCODE_API FUnitProfilePicturePoseLayer
 	UTexture2D* DynamicImage{ nullptr };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	FVector2D DynamicImageVeloctiy;
+	FVector2D DynamicImageVeloctiy  {FVector2D::ZeroVector};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FText DisplayName;
@@ -247,7 +247,7 @@ struct TARGETVECTORCODE_API FUnitProfilePicturePoseLayer
 	FGameplayTag PoseName{FGameplayTag::EmptyTag};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	bool Locked;
+	bool Locked {false};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	TArray<FBonus> UnlockCriteria;
@@ -346,10 +346,10 @@ struct TARGETVECTORCODE_API FScore
 	GENERATED_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int Points;
+	int Points {0};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int XP;
+	int XP { 0 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	float Cash {0.0f};
@@ -398,22 +398,22 @@ struct TARGETVECTORCODE_API FAttack
 	TArray<FString> SubjectOrganizations;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	bool Hit;
+	bool Hit {false};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	bool Incapacitated;
+	bool Incapacitated {false};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	bool Disabled;
+	bool Disabled {false};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	bool Destroyed;
+	bool Destroyed {false};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	bool Unconscious;
+	bool Unconscious {false};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	bool Killed;
+	bool Killed {false};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	float Damage {0.0f};
@@ -461,85 +461,85 @@ struct TARGETVECTORCODE_API FActionTotals
 	float DamageTaken{ 0.0f };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int Kills;
+	int Kills { 0 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int TeamKills;
+	int TeamKills { 0 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int Deaths;
+	int Deaths { 0 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	float KD{ 0.0f };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int Incapacitations;
+	int Incapacitations { 0 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int Incapacitated;
+	int Incapacitated { 0 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int TakenDown;
+	int TakenDown { 0 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int TakeDowns;
+	int TakeDowns { 0 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int Disables;
+	int Disables { 0 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int Disabled;
+	int Disabled { 0 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int UnconsciousEnemy;
+	int UnconsciousEnemy { 0 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int Unconscious;
+	int Unconscious { 0 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int Destroys;
+	int Destroys { 0 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int Destroyed;
+	int Destroyed { 0 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int Hits;
+	int Hits { 0 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int Misses;
+	int Misses { 0 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int Assists;
+	int Assists { 0 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int VehicleAssists;
+	int VehicleAssists { 0 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	float Accuracy{ 0.0f };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int Killstreak;
+	int Killstreak { 0 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int Heals;
+	int Heals { 0 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int Healed;
+	int Healed { 0 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int Revived;
+	int Revived { 0 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int Revives;
+	int Revives { 0 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int Repairs;
+	int Repairs { 0 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int Challenges;
+	int Challenges { 0 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int Collectables;
+	int Collectables { 0 };
 };
 
 USTRUCT(BlueprintType)
@@ -1088,7 +1088,7 @@ struct TARGETVECTORCODE_API FNotification
 	FGameplayTag App;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	bool Unread;
+	bool Unread {true};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FText Title;
@@ -1109,7 +1109,7 @@ struct TARGETVECTORCODE_API FNotification
 	FGameplayTag Rarity;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int Level;
+	int Level { 0 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	TArray<FBonus> Bonuses;
@@ -1142,7 +1142,7 @@ struct TARGETVECTORCODE_API FMessage
 	TSoftObjectPtr<UTexture> Attachment;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	bool Unread;
+	bool Unread {true};
 };
 
 USTRUCT(BlueprintType)
@@ -1169,10 +1169,10 @@ struct TARGETVECTORCODE_API FMessageThread
 	TArray<FMessage> Messages;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int UnreadMessages;
+	int UnreadMessages { 0 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	bool Hidden;
+	bool Hidden {false};
 };
 
 USTRUCT(BlueprintType)
@@ -1199,7 +1199,7 @@ struct TARGETVECTORCODE_API FRequest
 	FDateTime DateTime;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	bool Unread;
+	bool Unread {true};
 };
 
 USTRUCT(BlueprintType)
@@ -1208,7 +1208,7 @@ struct TARGETVECTORCODE_API FLocationDynamicControlEntry
 	GENERATED_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int ControlPoints;
+	int ControlPoints { 0 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FString ControllingPlayerID;
@@ -1229,13 +1229,13 @@ struct TARGETVECTORCODE_API FLocationDynamicControlLedger
 	GENERATED_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	bool ControlEnabled;
+	bool ControlEnabled {false};
 		
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	bool DynamicControlEnabled;
+	bool DynamicControlEnabled {false};
 		
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int TotalControlPoints;
+	int TotalControlPoints { 0 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FGameplayTag ControlType;
@@ -1328,7 +1328,7 @@ struct TARGETVECTORCODE_API FLocation
 	FText Description;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	FVector Location;
+	FVector Location {FVector::ZeroVector};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FLocationIcon Icon;
@@ -1355,7 +1355,7 @@ struct TARGETVECTORCODE_API FZone
 	TSoftObjectPtr<UStaticMesh> ZoneMesh;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	bool FullHeight;
+	bool FullHeight {false};
 };
 
 USTRUCT(BlueprintType)
@@ -1490,10 +1490,10 @@ struct TARGETVECTORCODE_API FIntel
 	FText Description;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	FVector Location;
+	FVector Location {FVector::ZeroVector};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float Value;
+	float Value {0.0f};
 };
 
 USTRUCT(BlueprintType)
