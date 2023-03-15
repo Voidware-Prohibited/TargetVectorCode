@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Utility/ALSXTStructs.h"
 #include "Sound/SoundBase.h"
 #include "Widgets/CommonActivatableWidgetContainer.h"
 #include "CommonActivatableWidget.h" 
@@ -31,72 +32,6 @@ struct TARGETVECTORCODE_API FBreadcrumbEntry
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	TSubclassOf<class UCommonActivatableWidget> WidgetClass;
-
-};
-
-USTRUCT(BlueprintType)
-struct TARGETVECTORCODE_API FSubtitleEntry
-{
-	GENERATED_BODY()
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	FString SpeakerCharacter;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	FText Text;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float Time{ 0.0f };
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float MinimumDisplayDuration{ 0.0f };
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	bool ForceDisplayAtTop{ false };
-
-};
-
-USTRUCT(BlueprintType)
-struct TARGETVECTORCODE_API FSubtitles
-{
-	GENERATED_BODY()
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	bool Mature{ false };
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	bool ManualWordWrap{ false };
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	bool SingleLine{ false };
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	FString SpokenText;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float SubtitlePriority{ 0.0f };
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	TArray<FSubtitleEntry> Subtitles;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	FString Comment;
-
-};
-
-USTRUCT(BlueprintType)
-struct TARGETVECTORCODE_API FSound
-{
-	GENERATED_BODY()
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	USoundBase* Sound{ nullptr };
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	bool Mature{ false };
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	FSubtitles Subtitles;
 
 };
 
