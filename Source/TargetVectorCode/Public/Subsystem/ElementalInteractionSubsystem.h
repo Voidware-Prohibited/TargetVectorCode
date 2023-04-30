@@ -13,5 +13,8 @@ UCLASS()
 class TARGETVECTORCODE_API UElementalInteractionSubsystem : public UTickableWorldSubsystem
 {
 	GENERATED_BODY()
-	
+
+protected:
+	virtual void Tick(float DeltaTime) override;
+	virtual TStatId GetStatId() const override;
 };
