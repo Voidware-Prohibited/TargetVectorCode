@@ -7,6 +7,18 @@ namespace ActorTypeTags
 	UE_DEFINE_GAMEPLAY_TAG(LevelActor, TEXT("Game.Actor Type.Level Actor"))
 }
 
+namespace BaseGameModeTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(Custom, TEXT("Game.Base Game Mode.Custom"))
+	UE_DEFINE_GAMEPLAY_TAG(Campaign, TEXT("Game.Base Game Mode.Campaign"))
+	UE_DEFINE_GAMEPLAY_TAG(DeathMatch, TEXT("Game.Base Game Mode.Death Match"))
+	UE_DEFINE_GAMEPLAY_TAG(TeamDeathMatch, TEXT("Game.Base Game Mode.Team Death Match"))
+	UE_DEFINE_GAMEPLAY_TAG(CaptureTheFlag, TEXT("Game.Base Game Mode.Capture The Flag"))
+	UE_DEFINE_GAMEPLAY_TAG(BattleRoyale, TEXT("Game.Base Game Mode.Battle Royale"))
+	UE_DEFINE_GAMEPLAY_TAG(Extraction, TEXT("Game.Base Game Mode.Extraction"))
+	UE_DEFINE_GAMEPLAY_TAG(Invasion, TEXT("Game.Base Game Mode.Invasion"))
+}
+
 namespace PlayerUnitTypeTags
 {
 	UE_DEFINE_GAMEPLAY_TAG(Fireteam, TEXT("Game.Group Type.Fireteam"))
@@ -138,6 +150,34 @@ namespace ProjectileSonicsTags
 	UE_DEFINE_GAMEPLAY_TAG(Supersonic, TEXT("Game.Projectile Sonics.Supersonic"))
 }
 
+namespace ServerStateTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(Initializing, TEXT("Game.Server State.Initializing"))
+	UE_DEFINE_GAMEPLAY_TAG(Lobby, TEXT("Game.Server State.Lobby"))
+	UE_DEFINE_GAMEPLAY_TAG(PreGame, TEXT("Game.Server State.PreGame"))
+	UE_DEFINE_GAMEPLAY_TAG(InGame, TEXT("Game.Server State.InGame"))
+	UE_DEFINE_GAMEPLAY_TAG(PostGame, TEXT("Game.Server State.PostGame"))
+	UE_DEFINE_GAMEPLAY_TAG(StartingNewGame, TEXT("Game.Server State.StartingNewGame"))
+	UE_DEFINE_GAMEPLAY_TAG(ShuttingDown, TEXT("Game.Server State.ShuttingDown"))
+	
+}
+
+namespace PlayerSessionStateTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(Lobby, TEXT("Game.Player Session State.Lobby"))
+	UE_DEFINE_GAMEPLAY_TAG(Game, TEXT("Game.Player Session State.Game"))
+	UE_DEFINE_GAMEPLAY_TAG(Goal, TEXT("Game.Player Session State.Goal"))
+	UE_DEFINE_GAMEPLAY_TAG(RespawnContest, TEXT("Game.Player Session State.Respawn Contest"))
+	UE_DEFINE_GAMEPLAY_TAG(Transitioning, TEXT("Game.Player Session State.Transitioning"))	
+}
+
+namespace LobbyModeTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(Free, TEXT("Game.Lobby Mode.Free"))
+	UE_DEFINE_GAMEPLAY_TAG(Briefing, TEXT("Game.Lobby Mode.Briefing"))
+	UE_DEFINE_GAMEPLAY_TAG(Cinematic, TEXT("Game.Lobby Mode.Cinematic"))
+}
+
 namespace LobbyLevelModeTags
 {
 	UE_DEFINE_GAMEPLAY_TAG(GameAllPlayers, TEXT("Game.Lobby Level Mode.Game All Players"))
@@ -149,6 +189,14 @@ namespace RespawnContestTypeTags
 {
 	UE_DEFINE_GAMEPLAY_TAG(DeathMatch, TEXT("Game.Respawn Contest Type.Death Match"))
 	UE_DEFINE_GAMEPLAY_TAG(Arcade, TEXT("Game.Respawn Contest Type.Arcade"))
+}
+
+namespace PreGameModeTags
+{
+	UE_DEFINE_GAMEPLAY_TAG(Summary, TEXT("Game.PreGame Mode.Summary"))
+	UE_DEFINE_GAMEPLAY_TAG(Briefing, TEXT("Game.PreGame Mode.Briefing"))
+	UE_DEFINE_GAMEPLAY_TAG(Credits, TEXT("Game.PreGame Mode.Credits"))
+	UE_DEFINE_GAMEPLAY_TAG(Cinematic, TEXT("Game.PreGame Mode.Cinematic"))
 }
 
 namespace GameStartModeTags

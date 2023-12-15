@@ -67,6 +67,12 @@ public:
 	void GetPlayerServerState(FGameplayTag& PlayerServerState);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void SetPlayerSessionState(FGameplayTag NewPlayerSessionState);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void GetPlayerSessionState(FGameplayTag& PlayerSessionState);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
 	void SetPlayerServerRole(FGameplayTag NewPlayerServerRole);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")

@@ -59,6 +59,9 @@ struct TARGETVECTORCODE_API FMusicInfo
 	UTexture2D* Artwork{ nullptr };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	float NowPlayingDisplayTime{ 3.0f };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FSound Sound;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
@@ -1796,4 +1799,221 @@ struct TARGETVECTORCODE_API FNonPlayerCharacter
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	TArray< FAffinity > Affiliation;
 
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FLobbySettings
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool EnableLobby{ false };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (Categories = "Game.Lobby Mode", AllowPrivateAccess))
+	FGameplayTag LobbyMode;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FName LobbyLevelName;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool EnableLobbyCountdown{ false };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	float LobbyCountdownPreDelay{ 0.0f };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	float LobbyCountdownLength{ 0.0f };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	float LobbyCountdownPostDelay{ 0.0f };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int MinPlayers{ 1 };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int MaxPlayers{ 3 };
+
+	bool operator==(const FLobbySettings& other) const
+	{
+		return (other.EnableLobby == EnableLobby) && (other.LobbyMode == LobbyMode) && (other.EnableLobbyCountdown == EnableLobbyCountdown) && (other.LobbyCountdownPreDelay == LobbyCountdownPreDelay) && (other.LobbyCountdownLength == LobbyCountdownLength) && (other.LobbyCountdownPostDelay == LobbyCountdownPostDelay) && (other.MinPlayers == MinPlayers) && (other.MaxPlayers == MaxPlayers);
+	}
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FLevelCustomSettings
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int AIDensity;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int TrafficDensity;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int PoliceDensity;
+
+	bool operator==(const FLevelCustomSettings& other) const
+	{
+		return (other.AIDensity == AIDensity);
+	}
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FPreGameCameraSettings
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool SpectatePlayers{ false };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool SpectateAI{ false };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool AutoRotateCameras{ false };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	float AutoRotateCameraDelay{ 0.0f };
+
+	bool operator==(const FPreGameCameraSettings& other) const
+	{
+		return (other.SpectatePlayers == SpectatePlayers) && (other.SpectateAI == SpectateAI) && (other.AutoRotateCameras == AutoRotateCameras) && (other.AutoRotateCameraDelay == AutoRotateCameraDelay);
+	}
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FPreGameSettings
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (Categories = "Game.PreGame Mode", AllowPrivateAccess))
+	FGameplayTag PreGameMode;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool EnablePreGameCountdown{ false };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	float PreGameCountdownPreDelay{ 0.0f };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	float PreGameCountdownLength{ 0.0f };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	float PreGameCountdownPostDelay{ 0.0f };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool HostMustStartGame{ false };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool PlayerReadyRequired{ false };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int MinPlayers{ 1 };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int MaxPlayers{ 3 };
+
+	bool operator==(const FPreGameSettings& other) const
+	{
+		return (other.PreGameMode == PreGameMode) && (other.EnablePreGameCountdown == EnablePreGameCountdown) && (other.PreGameCountdownPreDelay == PreGameCountdownPreDelay) && (other.PreGameCountdownPreDelay == PreGameCountdownPreDelay) && (other.PreGameCountdownLength == PreGameCountdownLength) && (other.PreGameCountdownPostDelay == PreGameCountdownPostDelay) && (other.HostMustStartGame == HostMustStartGame) && (other.PlayerReadyRequired == PlayerReadyRequired) && (other.MinPlayers == MinPlayers) && (other.MaxPlayers == MaxPlayers);
+	}
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FGameStartSettings
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (Categories = "Game.Game Start Mode", AllowPrivateAccess))
+	FGameplayTag GameStartMode;
+
+	bool operator==(const FGameStartSettings& other) const
+	{
+		return (other.GameStartMode == GameStartMode);
+	}
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FCustomGameSettings
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (Categories = "Game.Game Start Mode", AllowPrivateAccess))
+	FGameplayTag GameStartMode;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (Categories = "Game.Game Start Mode", AllowPrivateAccess))
+	TArray<FMission> Missions;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (Categories = "Game.Game Start Mode", AllowPrivateAccess))
+	TArray<FIntel> Intel;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (Categories = "Game.Game Start Mode", AllowPrivateAccess))
+	FGameplayTag TicketsSettings;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (Categories = "Game.Game Start Mode", AllowPrivateAccess))
+	FGameplayTag ScoreSettings;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (Categories = "Game.Game Start Mode", AllowPrivateAccess))
+	FGameplayTag DeathMatchSettings;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (Categories = "Game.Game Start Mode", AllowPrivateAccess))
+	FGameplayTag CTFSettings;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (Categories = "Game.Game Start Mode", AllowPrivateAccess))
+	FGameplayTag BattleRoyaleSettings;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (Categories = "Game.Game Start Mode", AllowPrivateAccess))
+	FGameplayTag InvasionSettings;
+
+	bool operator==(const FCustomGameSettings& other) const
+	{
+		return (other.GameStartMode == GameStartMode);
+	}
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FSpectatingSettings
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool EnableSpectating{ true };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	float SpectatingDelay{ 2.0f };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FName SpectatingTag{ "Spectate" };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (Categories = "Game.Lobby Mode", AllowPrivateAccess))
+	FGameplayTagContainer AllowedSpectatorViewModes;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool EnableKillCamTransition{ true };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (Categories = "Game.Lobby Mode", AllowPrivateAccess))
+	FGameplayTagContainer AllowedViewModes;
+
+	bool operator==(const FSpectatingSettings& other) const
+	{
+		return (other.EnableSpectating == EnableSpectating) && (other.SpectatingDelay == SpectatingDelay);
+	}
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FPostGameSettings
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool EnablePostGame{ false };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (Categories = "Game.Lobby Mode", AllowPrivateAccess))
+	FGameplayTag PostGameMode;
+
+	bool operator==(const FPostGameSettings& other) const
+	{
+		return (other.EnablePostGame == EnablePostGame) && (other.PostGameMode == PostGameMode);
+	}
 };

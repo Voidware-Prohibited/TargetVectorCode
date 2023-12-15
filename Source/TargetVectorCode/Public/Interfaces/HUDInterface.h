@@ -554,7 +554,38 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Game Mode")
 	void RemoveGameMode2();
 
+	// PRE-GAME
+	// SUMMARY
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Pre-Game|Summary")
+	void DisplayPreGameSummary();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Pre-Game|Summary")
+	void RemovePreGameSummary();
+
+	// BRIEFING
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Pre-Game|Briefing")
+	void DisplayPreGameBriefing();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Pre-Game|Briefing")
+	void RemovePreGameBriefing();
+
+	// MOTD
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|MOTD")
+	void DisplayMOTD();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|MOTD")
+	void RemoveMOTD();
+
 	// COUNTDOWN
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Countdown")
+	void DisplayStandby();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Countdown")
+	void RemoveStandby();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Countdown")
 	void DisplayCountdown(FGameplayTag Style, float PreCountDelayLength, float CountdownLength, float PostCountDelayLength, const FText &StandyLabel, const FText &InProgressLabel, const FText &CompletedLabel);
@@ -751,7 +782,7 @@ public:
 	void GetNowPlayingStack(UCommonActivatableWidgetStack*& Stack);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Now Playing")
-	void DisplayNowPlaying(FMusicInfo MusicInfo, float DisplayLength);
+	void DisplayNowPlaying(float DisplayLengthOverride);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Layer|Now Playing")
 	void HideNowPlaying();
@@ -969,6 +1000,17 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Overlay Layer|Black Screen")
 	void RemoveBlackScreen(float InitialDelay, float FadeLength);
+
+	// WIPE LAYER
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Wipe Stack")
+	void GetWipeStack(UCommonActivatableWidgetStack*& Stack);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD||Wipe Stack")
+	void DisplayWipeScreen(int Selection);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Wipe Stack")
+	void ResetWipeStack();
 
 	// TITLE LAYER
 

@@ -2,6 +2,7 @@
 
 #include "NativeGameplayTags.h"
 #include "Settings/Settings.h"
+#include "Settings/SessionSettings.h"
 #include "Utility/TVStructs.h"
 #include "GameStateInterface.generated.h"
 
@@ -18,13 +19,57 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State")
 	void GetAllPlayerStates(TArray<APlayerState*>& PlayerStates);
 
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
+	FTVSesssionSettings GetSessionSettings();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
+	void SetSessionSettings(FTVSesssionSettings NewSesssionSettings);
+
 	// GAME STATE SETTINGS
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
-	void GetPreGameSettings(bool& EnableLobby, FGameplayTag& LobbyMode, bool& EnableLobbyCountdown, float& LobbyCountdownPreDelay, float& LobbyCountdownLength, float& LobbyCountdownPostDelay, FGameplayTag& PreGameMode, bool& EnablePreGameCountdown, float& PreGameCountdownPreDelay, float& PreGameCoundownLength, float& PreGameCountdownPostDelay, bool& HostMustStartGame, bool& PlayerReadyRequired, int& MinPlayers, int& MaxPlayers);
+	UPARAM(meta = (Categories = "Game.Server State"))FGameplayTag GetServerState();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
+	void SetServerState(UPARAM(meta = (Categories = "Game.Server State"))FGameplayTag NewServerState);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
+	FLobbySettings GetLobbySettings();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
+	void SetLobbySettings(FLobbySettings NewLobbySettings);
+
+
+	// UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
+	// FLevelCustomSettings GetLevelCustomSettings();
+	// 
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
+	void SetLevelCustomSettings(FLevelCustomSettings NewLevelCustomSettings);
+
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
+	void GetPreGameSettings(bool& EnableLobby, FGameplayTag& LobbyMode, bool& EnableLobbyCountdown, float& LobbyCountdownPreDelay, float& LobbyCountdownLength, float& LobbyCountdownPostDelay, UPARAM(meta = (Categories = "Game.PreGame Mode"))FGameplayTag& PreGameMode, bool& EnablePreGameCountdown, float& PreGameCountdownPreDelay, float& PreGameCoundownLength, float& PreGameCountdownPostDelay, bool& HostMustStartGame, bool& PlayerReadyRequired, int& MinPlayers, int& MaxPlayers);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
+	void SetPreGameSettings(FPreGameSettings NewPreGameSettings);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
+	FCustomGameSettings GetCustomGameSettings();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
+	void SetCustomGameSettings(FCustomGameSettings NewCustomGameSettings);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
 	void GetPreGameCameraSettings(bool& SpectatePlayers, bool& SpectateAI, bool& AutoRotateCameras, float& AutoRotateCameraDelay);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
+	void SetPreGameCameraSettings(FPreGameCameraSettings NewPreGameCameraSettings);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
+	FPostGameSettings GetPostGameSettings();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
+	void SetPostGameSettings(FPostGameSettings NewPostGameSettings);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
 	void GetDeathSettings(bool& EnableIncapacitation, bool& EnableUnconciousness, bool& EnableRevive, float& ReviveCountdownLength, bool& EnableRespawn, float& RespawnPointCost, float& RespawnCashCost, float& RespawnXPCost, bool& EnableRespawnContest, bool& EnableTickets, int& RespawnTicketCost);
