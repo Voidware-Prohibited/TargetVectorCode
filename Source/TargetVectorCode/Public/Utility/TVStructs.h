@@ -120,6 +120,105 @@ struct TARGETVECTORCODE_API FBonus
 };
 
 USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FPlayerProfilePictureInfo
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString ID;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int StaticBackgroundImage{ 00 };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FVector StaticBackgroundImageColor;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	float StaticBackgroundImageRotation{ 0.0f };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FVector2D StaticBackgroundImagePosition{ FVector2D::ZeroVector };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	float StaticBackgroundImageScale{ 1.0f };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	UTexture* StaticPlayerImage{ nullptr };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FVector StaticPlayerImageTint;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	float StaticPlayerImageRotation{ 0.0f };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FVector2D StaticPlayerImagePosition{ FVector2D::ZeroVector };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	float StaticPlayerImageScale{ 1.0f };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int DynamicBackgroundImage{ 00 };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FVector2D DynamicBackgroundVeloctiy{ FVector2D::ZeroVector };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int DynamicForegroundImage{ 00 };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FVector2D DynamicForegroundVeloctiy{ FVector2D::ZeroVector };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int StaticFrameImage{ 00 };
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FUnitProfilePictureInfo
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString ID;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int StaticImage01 { 00 };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FVector StaticImage01Color;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	float StaticImage01Rotation{ 0.0f };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FVector2D StaticImage01Position{ FVector2D::ZeroVector };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	float StaticImage01Scale{ 1.0f };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int StaticImage02{ 00 };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FVector StaticImage02Color;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	float StaticImage02Rotation{ 0.0f };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FVector2D StaticImage02Position{ FVector2D::ZeroVector };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	float StaticImage02Scale{ 1.0f };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int DynamicBackground { 00 };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FVector2D DynamicBackgroundVeloctiy{ FVector2D::ZeroVector };
+};
+
+USTRUCT(BlueprintType)
 struct TARGETVECTORCODE_API FUnitProfilePictureImageLayer
 {
 	GENERATED_BODY()
@@ -159,6 +258,75 @@ struct TARGETVECTORCODE_API FUnitProfilePictureImageLayer
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	TArray<FBonus> UnlockCriteria;
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FPlayerInfo
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString ID;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString Username;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString DisplayName;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString UnitTag;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString OrganizationID;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString SectionID;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FUnitProfilePictureInfo Image;
+
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FUnitInfo
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString ID;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString Name;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString Owner;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	TArray<FString> Admins;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FUnitProfilePictureInfo Image;
+
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FFireTeamInfo
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString ID;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString Name;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString FireTeamLeader;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	TArray<FString> Members;
+
 };
 
 USTRUCT(BlueprintType)
@@ -276,6 +444,25 @@ struct TARGETVECTORCODE_API FPlayEvent
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FSlateColor SubtitleTextTint;
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FEnvironmentSettings
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FDateTime StartTime;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	float TimeScale{ 2.0f };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FGameplayTag Weather;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	float Temperature{ 2.0f };
+
 };
 
 USTRUCT(BlueprintType)
@@ -1051,6 +1238,72 @@ struct TARGETVECTORCODE_API FNotification
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	TArray<FBonus> Bonuses;
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FChatChannelSettingsEntry
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (Categories = "Game.Simple Comms Channel", TitleProperty = "{Channel}", AllowPrivateAccess))
+	FGameplayTag Channel;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool Voice;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool Text;
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FChatMessage
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString Sender;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FDateTime DateTime;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FText Text;
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FChatMessageServer
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FGameplayTag Channel;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString Organization;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString Section;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int FireTeam;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString WhisperRecipient;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FChatMessage ChatMessage;
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FChatMessageUI
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FChatMessage Message;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool Unread{ true };
 };
 
 USTRUCT(BlueprintType)
@@ -1855,7 +2108,7 @@ struct TARGETVECTORCODE_API FLevelCustomSettings
 
 	bool operator==(const FLevelCustomSettings& other) const
 	{
-		return (other.AIDensity == AIDensity);
+		return (other.AIDensity == AIDensity) && (other.TrafficDensity == TrafficDensity) && (other.PoliceDensity == PoliceDensity);
 	}
 };
 

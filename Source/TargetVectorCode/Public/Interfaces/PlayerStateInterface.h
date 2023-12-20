@@ -16,6 +16,21 @@ class TARGETVECTORCODE_API IPlayerStateInterface {
 public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void SetOnlinePlayerID(const FString& ID);
+	
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	FString GetOnlinePlayerID();
+	
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	FPlayerInfo GetPlayerInfo();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	bool GetPlayerFireTeam(int& FireTeam);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void SetPlayerFireTeam(int& FireTeam);
+	
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
 	void OnLoadedInLobbyLevel();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
@@ -78,6 +93,18 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
 	void GetPlayerServerRole(FGameplayTag& PlayerServerRole);
 
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Chat")
+	void SetChatChannel(UPARAM(meta = (Categories = "Game.Simple Comms Channel"))const FGameplayTag& Channel);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	UPARAM(meta = (Categories = "Game.Simple Comms Channel")) FGameplayTag GetCurrentChatChannel();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void PreviousChatChannel();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	void NextChatChannel();
+
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
 	void GetVitals(float& Health, float& Stamina, float& Armor, float& Thirst, float& Hunger);
 
@@ -139,6 +166,34 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State|Server Log")
 	void UpdateClientsServerLog();
+
+	//Chat
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State|Chat")
+	void OnAddChatMessage(FChatMessage ChatMessage);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State|Chat")
+	TArray<FString> GetMutedPlayers();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State|Chat")
+	void MutePlayer(const FString& PlayerID);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State|Chat")
+	void UnMutePlayer(const FString& PlayerID);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State|Chat")
+	bool IsPlayerMuted(const FString& PlayerID);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State|Chat")
+	TArray<FString> GetBlockedPlayers();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State|Chat")
+	void BlockPlayer(const FString& PlayerID);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State|Chat")
+	void UnBlockPlayer(const FString& PlayerID);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State|Chat")
+	bool IsPlayerBlocked(const FString& PlayerID);
 
 	// ACTIONS
 

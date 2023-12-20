@@ -125,6 +125,10 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Server Log")
 	void UpdateClientsServerLog();
 
+	//Chat
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Chat")
+	void OnAddChatMessage(FChatMessage ChatMessage);
+
 	// ACTIONS
 
 	// PLAYER ACTIONS

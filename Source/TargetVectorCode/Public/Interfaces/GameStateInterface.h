@@ -39,13 +39,11 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
 	void SetLobbySettings(FLobbySettings NewLobbySettings);
 
-
-	// UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
-	// FLevelCustomSettings GetLevelCustomSettings();
-	// 
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
+	void GetLevelCustomSettings(FLevelCustomSettings& LevelCustomSettings);
+	
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
 	void SetLevelCustomSettings(FLevelCustomSettings NewLevelCustomSettings);
-
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
 	void GetPreGameSettings(bool& EnableLobby, FGameplayTag& LobbyMode, bool& EnableLobbyCountdown, float& LobbyCountdownPreDelay, float& LobbyCountdownLength, float& LobbyCountdownPostDelay, UPARAM(meta = (Categories = "Game.PreGame Mode"))FGameplayTag& PreGameMode, bool& EnablePreGameCountdown, float& PreGameCountdownPreDelay, float& PreGameCoundownLength, float& PreGameCountdownPostDelay, bool& HostMustStartGame, bool& PlayerReadyRequired, int& MinPlayers, int& MaxPlayers);
@@ -58,6 +56,24 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
 	void SetCustomGameSettings(FCustomGameSettings NewCustomGameSettings);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Environment")
+	FEnvironmentSettings GetLobbyEnvironmentSettings();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Environment")
+	void SetLobbyEnvironmentSettings(FEnvironmentSettings NewLobbyEnvironmentSettings);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Environment")
+	FEnvironmentSettings GetGameEnvironmentSettings();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Environment")
+	void SetGameEnvironmentSettings(FEnvironmentSettings NewGameEnvironmentSettings);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Environment")
+	FDateTime GetCurrentServerDateTime();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Environment")
+	float GetTimeScale();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
 	void GetPreGameCameraSettings(bool& SpectatePlayers, bool& SpectateAI, bool& AutoRotateCameras, float& AutoRotateCameraDelay);
@@ -103,6 +119,9 @@ public:
 	void GetRespawnContestSettings(int& Tickets, TArray<FContestRound>& ContestRounds, bool& Random, float& RespawnContestDelay, float& PreRoundDelay, float& PreRoundCountdownLength, float& RespawnDelay, float& RespawnCountdownLength);
 
 	// GAME START
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Players")
+	FPlayerInfo GetPlayerInfo(const FString& ID);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
 	void OnAllPlayersLoadedInLobbyLevel();
@@ -235,6 +254,36 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Start Game")
 	void EndSession();
 
+	// Unit Info
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Unit")
+	FUnitInfo GetUnitInfo(const FGameplayTag& UnitType, const FString& UnitID);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Unit")
+	FFireTeamInfo GetFireTeamInfo(int UnitID);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Unit")
+	void AddFireTeam(FFireTeamInfo FireTeamInfo);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Unit")
+	void RemoveFireTeam(int UnitID);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Unit")
+	void AddUnit(const FGameplayTag& Type, const FString& UnitID);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Unit")
+	void RemoveUnit(const FGameplayTag& Type, const FString& UnitID);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Unit")
+	TArray<FString> GetCurrentUnits(const FGameplayTag& Type);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Unit")
+	bool IsPlayerInFireTeam(const FString& PlayerID, int FireTeam);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Unit")
+	bool IsPlayerFireTeamLeader(const FString& PlayerID, int FireTeam);
+
+
 	// SERVER LOG
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Server Log")
@@ -246,8 +295,121 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Server Log")
 	void ClearServerLog();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Server Log")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Moderation")
 	void UpdateClientsServerLog();
+
+	// Moderation
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Moderation")
+	FString GetGameMaster();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Moderation")
+	void SetGameMaster(const FString& PlayerID);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Moderation")
+	TArray<FString> GetAdmins();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Moderation")
+	void AddAdmin(const FString& PlayerID);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Moderation")
+	void RemoveAdmin(const FString& PlayerID);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Moderation")
+	bool IsPlayerAdmin(const FString& PlayerID);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Moderation")
+	void ResetAdmins();
+	
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Moderation")
+	TArray<FString> GetModerators();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Moderation")
+	void AddModerator(const FString& PlayerID);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Moderation")
+	void RemoveModerator(const FString& PlayerID);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Moderation")
+	void ResetModerators();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Moderation")
+	bool IsPlayerModerator(const FString& PlayerID);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Moderation")
+	TArray<FString> GetServerMutedPlayers();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Moderation")
+	TArray<FString> GetKickedPlayers();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Moderation")
+	TArray<FString> GetServerBannedPlayers();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Moderation")
+	bool IsPlayerGloballyBanned();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Moderation")
+	void KickPlayer(const FString& PlayerID, FDateTime KickExpiration, const FText& Reason);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Moderation")
+	void UnKickPlayer(const FString& PlayerID, const FText& Reason);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Moderation")
+	void BanPlayer(const FString& PlayerID, const FText& Reason);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Moderation")
+	void UnBanPlayer(const FString& PlayerID, const FText& Reason);
+
+	// Submit a request to the EOS Backend to globally ban a player
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Moderation")
+	void RequestBanPlayerGlobal(const FString& PlayerID, const FText& Reason, const FString& ReportID);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Moderation")
+	void RequestUnBanPlayerGlobal(const FString& PlayerID, const FText& Reason, const FString& ReportID);
+
+	// CHAT
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Chat")
+	bool CanPlayersVoiceChat();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Chat")
+	bool CanPlayersTextChat();
+	
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Chat")
+	void SetEnableChatChannel(const FGameplayTag& Channel, bool Voice, bool Text);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Chat")
+	TArray<FChatChannelSettingsEntry> GetChatSettings();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Chat")
+	FChatChannelSettingsEntry GetChannelChatSettings(const FGameplayTag& Channel);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Chat")
+	void SetMuteChatChannel(const FGameplayTag& Channel, bool Voice, bool Text);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Chat")
+	void AddChatMessage(FChatMessageServer ChatMessage);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Chat")
+	void OnAddChatMessage(FChatMessageServer ChatMessage);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Chat")
+	TArray<FChatMessage> GetChatMessages(const FGameplayTag& Channel, int Fireteam, const FString& Organization, const FString& Section, const FString& WhisperRecipient);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Chat")
+	void RemoveChatMessage(FChatMessageServer ChatMessage);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Server Log")
+	void ClearChatChannel(const FGameplayTag& Channel);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Server Log")
+	void ClearAllChatChannels();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Server Log")
+	bool IsPlayerVoiceMuted(const FString& PlayerID);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Server Log")
+	bool IsPlayerTextMuted(const FString& PlayerID);
 
 	// ACTIONS
 

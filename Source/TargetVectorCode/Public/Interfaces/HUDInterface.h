@@ -903,6 +903,30 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Menu Layer|Chat")
 	void DisplayChat();
 
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Chat")
+	void FocusChatInput();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Chat")
+	void SetChatHeightOverride(float HeightOverride);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Chat")
+	void ClearChatHeightOverride();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Chat")
+	void SetChatChannel(const FGameplayTag& Channel);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Chat")
+	TArray<FString> GetOpenChatWhisperChannels();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Chat")
+	void SetChatWhisperChannel(const FString& Channel);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Chat")
+	void CloseChatWhisperChannel(const FString& Channel);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Chat")
+	void OnAddChatMessage(FChatMessage ChatMessage);
+
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable,Category = "HUD|Game Menu Layer|Chat")
 	void UpdateClientsChat();
 
