@@ -289,6 +289,18 @@ struct TARGETVECTORCODE_API FPlayerInfo
 };
 
 USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FPlayerStateEntry
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString PlayerID;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	APlayerState* PlayerState;
+};
+
+USTRUCT(BlueprintType)
 struct TARGETVECTORCODE_API FUnitInfo
 {
 	GENERATED_BODY()
@@ -326,6 +338,11 @@ struct TARGETVECTORCODE_API FFireTeamInfo
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	TArray<FString> Members;
+
+	bool operator==(const FFireTeamInfo& other) const
+	{
+		return (other.ID == ID);
+	}
 
 };
 
@@ -1253,6 +1270,68 @@ struct TARGETVECTORCODE_API FChatChannelSettingsEntry
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	bool Text;
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FChatChannelIdentifier
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (Categories = "Game.Simple Comms Channel", TitleProperty = "{Channel}", AllowPrivateAccess))
+	FGameplayTag Channel;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString Organization;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString Section;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString FireTeam;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString WhisperID;
+
+	bool operator==(const FChatChannelIdentifier& other) const
+	{
+		if (Channel == SimpleCommsChannelTags::Global) {
+			return (other.Channel == Channel);
+		}
+		if (Channel == SimpleCommsChannelTags::Area) {
+			return (other.Channel == Channel);
+		}
+		if (Channel == SimpleCommsChannelTags::Organization) {
+			return (other.Channel == Channel) && (other.Organization == Organization);
+		}
+		if (Channel == SimpleCommsChannelTags::Command) {
+			return (other.Channel == Channel) && (other.Organization == Organization);
+		}
+		if (Channel == SimpleCommsChannelTags::Section) {
+			return (other.Channel == Channel) && (other.Organization == Organization) && (other.Section == Section);
+		}
+		if (Channel == SimpleCommsChannelTags::Fireteam) {
+			return (other.Channel == Channel) && (other.FireTeam == FireTeam);
+		}
+		if (Channel == SimpleCommsChannelTags::Whisper) {
+			return (other.Channel == Channel) && (other.WhisperID == WhisperID);
+		}
+		else
+		{
+			return (other.Channel == Channel) && (other.Organization == Organization) && (other.Section == Section) && (other.FireTeam == FireTeam) && (other.WhisperID == WhisperID);
+		}
+	}
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FChatChannelEntry
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (TitleProperty = "{Channel}", AllowPrivateAccess))
+	FChatChannelIdentifier ChannelIdentifier;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FString RoomID;
 };
 
 USTRUCT(BlueprintType)

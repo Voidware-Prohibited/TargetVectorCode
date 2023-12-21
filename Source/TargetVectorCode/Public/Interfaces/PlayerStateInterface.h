@@ -25,10 +25,10 @@ public:
 	FPlayerInfo GetPlayerInfo();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
-	bool GetPlayerFireTeam(int& FireTeam);
+	bool GetPlayerFireTeam(FString& FireTeam);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
-	void SetPlayerFireTeam(int& FireTeam);
+	void SetPlayerFireTeam(FString& FireTeam);
 	
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
 	void OnLoadedInLobbyLevel();
@@ -75,35 +75,23 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
 	void OnLobbyUnlocked();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State|Server State")
 	void SetPlayerServerState(FGameplayTag NewPlayerServerState);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State|Server State")
 	void GetPlayerServerState(FGameplayTag& PlayerServerState);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State|Player Session State")
 	void SetPlayerSessionState(FGameplayTag NewPlayerSessionState);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State|Player Session State")
 	void GetPlayerSessionState(FGameplayTag& PlayerSessionState);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State|Server Role")
 	void SetPlayerServerRole(FGameplayTag NewPlayerServerRole);
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State|Server Role")
 	void GetPlayerServerRole(FGameplayTag& PlayerServerRole);
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Chat")
-	void SetChatChannel(UPARAM(meta = (Categories = "Game.Simple Comms Channel"))const FGameplayTag& Channel);
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
-	UPARAM(meta = (Categories = "Game.Simple Comms Channel")) FGameplayTag GetCurrentChatChannel();
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
-	void PreviousChatChannel();
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
-	void NextChatChannel();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State")
 	void GetVitals(float& Health, float& Stamina, float& Armor, float& Thirst, float& Hunger);

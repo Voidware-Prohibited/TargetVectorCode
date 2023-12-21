@@ -19,6 +19,12 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State")
 	void GetAllPlayerStates(TArray<APlayerState*>& PlayerStates);
 
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Server Log")
+	APlayerState* GetPlayerStateFromID(const FString& PlayerID);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Server Log")
+	FString GetIDPlayerState(APlayerState* PlayerState);
+
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
 	FTVSesssionSettings GetSessionSettings();
 
@@ -260,13 +266,16 @@ public:
 	FUnitInfo GetUnitInfo(const FGameplayTag& UnitType, const FString& UnitID);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Unit")
-	FFireTeamInfo GetFireTeamInfo(int UnitID);
+	FString GenerateFireTeamID();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Unit")
+	FFireTeamInfo GetFireTeamInfo(const FString& UnitID);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Unit")
 	void AddFireTeam(FFireTeamInfo FireTeamInfo);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Unit")
-	void RemoveFireTeam(int UnitID);
+	void RemoveFireTeam(const FString& UnitID);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Unit")
 	void AddUnit(const FGameplayTag& Type, const FString& UnitID);
@@ -278,10 +287,10 @@ public:
 	TArray<FString> GetCurrentUnits(const FGameplayTag& Type);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Unit")
-	bool IsPlayerInFireTeam(const FString& PlayerID, int FireTeam);
+	bool IsPlayerInFireTeam(const FString& PlayerID, const FString& FireTeam);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Unit")
-	bool IsPlayerFireTeamLeader(const FString& PlayerID, int FireTeam);
+	bool IsPlayerFireTeamLeader(const FString& PlayerID, const FString& FireTeam);
 
 
 	// SERVER LOG
@@ -374,6 +383,9 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Chat")
 	bool CanPlayersTextChat();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Chat")
+	FGameplayTag CanWhisperChatChannelBeCreated(const FString& Initiator, const FString& Recipient);
 	
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Chat")
 	void SetEnableChatChannel(const FGameplayTag& Channel, bool Voice, bool Text);
@@ -382,10 +394,19 @@ public:
 	TArray<FChatChannelSettingsEntry> GetChatSettings();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Chat")
+	void SetChannelChatSettings(FChatChannelSettingsEntry SettingsEntry);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Chat")
 	FChatChannelSettingsEntry GetChannelChatSettings(const FGameplayTag& Channel);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Chat")
 	void SetMuteChatChannel(const FGameplayTag& Channel, bool Voice, bool Text);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Chat")
+	void InitializePlayerChannels(const FString& PlayerID, APlayerState* PlayerState);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Chat")
+	void ResetPlayerChannels(const FString& PlayerID, APlayerState* PlayerState);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Chat")
 	void AddChatMessage(FChatMessageServer ChatMessage);
@@ -394,7 +415,7 @@ public:
 	void OnAddChatMessage(FChatMessageServer ChatMessage);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Chat")
-	TArray<FChatMessage> GetChatMessages(const FGameplayTag& Channel, int Fireteam, const FString& Organization, const FString& Section, const FString& WhisperRecipient);
+	TArray<FChatMessage> GetChatMessages(const FGameplayTag& Channel, const FString& Fireteam, const FString& Organization, const FString& Section, const FString& WhisperRecipient);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Chat")
 	void RemoveChatMessage(FChatMessageServer ChatMessage);
@@ -410,6 +431,38 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Server Log")
 	bool IsPlayerTextMuted(const FString& PlayerID);
+
+	// Voice
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Unit")
+	bool ShouldCreateCommandChannelForOrganization(const FString& OrganizationID);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Unit")
+	void CreateCommandChannelForOrganization(const FString& OrganizationID);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Unit")
+	void RemoveCommandChannelForOrganization(const FString& OrganizationID);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Unit")
+	FString GenerateRoomID();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Unit")
+	void CreateRoom(const FString& ID, FChatChannelIdentifier Identifier);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Unit")
+	void DestroyRoom(const FString& ID);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Unit")
+	bool IsPlayerInRoom(const FString& UnitID);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Unit")
+	bool CanPlayerJoinRoom(const FString& UnitID);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Unit")
+	void AddPlayerToRoom(const FString& UnitID);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Unit")
+	void RemovePlayerFromRoom(const FString& UnitID);
 
 	// ACTIONS
 

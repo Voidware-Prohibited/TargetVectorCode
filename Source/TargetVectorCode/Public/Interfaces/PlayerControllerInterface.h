@@ -126,6 +126,36 @@ public:
 	void UpdateClientsServerLog();
 
 	//Chat
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Chat|Player Settings")
+	bool IsVoiceChatEnabled();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Chat|Player Settings")
+	bool IsWhisperChannelEnabled();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Chat")
+	void SetChatChannel(UPARAM(meta = (Categories = "Game.Simple Comms Channel"))const FGameplayTag& Channel);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Chat")
+	UPARAM(meta = (Categories = "Game.Simple Comms Channel")) FGameplayTag GetCurrentChatChannel();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Chat")
+	void GetCurrentChannelChatSettings(const FGameplayTag& Channel);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Chat")
+	TArray<FString> GetChatWhisperChannels();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Chat")
+	void SetChatWhisperChannel(const FString& Channel);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Chat")
+	FString GetChatWhisperChannel();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Chat")
+	void PreviousChatChannel();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Chat")
+	void NextChatChannel();
+
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player Controller|Chat")
 	void OnAddChatMessage(FChatMessage ChatMessage);
 
