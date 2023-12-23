@@ -1258,6 +1258,18 @@ struct TARGETVECTORCODE_API FNotification
 };
 
 USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FGeneralChatSettings
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int TextCharacterLimit{ 256 };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FGameplayTag ProfanityLevel;
+};
+
+USTRUCT(BlueprintType)
 struct TARGETVECTORCODE_API FChatChannelSettingsEntry
 {
 	GENERATED_BODY()
@@ -1270,6 +1282,12 @@ struct TARGETVECTORCODE_API FChatChannelSettingsEntry
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	bool Text;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int TextCharacterLimit {256};
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FGameplayTag SpamPreventionLevel;
 };
 
 USTRUCT(BlueprintType)
