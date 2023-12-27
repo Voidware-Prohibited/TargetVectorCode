@@ -78,6 +78,128 @@ struct TARGETVECTORCODE_API FMusicInfo
 };
 
 USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FMusicSet
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FName Name;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo DefaultLoop;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo StealthStart;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo StealthLoop;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo StealthEnd;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo ElevatedStart;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo ElevatedLoop;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo ElevatedEnd;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo CombatStart;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo CombatLoop;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo CombatEnd;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo Success;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo Failure;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo Death;
+
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FLevelMusicSet
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FName Name;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo PrePhaseStart;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo PrePhaseLoop;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo PrePhaseCountdownStart;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo PrePhaseCountdownLoop;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo PrePhaseCountdownEnd;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo PreGameEnd;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo GameStart;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo Spawn;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicSet MusicSet;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo GoalCountdownStart;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo GoalCountdownLoop;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo GoalCountdownEnd;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo PostPhaseCountdownStart;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo PostPhaseCountdownLoop;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo PostPhaseCountdownEnd;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo PostPhaseStart;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo PostPhaseLoop;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo PostPhaseEnd;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo NextLevelCountdownStart;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo NextLevelCountdownLoop;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FMusicInfo NextLevelCountdownEnd;
+
+};
+
+USTRUCT(BlueprintType)
 struct TARGETVECTORCODE_API FContextualInputAction
 {
 	GENERATED_BODY()

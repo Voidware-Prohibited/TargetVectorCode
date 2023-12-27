@@ -8,6 +8,7 @@
 #include "Components/SceneComponent.h"
 #include "Components/AudioComponent.h"
 #include "Utility/TVStructs.h"
+#include "Settings/MusicSettings.h"
 #include "MusicInterface.generated.h"
 
 UINTERFACE(Blueprintable)
@@ -28,6 +29,24 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music")
 	void RestartClock();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music")
+	void SetCurrentLevelMusicSet(FMusicSet NewLevelMusicSet);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music")
+	UMusicSettings* GetMusicSettings();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music")
+	FLevelMusicSet GetCurrentLevelMusicSet();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music")
+	void SetCurrentMusicSet(FLevelMusicSet NewMusicSet);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music")
+	FMusicSet GetCurrentMusicSet();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music")
+	FMusicSet GetMusicSet(const FString& Name);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music")
 	void StopClock();

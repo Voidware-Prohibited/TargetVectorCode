@@ -555,6 +555,22 @@ public:
 	void RemoveGameMode2();
 
 	// PRE-GAME
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Pre-Game")
+	void ClearPreGameStack();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Pre-Game|Deploy Menu")
+	void DisplayPreGameDeployMenu();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Pre-Game|Deploy Menu")
+	void RemovePreGameDeployMenu();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Deploy Menu")
+	void DisplayDeployMenu();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Menu Layer|Deploy Menu")
+	void RemoveDeployMenu();
+
 	// SUMMARY
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Pre-Game|Summary")
@@ -570,6 +586,22 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Pre-Game|Briefing")
 	void RemovePreGameBriefing();
+
+	// ATMOSPHERIC
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Pre-Game|Atmospheric")
+	void DisplayPreGameAtmospheric();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Pre-Game|Atmospheric")
+	void RemovePreGameAtmospheric();
+
+	// CINEMATIC
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Pre-Game|Cinematic")
+	void DisplayPreGameCinematic();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HUD|Game Layer|Pre-Game|Cinematic")
+	void RemovePreGameCinematic();
 
 	// MOTD
 

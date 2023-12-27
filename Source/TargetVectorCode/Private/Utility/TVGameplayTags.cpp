@@ -175,6 +175,7 @@ namespace LobbyModeTags
 {
 	UE_DEFINE_GAMEPLAY_TAG(Free, TEXT("Game.Lobby Mode.Free"))
 	UE_DEFINE_GAMEPLAY_TAG(Briefing, TEXT("Game.Lobby Mode.Briefing"))
+	UE_DEFINE_GAMEPLAY_TAG(Atmospheric, TEXT("Game.Lobby Mode.Atmospheric"))
 	UE_DEFINE_GAMEPLAY_TAG(Cinematic, TEXT("Game.Lobby Mode.Cinematic"))
 }
 
@@ -196,6 +197,7 @@ namespace PreGameModeTags
 	UE_DEFINE_GAMEPLAY_TAG(Summary, TEXT("Game.PreGame Mode.Summary"))
 	UE_DEFINE_GAMEPLAY_TAG(Briefing, TEXT("Game.PreGame Mode.Briefing"))
 	UE_DEFINE_GAMEPLAY_TAG(Credits, TEXT("Game.PreGame Mode.Credits"))
+	UE_DEFINE_GAMEPLAY_TAG(Atmospheric, TEXT("Game.PreGame Mode.Atmospheric"))
 	UE_DEFINE_GAMEPLAY_TAG(Cinematic, TEXT("Game.PreGame Mode.Cinematic"))
 }
 

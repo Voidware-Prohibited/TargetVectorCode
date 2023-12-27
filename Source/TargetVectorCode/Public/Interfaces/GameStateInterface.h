@@ -52,7 +52,7 @@ public:
 	void SetLevelCustomSettings(FLevelCustomSettings NewLevelCustomSettings);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
-	void GetPreGameSettings(bool& EnableLobby, FGameplayTag& LobbyMode, bool& EnableLobbyCountdown, float& LobbyCountdownPreDelay, float& LobbyCountdownLength, float& LobbyCountdownPostDelay, UPARAM(meta = (Categories = "Game.PreGame Mode"))FGameplayTag& PreGameMode, bool& EnablePreGameCountdown, float& PreGameCountdownPreDelay, float& PreGameCoundownLength, float& PreGameCountdownPostDelay, bool& HostMustStartGame, bool& PlayerReadyRequired, int& MinPlayers, int& MaxPlayers);
+	void GetPreGameSettings(UPARAM(meta = (Categories = "Game.PreGame Mode"))FGameplayTag& PreGameMode, bool& EnablePreGameCountdown, float& PreGameCountdownPreDelay, float& PreGameCoundownLength, float& PreGameCountdownPostDelay, bool& HostMustStartGame, bool& PlayerReadyRequired);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
 	void SetPreGameSettings(FPreGameSettings NewPreGameSettings);
