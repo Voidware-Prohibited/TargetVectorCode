@@ -1260,27 +1260,6 @@ struct TARGETVECTORCODE_API FPlayerActionHitResult
 };
 
 USTRUCT(BlueprintType)
-struct TARGETVECTORCODE_API FContestRound
-{
-	GENERATED_BODY()
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	FGameplayTag ContestType;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int AdditionalTickets {0};
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float AdditionalPoints {0.0f};
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float AdditionalCash {0.0f};
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float AdditionalXP {0.0f};
-};
-
-USTRUCT(BlueprintType)
 struct TARGETVECTORCODE_API FTicketsEntry
 {
 	GENERATED_BODY()
@@ -2441,35 +2420,6 @@ struct TARGETVECTORCODE_API FCustomGameSettings
 	bool operator==(const FCustomGameSettings& other) const
 	{
 		return (other.GameStartMode == GameStartMode);
-	}
-};
-
-USTRUCT(BlueprintType)
-struct TARGETVECTORCODE_API FSpectatingSettings
-{
-	GENERATED_BODY()
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	bool EnableSpectating{ true };
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	float SpectatingDelay{ 2.0f };
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	FName SpectatingTag{ "Spectate" };
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (Categories = "Game.Lobby Mode", AllowPrivateAccess))
-	FGameplayTagContainer AllowedSpectatorViewModes;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	bool EnableKillCamTransition{ true };
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (Categories = "Game.Lobby Mode", AllowPrivateAccess))
-	FGameplayTagContainer AllowedViewModes;
-
-	bool operator==(const FSpectatingSettings& other) const
-	{
-		return (other.EnableSpectating == EnableSpectating) && (other.SpectatingDelay == SpectatingDelay);
 	}
 };
 

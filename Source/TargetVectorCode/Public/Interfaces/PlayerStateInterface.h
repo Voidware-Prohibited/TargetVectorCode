@@ -204,4 +204,21 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State|Actions|Organization")
 	void AddOrganizationActionClient(FOrganizationAction OrganizationAction);
+
+	//Respawn
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State|Respawn")
+	void StartRespawnCooldown();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State|Respawn")
+	void StopRespawnCooldown();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State|Respawn")
+	float GetRespawnCooldownLength();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State|Respawn")
+	float GetRespawnCooldownValue();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Player State|Respawn")
+	void OnRespawnCooldownComplete();
 };

@@ -412,3 +412,38 @@ namespace LocationIconTags
 	UE_DEFINE_GAMEPLAY_TAG(EnemyLift, TEXT("Game.Location Icon.Enemy.Lift"))
 	UE_DEFINE_GAMEPLAY_TAG(EnemyBullseye, TEXT("Game.Location Icon.Enemy.Bullseye"))
 }
+
+namespace BuildingComponentStyleTag
+{
+	UE_DEFINE_GAMEPLAY_TAG(Residential, TEXT("Game.Building Component Style.Residential"))
+	UE_DEFINE_GAMEPLAY_TAG(Retail, TEXT("Game.Building Component Style.Retail"))
+	UE_DEFINE_GAMEPLAY_TAG(Industrial, TEXT("Game.Building Component Style.Industrial"))
+	UE_DEFINE_GAMEPLAY_TAG(Construction, TEXT("Game.Building Component Style.Construction"))
+}
+
+namespace BuildingWallHeightTag
+{
+	UE_DEFINE_GAMEPLAY_TAG(Pony, TEXT("Game.Building Wall Height.Pony"))
+	UE_DEFINE_GAMEPLAY_TAG(Single, TEXT("Game.Building Wall Height.Single"))
+	UE_DEFINE_GAMEPLAY_TAG(Double, TEXT("Game.Building Wall Height.Double"))
+}
+
+namespace BuildingComponentPlacementTag
+{
+	UE_DEFINE_GAMEPLAY_TAG(Default, TEXT("Game.Building Component Placement.Default"))
+	UE_DEFINE_GAMEPLAY_TAG(Corner, TEXT("Game.Building Component Placement.Corner"))
+	UE_DEFINE_GAMEPLAY_TAG(InnerCorner, TEXT("Game.Building Component Placement.Inner Corner"))
+}
+
+namespace BuildingWallTypeTag
+{
+	UE_DEFINE_GAMEPLAY_TAG(Exterior, TEXT("Game.Building Wall Type.Exterior"))
+	UE_DEFINE_GAMEPLAY_TAG(Interior, TEXT("Game.Building Wall Type.Interior"))
+}
+
+namespace BuildingWallVariantTag
+{
+	UE_DEFINE_GAMEPLAY_TAG(Solid, TEXT("Game.Building Wall Variant.Solid"))
+	UE_DEFINE_GAMEPLAY_TAG(DoubleDoor, TEXT("Game.Building Wall Variant.Double Door"))
+	UE_DEFINE_GAMEPLAY_TAG(DoubleWindow, TEXT("Game.Building Wall Variant.Double Window"))
+}

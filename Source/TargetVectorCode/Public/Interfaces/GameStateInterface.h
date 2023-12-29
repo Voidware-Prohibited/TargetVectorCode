@@ -4,6 +4,8 @@
 #include "Settings/Settings.h"
 #include "Settings/SessionSettings.h"
 #include "Utility/TVStructs.h"
+#include "Utility/TVSpawningStructs.h"
+#include "Utility/TVSpectatingStructs.h"
 #include "GameStateInterface.generated.h"
 
 UINTERFACE(Blueprintable)
@@ -92,6 +94,9 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
 	void SetPostGameSettings(FPostGameSettings NewPostGameSettings);
+
+	// UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
+	// FRespawnSettings GetRespawnSettings();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
 	void GetDeathSettings(bool& EnableIncapacitation, bool& EnableUnconciousness, bool& EnableRevive, float& ReviveCountdownLength, bool& EnableRespawn, float& RespawnPointCost, float& RespawnCashCost, float& RespawnXPCost, bool& EnableRespawnContest, bool& EnableTickets, int& RespawnTicketCost);
