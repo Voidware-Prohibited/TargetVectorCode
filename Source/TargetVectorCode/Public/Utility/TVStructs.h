@@ -2386,6 +2386,20 @@ struct TARGETVECTORCODE_API FGameStartSettings
 };
 
 USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FGeneralGameSettings
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool FriendlyFire;
+
+	bool operator==(const FGeneralGameSettings& other) const
+	{
+		return (other.FriendlyFire == FriendlyFire);
+	}
+};
+
+USTRUCT(BlueprintType)
 struct TARGETVECTORCODE_API FCustomGameSettings
 {
 	GENERATED_BODY()

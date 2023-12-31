@@ -7,6 +7,42 @@
 #include "TVModerationStructs.generated.h"
 
 USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FTeamKillPenalty
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	FGameplayTag TeamKillWarningThreshold;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int TeamKillPenaltyThreshold;
+};
+
+USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FTeamKillSettings
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int TeamKillWarningThreshold;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int TeamKillPenaltyThreshold;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	TArray<FTeamKillPenalty> TeamKillPlayerPenalty;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	TArray<FTeamKillPenalty> TeamKillUnitPenalty;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int TeamKillKickThreshold;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	int TeamKillKickLength;
+};
+
+USTRUCT(BlueprintType)
 struct TARGETVECTORCODE_API FProfaneWord
 	: public FTableRowBase
 {

@@ -13,6 +13,6 @@ class TARGETVECTORCODE_API ITicketInterface {
 public:
 
   UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Tickets")
-  bool IsTrue();
+  bool IsTickets();
 
 };
