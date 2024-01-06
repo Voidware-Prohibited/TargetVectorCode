@@ -8,7 +8,10 @@
 #include "Components/SceneComponent.h"
 #include "Components/AudioComponent.h"
 #include "Utility/TVStructs.h"
-#include "Settings/MusicSettings.h"
+#include "Utility/TVMusicStructs.h"
+#include "Settings/GeneralMusicSettings.h"
+#include "Settings/LevelMusicSettings.h"
+#include "Settings/AreaMusicSettings.h"
 #include "MusicInterface.generated.h"
 
 UINTERFACE(Blueprintable)
@@ -34,10 +37,22 @@ public:
 	void SetCurrentLevelMusicSet(FMusicSet NewLevelMusicSet);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music")
-	UMusicSettings* GetMusicSettings();
+	UGeneralMusicSettings* GetGeneralMusicSettings();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music")
+	ULevelMusicSettings* SelectLevelMusicSettings();
+	
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music")
+	UAreaMusicSettings* SelectAreaMusicSettings();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music")
 	FLevelMusicSet GetCurrentLevelMusicSet();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music")
+	bool DoesCurrentAreaHaveMusicSet();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music")
+	FMusicSet GetCurrentAreaMusicSet();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game Instance|Music")
 	void SetCurrentMusicSet(FLevelMusicSet NewMusicSet);

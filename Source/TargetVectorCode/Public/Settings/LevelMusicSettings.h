@@ -2,20 +2,20 @@
 
 #pragma once
 
-#include "Utility/TVStructs.h"
+#include "Utility/TVMusicStructs.h"
 #include "Engine/DataAsset.h"
 #include "Engine/EngineTypes.h"
-#include "MusicSettings.generated.h"
+#include "LevelMusicSettings.generated.h"
 
 UCLASS(Blueprintable, BlueprintType)
-class TARGETVECTORCODE_API UMusicSettings : public UDataAsset
+class TARGETVECTORCODE_API ULevelMusicSettings : public UDataAsset
 {
 	GENERATED_BODY()
 
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Music|Music Sets")
-	TArray<FMusicSet> MusicSets;
- 
-	UMusicSettings();
-	
+	TArray<FLevelMusicSet> LevelMusicSets;
+
+	ULevelMusicSettings();
+
 };
