@@ -41,6 +41,12 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
 	void SetServerState(UPARAM(meta = (Categories = "Game.Server State"))FGameplayTag NewServerState);
 
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings|UI")
+	FServerUISettings GetServerUISettings();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings|UI")
+	void SetServerUISettings(FServerUISettings NewServerUISettings);
+
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Game State|Settings")
 	FLobbySettings GetLobbySettings();
 

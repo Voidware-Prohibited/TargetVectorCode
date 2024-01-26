@@ -2106,6 +2106,29 @@ struct TARGETVECTORCODE_API FGeneralGameSettings
 };
 
 USTRUCT(BlueprintType)
+struct TARGETVECTORCODE_API FServerUISettings
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (Categories = "Game.PreGame Mode", AllowPrivateAccess))
+	FGameplayTag Preset;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool AllowDisplayChat{ false };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool AllowDisplayServerLog{ false };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
+	bool AllowDisplayCompass{ false };
+
+	bool operator==(const FServerUISettings& other) const
+	{
+		return (other.Preset == Preset) && (other.AllowDisplayChat == AllowDisplayChat) && (other.AllowDisplayServerLog == AllowDisplayServerLog) && (other.AllowDisplayCompass == AllowDisplayCompass);
+	}
+};
+
+USTRUCT(BlueprintType)
 struct TARGETVECTORCODE_API FCustomGameSettings
 {
 	GENERATED_BODY()
