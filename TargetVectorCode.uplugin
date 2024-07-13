@@ -19,6 +19,11 @@
 			"Name": "TargetVectorCode",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "TargetVectorCodeFirearm",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
 		}
 	],
 	"Plugins": [

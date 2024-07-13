@@ -15,7 +15,7 @@ struct TARGETVECTORCODE_API FTeamKillPenalty
 	FGameplayTag TeamKillWarningThreshold;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int TeamKillPenaltyThreshold;
+	int TeamKillPenaltyThreshold {0};
 };
 
 USTRUCT(BlueprintType)
@@ -24,10 +24,10 @@ struct TARGETVECTORCODE_API FTeamKillSettings
 	GENERATED_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int TeamKillWarningThreshold;
+	int TeamKillWarningThreshold {0};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int TeamKillPenaltyThreshold;
+	int TeamKillPenaltyThreshold {0};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	TArray<FTeamKillPenalty> TeamKillPlayerPenalty;
@@ -36,10 +36,10 @@ struct TARGETVECTORCODE_API FTeamKillSettings
 	TArray<FTeamKillPenalty> TeamKillUnitPenalty;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int TeamKillKickThreshold;
+	int TeamKillKickThreshold {0};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int TeamKillKickLength;
+	int TeamKillKickLength {0};
 };
 
 USTRUCT(BlueprintType)
@@ -55,7 +55,7 @@ struct TARGETVECTORCODE_API FProfaneWord
 
 		/** Where 0 is the most severe */
 		UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
-		int Severity;
+		int Severity {0};
 
 		/** The word itself */
 		UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
@@ -71,5 +71,5 @@ struct TARGETVECTORCODE_API FPlayerProfanityRecord
 	FString TextCharacterLimit;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int Severity;
+	int Severity {0};
 };

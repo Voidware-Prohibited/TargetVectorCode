@@ -11,7 +11,7 @@ struct TARGETVECTORCODE_API FPlaceholderStruct
 	GENERATED_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int Int;
+	int Int {0};
 
 	bool operator==(const FPlaceholderStruct& other) const
 	{

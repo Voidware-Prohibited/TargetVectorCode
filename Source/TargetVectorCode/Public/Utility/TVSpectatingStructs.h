@@ -28,10 +28,10 @@ struct TARGETVECTORCODE_API FSpectatingSettings
 	FGameplayTagContainer AllowedViewModes;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int InitialDelay;
+	int InitialDelay {0};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int DeathDelay;
+	int DeathDelay {0};
 
 	bool operator==(const FSpectatingSettings& other) const
 	{

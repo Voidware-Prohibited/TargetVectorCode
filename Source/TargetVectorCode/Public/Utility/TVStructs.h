@@ -89,7 +89,7 @@ struct TARGETVECTORCODE_API FPlayerProfilePictureInfo
 	int StaticBackgroundImage{ 00 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	FVector StaticBackgroundImageColor;
+	FVector StaticBackgroundImageColor {FVector(ForceInit)};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	float StaticBackgroundImageRotation{ 0.0f };
@@ -104,7 +104,7 @@ struct TARGETVECTORCODE_API FPlayerProfilePictureInfo
 	UTexture* StaticPlayerImage{ nullptr };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	FVector StaticPlayerImageTint;
+	FVector StaticPlayerImageTint {FVector(ForceInit)};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	float StaticPlayerImageRotation{ 0.0f };
@@ -143,7 +143,7 @@ struct TARGETVECTORCODE_API FUnitProfilePictureInfo
 	int StaticImage01 { 00 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	FVector StaticImage01Color;
+	FVector StaticImage01Color {FVector(ForceInit)};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	float StaticImage01Rotation{ 0.0f };
@@ -158,7 +158,7 @@ struct TARGETVECTORCODE_API FUnitProfilePictureInfo
 	int StaticImage02{ 00 };
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	FVector StaticImage02Color;
+	FVector StaticImage02Color {FVector(ForceInit)};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	float StaticImage02Rotation{ 0.0f };
@@ -1221,10 +1221,10 @@ struct TARGETVECTORCODE_API FChatChannelSettingsEntry
 	FGameplayTag Channel;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	bool Voice;
+	bool Voice {true};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	bool Text;
+	bool Text {true};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	int TextCharacterLimit {256};
@@ -1325,7 +1325,7 @@ struct TARGETVECTORCODE_API FChatMessageServer
 	FString Section;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int FireTeam;
+	int FireTeam {0};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
 	FString WhisperRecipient;
@@ -2002,13 +2002,13 @@ struct TARGETVECTORCODE_API FLevelCustomSettings
 	GENERATED_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int AIDensity;
+	int AIDensity {0};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int TrafficDensity;
+	int TrafficDensity {0};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int PoliceDensity;
+	int PoliceDensity {0};
 
 	bool operator==(const FLevelCustomSettings& other) const
 	{
@@ -2097,7 +2097,7 @@ struct TARGETVECTORCODE_API FGeneralGameSettings
 	GENERATED_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	bool FriendlyFire;
+	bool FriendlyFire {true};
 
 	bool operator==(const FGeneralGameSettings& other) const
 	{
