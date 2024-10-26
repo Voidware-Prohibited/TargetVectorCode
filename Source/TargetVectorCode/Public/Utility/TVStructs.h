@@ -255,7 +255,7 @@ struct TARGETVECTORCODE_API FPlayerStateEntry
 	FString PlayerID;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	APlayerState* PlayerState;
+	APlayerState* PlayerState {nullptr};
 };
 
 USTRUCT(BlueprintType)
